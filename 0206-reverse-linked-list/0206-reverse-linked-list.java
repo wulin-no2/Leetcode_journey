@@ -10,7 +10,7 @@
  */
 class Solution {
     public ListNode reverseList(ListNode head) {
-        
+        // /*
         if(head == null || head.next == null){return head;}
         //new stack:
         Stack<ListNode> s = new Stack<>();
@@ -33,7 +33,7 @@ class Solution {
         // set the last node to null:
         lp.next = null;
         return newHead;
-        
+        // */
         
         
     /*

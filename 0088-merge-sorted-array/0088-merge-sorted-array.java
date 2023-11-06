@@ -5,7 +5,8 @@ class Solution {
         // two indexes mp=0 np=0
         // 1) compare num1[mp] and num2[np], push the smaller one into queue, set p++
         // 2) repeat the loop until mp == m-1 && np == n-1
-        // 3) pop the elements of queue to nums1 until queue is empty.
+        // 3) pool the elements of queue to nums1 until queue is empty.
+        // the time complexity is O(m+n)
         Queue<Integer> q = new LinkedList<>();
 
         int mp = 0;

@@ -29,4 +29,6 @@ class Solution {
         }
         return i;
     }
+    //done from 19:10 to 19:37 20231106;
+    // asked GPT how to use Dueue's method;
 }

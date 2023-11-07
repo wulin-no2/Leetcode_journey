@@ -38,7 +38,7 @@ class Solution {
         // check if newl(complement) is null; if it is, then put the original index as the value; if it's not, then return the value of new index and current index;
         
 
-        ArrayList newl = new ArrayList();
+        int[] newl = new int[nums.length]
         int[] result = new int[2];
         for(int i = 0; i < nums.length; i++){
             int complement = target - nums[i];

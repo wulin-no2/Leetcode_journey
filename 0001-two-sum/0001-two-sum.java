@@ -17,8 +17,8 @@ class Solution {
         /* the second time: 20231107 10:58
         // analyze: 
         // use a Hashmap
-        (from discuss. got it at 11:21)
-                */
+        (from discuss. got it at 11:21)*/
+                
         int[] result = new int[2];
         Map<Integer, Integer> map = new HashMap<Integer, Integer>();
         for (int i = 0; i < nums.length; i++) {
@@ -38,7 +38,7 @@ class Solution {
         // check if newl(complement) is null; if it is, then put the original index as the value; if it's not, then return the value of new index and current index;
         
 
-        int[] newl = new int[nums.length]
+        int[] newl = new int[2000000000];
         int[] result = new int[2];
         for(int i = 0; i < nums.length; i++){
             int complement = target - nums[i];
@@ -54,7 +54,8 @@ class Solution {
                 newl[complement] = i;
             }
         }
-        return result;
-        */
+        return result;*/
+        
     }
+    
 }

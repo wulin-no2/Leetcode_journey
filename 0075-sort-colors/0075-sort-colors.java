@@ -1,9 +1,11 @@
 class Solution {
     public void sortColors(int[] nums) {
         // similar to the partition algorithm of quickSort
-        // first, use a pointer from index 0 on to traverse, find the elements that > 1 and swap to the right part;
-        // use another pointer from rightmost on, record the position of the just swapped elements;
-        // second, do it again to swap all the 1 elements to the right part;
+        // use 3 pointers and traverse with the middle pointer;
+        // if nums[mid] is 0, swap nums[mid] with nums[low], low++, mid++;
+        // if nums[mid] is 1, mid++;
+        // if nums[mid] is 2, swap nums[mid] with nums[high], high--;
+        
         int low = 0, mid = 0, high = nums.length - 1;
         int temp;
 

@@ -16,6 +16,8 @@ class Solution {
         // 2. traverse and decrement the count until find the middle node;
         // use a pointer to traverse;
         
+        // my solution: Time complexity O(n) Space complexity O(1)
+        /*
         int count = 1;
         ListNode ptr = head;
         
@@ -32,5 +34,16 @@ class Solution {
             mid--;
         }
         return ptr;
+        */
+        
+        // another solution: use two pointers. 1 runner is twice as fast as the other runner:
+        ListNode fast = head;
+        ListNode slow = head;
+        while(fast != null && fast.next != null){
+            fast = fast.next.next;
+            slow = slow.next;
+        }
+        return slow;
+        
     }
 }

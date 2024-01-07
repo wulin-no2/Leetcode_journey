@@ -19,8 +19,10 @@ class Solution {
         // we need an arraylist to store the values;
         // we can use recursive approach or iterative approach:
         
-        // first, recursive approach:
-        ArrayList<Integer> arr = new ArrayList<>();
+        // first, recursive approach: done at 22:02 Jan.7.2024
+        // time and space: 0(n). 
+        
+        /* ArrayList<Integer> arr = new ArrayList<>();
         // base case:
         if(root == null){
             return arr;
@@ -29,12 +31,34 @@ class Solution {
         arr.addAll(preorderTraversal(root.left));
         arr.addAll(preorderTraversal(root.right));
         return arr;
+        */
         
-        // every time, we add the value into the arrayList, then
-        // we push them into stack.if the node has children, 
-        // right child first, left child last;
-        // then pop an elements;
-        // repeat the above process;
+        // second, iterative approach:
+        // every time, we pop a node and add the value of root into the arrayList,
+        // if the node has children, 
+        // we push right child into stack, then left;
+        // until the stack is empty.
+        ArrayList<Integer> arr = new ArrayList<>();
+        Stack<TreeNode> stack = new Stack<TreeNode>();
+        
+        // base case:
+        if(root == null){
+            return arr;
+        }
+        // use a pointer to traverse:
+        TreeNode p = null;
+        stack.push(root);
+        while(! stack.isEmpty()){
+            p = stack.pop();
+            arr.add(p.val);
+            if(p.right != null){
+                stack.push(p.right);
+            }
+            if(p.left != null){
+                stack.push(p.left);
+            }
+        }
+        return arr;
         
         
         

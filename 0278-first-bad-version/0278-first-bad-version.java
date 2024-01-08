@@ -14,10 +14,10 @@ public class Solution extends VersionControl {
             if(isBadVersion(mid) && mid == 1){
                 return mid;
             }
-            if(isBadVersion(mid) && ! isBadVersion(mid - 1)){
+            else if(isBadVersion(mid) && ! isBadVersion(mid - 1)){
                 return mid;
             }
-            if(isBadVersion(mid) && isBadVersion(mid - 1)){
+            else if(isBadVersion(mid) && isBadVersion(mid - 1)){
                 high = mid - 1;
             }else{
                 low = mid + 1;

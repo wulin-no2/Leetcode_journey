@@ -34,7 +34,8 @@ class Solution {
     
     // another BFS approach from discuss:
     public int[][] floodFill(int[][] image, int sr, int sc, int newColor) {
-        int target = image[sr][sc];image[sr][sc] = newColor;
+        int target = image[sr][sc];
+        image[sr][sc] = newColor;
         if(target == newColor){
             return image;
         }

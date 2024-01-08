@@ -36,6 +36,7 @@ class Solution {
     */
         
         // the second approach, optimized by checking if subtree is balanced in the h() method:
+        // now the time complexity is O(n), space complexity is O(n)
         // base case:
         if(root == null){
             return true;

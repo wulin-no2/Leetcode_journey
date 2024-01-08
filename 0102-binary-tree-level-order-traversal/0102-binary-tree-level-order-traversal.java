@@ -16,24 +16,29 @@
 class Solution {
     public List<List<Integer>> levelOrder(TreeNode root) {
         // can't do it, juct copy one and see why
-        List<List<Integer>> res = new ArrayList<>();  
+        // base case:
+        List<List<Integer>> res = new ArrayList<>(); 
         if (root == null) return res;  
-        Queue<TreeNode> queue = new LinkedList<>();  
-        queue.add(root);  
-        while (!queue.isEmpty()) {  
-          List<Integer> level = new ArrayList<>();  
-          int cnt = queue.size();  
-          for (int i = 0; i < cnt; i++) {  
-            TreeNode node = queue.poll();  
-            level.add(node.val);  
-            if (node.left != null) {  
-              queue.add(node.left);  
+        // use a queue:
+        LinkedList<TreeNode> q = new LinkedList<>();  
+        q.add(root);  
+        // each time, we retrive a node, add the value, then see if it has children. if it has, enqueue the children from left to right;
+        // repeat until the queue is empty;
+        // notice: for each node, we need a list to store the pair of values; each end of the node, we add the list into the result list;
+        while (!q.isEmpty()) {  
+          List<Integer> list = new ArrayList<>();  
+          int size = q.size();
+          for (int i = 0; i < size; i++) {  
+            TreeNode temp = q.poll();  
+            list.add(temp.val);  
+            if (temp.left != null) {  
+              q.add(temp.left);  
             }
-            if (node.right != null) {  
-              queue.add(node.right);  
+            if (temp.right != null) {  
+              q.add(temp.right);  
             }  
           }  
-          res.add(level);   
+          res.add(list);   
         }  
         return res;
         

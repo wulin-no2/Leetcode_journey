@@ -58,7 +58,7 @@ class Solution {
         
         // see others:
         // DFS:
-        
+        /*
         if(root == null) {
         return 0;
         }
@@ -74,19 +74,20 @@ class Solution {
             max = Math.max(temp, max);
             if(node.left != null) {
                 stack.push(node.left);
-                value.push(temp+1);
+                value.push(temp + 1);
             }
             if(node.right != null) {
                 stack.push(node.right);
-                value.push(temp+1);
+                value.push(temp + 1);
             }
         }
         return max;
+        */
         
         
         
         // BFS:
-        /*
+        
         if(root == null) {
         return 0;
         }
@@ -107,6 +108,6 @@ class Solution {
             count++;
         }
         return count;
-        */
+        
     }
 }

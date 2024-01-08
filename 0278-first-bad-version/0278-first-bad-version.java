@@ -28,7 +28,7 @@ public class Solution extends VersionControl {
         */
         
         // there is a faster approach in discuss:
-        int i = 1;
+        /*int i = 1;
         int j = n;
 
         while (i < j) {
@@ -44,5 +44,16 @@ public class Solution extends VersionControl {
         }
 
         return i;
+        */
+        int f = 1, l = n;
+        while(f<=l){
+            int m = f+(l-f)/2;
+            if(!isBadVersion(m)){
+                f = m+1;
+            }else{
+                l = m-1;
+            }
+        }
+        return f;
     }
 }

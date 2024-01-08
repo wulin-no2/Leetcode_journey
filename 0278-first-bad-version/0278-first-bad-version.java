@@ -7,18 +7,18 @@ public class Solution extends VersionControl {
         // each time check the middle one;
         // if it's true,maybe there will older versions true.
         // find the true 1, then the left one must be false;
+        
+        // we numst use minimize numbers of API
         int low = 1;
         int high = n;
         while(low <= high){
             int mid = low + (high - low)/2;
-            if(isBadVersion(mid) && mid == 1){
-                return mid;
-            }
-            else if(isBadVersion(mid) && ! isBadVersion(mid - 1)){
-                return mid;
-            }
-            else if(isBadVersion(mid) && isBadVersion(mid - 1)){
-                high = mid - 1;
+            if(isBadVersion(mid)){
+                if(mid == 1 || ! isBadVersion(mid - 1)){
+                    return mid;
+                }else{
+                    high = mid - 1;
+                }
             }else{
                 low = mid + 1;
             }

@@ -27,7 +27,9 @@ class Solution {
         */
         
         // use iterative approach:
-        // it's levelOrder, use linkedlist to create a queue;
+        // it's similar to levelOrder, use linkedlist to create a queue;
+        // analyze:
+        
         LinkedList<TreeNode> q = new LinkedList<>();
         // base case:
         if(root == null){

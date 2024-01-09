@@ -26,7 +26,9 @@ class Solution {
         }
         return true;
         */
-        
+        // time complexity : O(m + r) = O(n)
+        // space complexity: O(n)
+        /*
         HashMap<Character, Integer> hashmap = new HashMap<>();
         // add magazine;
         for(char m : magazine.toCharArray()){
@@ -43,10 +45,23 @@ class Solution {
             }
         }
         return true;
+        */
         
+        // again, it's a string with alphametic and we have to know the count of each alphametic, so we we can use int[] to store the count of magezine
+        int[] count = new int[26];
+        for(char m : magazine.toCharArray()){
+            count[m - 'a']++;
+        }
+        for(char r : ransomNote.toCharArray()){
+            count[r - 'a']--;
+            if(count[r - 'a'] < 0){
+                return false;
+            }
+        }
+        return true;
         
-        
-        
-        
+  
+    
+    
     }
 }

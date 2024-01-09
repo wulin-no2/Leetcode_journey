@@ -10,6 +10,7 @@ class Solution {
         */
         
         // find a way to avoid recursive;
+        /* approach1: dynamic programming
         if(n <= 3){
             return n;
         }
@@ -21,5 +22,21 @@ class Solution {
             dp[i] = dp[i - 1] + dp[i - 2];
         }
         return dp[n];
+        */
+        
+        // approach2:memorization
+        // use a map to memorize computed results for each step n
+        HashMap<Integer, Integer> map = new HashMap<>();
+        if(n <= 3){
+            return n;
+        }
+        for(int i = 0; i <= 3; i++){
+            map.put(i,i);
+        }
+        for(int i = 4; i <= n; i++){
+            int value = map.get(i-1) + map.get(i - 2);
+            map.put(i, value);
+        }
+        return map.get(n);
     }
 }

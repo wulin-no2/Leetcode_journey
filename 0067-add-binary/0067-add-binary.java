@@ -17,27 +17,11 @@ class Solution {
         return new java.math.BigInteger(a, 2).add(new java.math.BigInteger(b, 2)).toString(2);
         */
         
-        String result = "";
-        int carry = 0;
-        int i = a.length() - 1, j = b.length() - 1;
-        while (i >= 0 || j >= 0 || carry != 0) {
-            int sum = carry;
-            if (i >= 0) {
-                sum += a.charAt(i) - '0';
-                i--;
-            }
-            if (j >= 0) {
-                sum += b.charAt(j) - '0';
-                j--;
-            }
-            carry = sum / 2;
-            result = (sum % 2) + result;
-        }
-        return result;
+
         
         
         // write it on my own;
-        /*
+        
         String res = "";
         int carry = 0;
         int i = a.length() - 1;
@@ -49,7 +33,7 @@ class Solution {
                 sum += a.charAt(i) -'0';
                 i--;
             }
-            if(i >= 0){
+            if(j >= 0){
                 sum += b.charAt(j) -'0';
                 j--;
             }
@@ -57,7 +41,7 @@ class Solution {
             res = (sum % 2) + res;
         }
         return res;
-        */
+        
         
     }
 }

@@ -16,7 +16,7 @@ class Solution {
         // if both of them < p.val,go left; both of them > p.val, go right;
         // if one >= p.val && one =< p.val, then return p;
         // we can use recursive:
-        // 1) order them;
+        // TC = 0(nlogn), SC = 0(1)
         int max = Math.max(q.val, p.val);
         int min = Math.min(q.val, p.val);
 

@@ -10,7 +10,7 @@ class Solution {
         */
         
         // find a way to avoid recursive;
-        /* approach1: dynamic programming
+        /* approach1: dynamic programming, time and space complexityO(n)
         if(n <= 3){
             return n;
         }
@@ -24,19 +24,12 @@ class Solution {
         return dp[n];
         */
         
-        // approach2:memorization
+        // approach2:memorization, time and space complexityO(n)
         // use a map to memorize computed results for each step n
         HashMap<Integer, Integer> map = new HashMap<>();
-        if(n <= 3){
-            return n;
-        }
-        for(int i = 0; i <= 3; i++){
-            map.put(i,i);
-        }
-        for(int i = 4; i <= n; i++){
-            int value = map.get(i-1) + map.get(i - 2);
-            map.put(i, value);
-        }
+        if(n <= 3) return n;
+        for(int i = 0; i <= 3; i++) map.put(i,i);
+        for(int i = 4; i <= n; i++) map.put(i, map.get(i-1) + map.get(i - 2));
         return map.get(n);
     }
 }

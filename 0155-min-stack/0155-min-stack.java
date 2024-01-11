@@ -5,6 +5,7 @@ class MinStack {
     // use array to store the counts of each count?No!!
     // use hashMap;??
     // no!! we can still use stack, but always push 2nd min value into stack;
+    /*
     int min = Integer.MAX_VALUE;
     Stack<Integer> stack;
 
@@ -32,7 +33,45 @@ class MinStack {
     public int getMin() {
         return min;
     }
+    */
+    
+    // we can use stack to store int pair{val, min};
+    // done at 18:42.1.11.2024
+    private Stack<Pair<Integer, Integer>> stack;
+    public MinStack(){
+        stack = new Stack<>();
+    }
+    public void push(int val){
+        if(stack.isEmpty()){
+            stack.push(new Pair<>(val,val));
+        }
+        else{
+            int min = Math.min(stack.peek().getValue(), val);
+            stack.push(new Pair<>(val, min));
+        }
+    }
+    public void pop(){
+        if(!stack.isEmpty()){
+            stack.pop();
+        }
+    }
+    public int top(){
+        if(stack.isEmpty()){
+            return 0;
+        }
+        return stack.peek().getKey();
+    }
+    public int getMin(){
+        if(stack.isEmpty()){
+            return 0;
+        }
+        return stack.peek().getValue();
+    }
+    
 }
+
+    
+    
 
 /**
  * Your MinStack object will be instantiated and called as such:

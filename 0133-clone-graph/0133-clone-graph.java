@@ -19,6 +19,7 @@ class Node {
 */
 
 class Solution {
+    /*
     public Node cloneGraph(Node node) {
         // graph search. we can BFS and DFS.
         // since it has on direction. we have to record the node we've visited.
@@ -69,4 +70,29 @@ class Solution {
         }
         return clonedMap.get(node);
     }
+    
+    */
+    
+    // a cleanup version need to be watched;
+    public Node cloneGraph(Node node) {
+    if(node==null) return node;
+    
+    Map<Node, Node> x = new HashMap<>();
+    Queue<Node> queue = new LinkedList<>();
+    x.put(node, new Node(node.val));
+    
+    queue.add(node);
+    while(!queue.isEmpty()){
+        Node curr = queue.poll();
+        for(Node n : curr.neighbors){
+            if(!x.containsKey(n)){
+                x.put(n, new Node(n.val));
+                queue.add(n);
+            }
+            x.get(curr).neighbors.add(x.get(n));
+        }
+    }
+    
+    return x.get(node);
+}
 }

@@ -3,12 +3,14 @@ class Solution {
         // use HashMap and 2 pointers
         // Sliding window
         // no repeat, so need to record the frequency. We use hashmap<element,count>.
+        // done at 18:11, 1.11.2024
+        // TC:O(n) , SC:O(n)
         HashMap<Character, Integer> map = new HashMap<>();
         int max = 0;
         // 2 pointers to record window's left and right;
         int i = 0; // left
         int j = 0; // right
-        while(j < s.length()){
+        while(j < s.length()){ // O(n)
             // put element into map and compare window's width with map.size();
             // window's width = j - i + 1
             map.put(s.charAt(j), map.getOrDefault(s.charAt(j), 0) + 1);
@@ -22,7 +24,7 @@ class Solution {
                 // means there exist duplicated elements;
                 // move left and remove the ith element from map until they're the same;
                 // put first, then move i;
-                while(map.size() < j - i + 1){
+                while(map.size() < j - i + 1){//O(max)
 
                     map.put(s.charAt(i), map.get(s.charAt(i)) - 1);
                     if(map.get(s.charAt(i)) == 0) map.remove(s.charAt(i));
@@ -31,18 +33,7 @@ class Solution {
                 j++; 
             }
         }
-        return max;
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
+        return max;  
         
         /*
         

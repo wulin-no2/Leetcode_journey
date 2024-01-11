@@ -5,6 +5,7 @@ class Solution {
         // no repeat, so need to record the frequency. We use hashmap<element,count>.
         // done at 18:11, 1.11.2024
         // TC:O(n) , SC:O(n)
+        /*
         HashMap<Character, Integer> map = new HashMap<>();
         int max = 0;
         // 2 pointers to record window's left and right;
@@ -34,6 +35,7 @@ class Solution {
             }
         }
         return max;  
+        */
         
         /*
         
@@ -57,5 +59,24 @@ class Solution {
         }
         return max;
         */
+        
+        // another approach use hashSet and 2 pointers;
+        // use HashSet, once duplicated, empty the HashSet;
+        // tc, sc o(n)
+        int i = 0;
+        int j = 0;
+        int max = 0;
+        HashSet<Character> set = new HashSet<>();
+        while(j < s.length()){
+            if(!set.contains(s.charAt(j))){
+                set.add(s.charAt(j));
+                j++;
+                max = Math.max(max, set.size());
+            }else{
+                set.remove(s.charAt(i));
+                i++;
+            } 
+        }
+        return max;
     }
 }

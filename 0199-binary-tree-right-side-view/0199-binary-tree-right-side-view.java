@@ -31,24 +31,18 @@ class Solution {
         // use queue to traverse;
         Queue<TreeNode> queue = new LinkedList<>();
         queue.offer(root);
-        //int height = height(root);
         while(!queue.isEmpty()){
+            // each time, check the size of queue. poll all of them and offer again;
             int levelSize = queue.size();
             for (int i = 0; i < levelSize; i++) {
                 TreeNode p = queue.poll();
-                if(i == levelSize - 1) {
+                if(i == 0) {
                     res.add(p.val);
                 }
-                if(p.left != null) queue.offer(p.left);
                 if(p.right != null) queue.offer(p.right);
+                if(p.left != null) queue.offer(p.left);
             }
         }
         return res; 
-           
-    // o(n)
-    // private int height(TreeNode root){
-    //     if(root == null) return 0;
-    //     if(root.left == null || root.right == null) return 1;
-    //     return Math.max(height(root.right), height(root.left)) + 1;
     }
 }

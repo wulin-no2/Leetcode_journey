@@ -6,7 +6,9 @@ class Solution {
         // dp[m][n] = dp[m][n - 1] + dp[m - 1][n];
         // we assume move right = 1,move down = 0;
         // then each step should 0 or 1;
-        // the whole step = m - 1 + n - 1;
+        // the whole step = m - 1 + n - 1; We can use combinational approach; go m - 1's 1;
+        
+        /* O(N2) O(N2)
         int[][] dp = new int[m][n];
         
         // watch the base case!!!
@@ -22,5 +24,13 @@ class Solution {
             }
         }   
         return dp[m - 1][n - 1];
+    
+        */
+        // another solution. why?
+        long ans = 1;
+        for (int i = 1; i <= m - 1; i++) {
+            ans = ans * (n - 1 + i) / i;
+        }
+        return (int)ans;
     }
 }

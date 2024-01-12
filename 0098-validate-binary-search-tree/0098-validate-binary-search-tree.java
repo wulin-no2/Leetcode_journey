@@ -46,7 +46,7 @@ class Solution {
         return p.val;
     }
     */
-    /*
+    /* an inOrder soluton:
 public boolean isValidBST(TreeNode root) {
    if (root == null) return true;
    Stack<TreeNode> stack = new Stack<>();
@@ -64,7 +64,7 @@ public boolean isValidBST(TreeNode root) {
    return true;
 }
 */
-
+    // an concise and clean version same with me:
     public boolean isValidBST(TreeNode root) {
         return isValidBST(root, Long.MIN_VALUE, Long.MAX_VALUE);
     }

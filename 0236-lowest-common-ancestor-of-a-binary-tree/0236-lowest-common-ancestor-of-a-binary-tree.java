@@ -8,6 +8,8 @@
  * }
  */
 class Solution {
+    // my own solution: too complecated. 2 nested recursion.hahaha
+    /*
     public TreeNode lowestCommonAncestor(TreeNode root, TreeNode p, TreeNode q) {
         // recursive:
         if(root.val == p.val || root.val == q.val) return root;
@@ -21,4 +23,19 @@ class Solution {
         if(root.val == temp.val) return true;
         return inTree(root.left, temp) || inTree(root.right, temp);   
     }
+    */
+    
+    // another approach. we don't need to know if node is inTree:
+    public TreeNode lowestCommonAncestor(TreeNode root, TreeNode p, TreeNode q) {
+        if( root == p || root == q || root == null) return root;
+        TreeNode left = lowestCommonAncestor( root.left,  p,  q);
+        TreeNode right = lowestCommonAncestor( root.right,  p,  q);
+        if(left == null) return right;
+        else if (right == null) return left;
+        else return root;
+    }
+        
+    
+    
+    
 }

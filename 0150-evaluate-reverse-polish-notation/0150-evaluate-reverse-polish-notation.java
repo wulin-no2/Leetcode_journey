@@ -7,8 +7,10 @@ class Solution {
         //    push the result to stack;
         // 3) loop until no more tokens and stack is empty;
         
-        // from 17:11
+        // from 17:11; 20min;
         // need to convert string to int or operator;
+        // TC O(N) SC O(N)
+        /* complex:
         Stack<Integer> stack = new Stack<>();
         int i = 0;
         int res = Integer.parseInt(tokens[0]);
@@ -36,10 +38,23 @@ class Solution {
                 stack.push(left / right);
             }
             else stack.push(Integer.parseInt(tokens[i]));
-            
             if(i==tokens.length - 1) res = stack.pop();
         }
-        return res;
-        
+        return res;   
+        */
+        if(tokens == null || tokens.length == 0) return 0;
+        Deque<Integer> stack = new LinkedList<>();
+        String operators = "+-*/";
+        for(int i = 0;i< tokens.length;i++){
+            if(operators.contains(tokens[i])){
+                int num1 = stack.pop();
+                int num2 = stack.pop();
+                if(tokens[i].equals("+")) stack.push(num2 + num1);
+                else if(tokens[i].equals("-"))stack.push(num2 - num1);
+                else if(tokens[i].equals("*"))stack.push(num2 * num1);
+                else if(tokens[i].equals("/"))stack.push(num2 / num1);
+            }else stack.push(Integer.valueOf(tokens[i]));
+        }
+        return stack.peek();
     }
 }

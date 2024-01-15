@@ -1,4 +1,4 @@
-class LRUCache {
+/*class LRUCache {
 
     // one solution from discuss:
     
@@ -56,8 +56,10 @@ class LRUCache {
           value = _value;
         }
     }
+    }
+    */
     
-/*
+
     class Node{//节点[pre|key|value|next]
     int key,val;
     Node next,pre;
@@ -122,10 +124,10 @@ class LRUCache {
         map.put(key,n);
     }
 }
- */ 
+ //*/ 
     
     
-}
+
 
 /**
  * Your LRUCache object will be instantiated and called as such:

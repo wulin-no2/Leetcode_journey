@@ -1,7 +1,7 @@
-//class LRUCache {
+class LRUCache {
 
     // one solution from discuss:
-    /*
+    
     Node head = new Node(0, 0), tail = new Node(0, 0);
     Map<Integer, Node> map = new HashMap();
     int capacity;
@@ -56,7 +56,8 @@
           value = _value;
         }
     }
-    */
+    
+/*
     class Node{//节点[pre|key|value|next]
     int key,val;
     Node next,pre;
@@ -121,10 +122,10 @@ class LRUCache {
         map.put(key,n);
     }
 }
-  
+ */ 
     
     
-//}
+}
 
 /**
  * Your LRUCache object will be instantiated and called as such:

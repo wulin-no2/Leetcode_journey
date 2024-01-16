@@ -37,6 +37,7 @@ class Solution {
         int[][] visited = grid;
         Queue<int[]> q = new LinkedList<>();
         int countFreshOrange = 0;
+        // first, count good and bad orange. offer bad into queue;
         for (int i = 0; i < m; i++) {
             for (int j = 0; j < n; j++) {
                 if (visited[i][j] == 2) {
@@ -47,12 +48,13 @@ class Solution {
                 }
             }
         }
+        
         if (countFreshOrange == 0)
             return 0;
         if (q.isEmpty())
             return -1;
         
-        int minutes = -1;
+        int minutes = 0;
         int[][] dirs = {{1, 0},{-1, 0},{0, -1},{0, 1}};
         while (!q.isEmpty()) {
             int size = q.size();
@@ -74,7 +76,7 @@ class Solution {
         }
         
         if (countFreshOrange == 0)
-            return minutes;
+            return minutes-1;
         return -1;
     }
 }

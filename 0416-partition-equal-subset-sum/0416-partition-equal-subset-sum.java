@@ -17,7 +17,7 @@ class Solution {
         // why traverse from sum to num;
         dp[0] = true;
         for (int num : nums) {
-            for (int j = sum; j >= num; j--) {
+            for (int j = sum; j >= num ; j--) {
                 dp[j] = dp[j] || dp[j - num];
             }
         }

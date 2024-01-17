@@ -36,13 +36,13 @@ class Solution {
         return res; 
     }
     // how to write backtrack;
-    private void backtrack(String comb, String next, String[] book, List<String> res){
+    private void backtrack(String tempStr, String next, String[] book, List<String> res){
         // everytime, if it's the end of the backtrack, we add the temp to result list;
-        if(next.length() == 0) res.add(comb);
+        if(next.length() == 0) res.add(tempStr);
         else{ // or we still need to backtrack;
             String letters = book[next.charAt(0) - '2']; // see we can get which letter from next digit;
             for(char letter: letters.toCharArray()){
-                backtrack(comb + letter, next.substring(1), book, res);
+                backtrack(tempStr + letter, next.substring(1), book, res);
             }
         }
     }

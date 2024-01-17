@@ -85,7 +85,8 @@ class Solution {
                 else high = mid - 1;
             }
         }
-        if(nums[low] == target) return low;
+        // now we consider if there are equals finally;
+        if(nums[high] == target) return high;
         return -1;
         
         

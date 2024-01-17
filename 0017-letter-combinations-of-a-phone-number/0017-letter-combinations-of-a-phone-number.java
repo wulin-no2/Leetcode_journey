@@ -1,4 +1,7 @@
-class Solution {
+class Solution {    
+
+    
+    
     /*
     public List<String> letterCombinations(String digits) {
         if (digits.isEmpty()) return Collections.emptyList();
@@ -18,8 +21,32 @@ class Solution {
                 backtrack(combination + letter, next_digits.substring(1), phone_map, output);
             }
         }
-    }
+    }    
     */
+    // do backtracking again;
+    public List<String> letterCombinations(String digits) {
+        // first base case:
+        if(digits.length() == 0) return new ArrayList();
+        // make a string[] array to store different letters in each digit;
+        String[] book = {"abc", "def", "ghi", "jkl", "mno", "pqrs", "tuv", "wxyz"};
+        // use a list to store the result;
+        List<String> res = new ArrayList<>();
+        // backtracking;
+        backtrack("", digits, book, res);
+        return res; 
+    }
+    // how to write backtrack;
+    private void backtrack(String comb, String next, String[] book, List<String> res){
+        // everytime, if it's the end of the backtrack, we add the temp to result list;
+        if(next.length() == 0) res.add(comb);
+        else{ // or we still need to backtrack;
+            String letters = book[next.charAt(0) - '2']; // see we can get which letter from next digit;
+            for(char letter: letters.toCharArray()){
+                backtrack(comb + letter, next.substring(1), book, res);
+            }
+        }
+    }
+
     // another approach:
     /*
     method combine is to add new letters to old list, using 2 for-loop.
@@ -28,6 +55,7 @@ class Solution {
     i=0 -> result=combine("abc", [""]) ---> [a,b,c];
     i=1 -> result=combine("def", [a,b,c]) ---> [ad,bd,cd, ae,be,ce, af,bf,cf];
     */
+    /*
     public static List<String> letterCombinations(String digits) {
         String digitletter[] = {"","","abc","def","ghi","jkl","mno","pqrs","tuv","wxyz"};
         List<String> result = new ArrayList<String>();
@@ -50,4 +78,5 @@ class Solution {
 
         return result;
     }
+    */
 }

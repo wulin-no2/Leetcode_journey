@@ -18,8 +18,9 @@ class Solution {
             int[] last = list.get(list.size() - 1);
             if(intervals[i][0] > last[1]) list.add(intervals[i]);
             else{
-                list.remove(list.size() - 1);
-                list.add(new int[]{Math.min(intervals[i][0],last[0]), Math.max(intervals[i][1], last[1])});
+                last[1] = Math.max(intervals[i][1], last[1]);
+                // list.remove(list.size() - 1);
+                // list.add(new int[]{Math.min(intervals[i][0],last[0]), Math.max(intervals[i][1], last[1])});
             }
         }
         // now we get list. how to transfer list to Array;

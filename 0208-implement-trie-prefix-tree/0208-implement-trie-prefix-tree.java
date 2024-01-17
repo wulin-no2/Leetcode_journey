@@ -1,4 +1,5 @@
-/* a solution use array Node[];
+///* a solution use array Node[];
+// TC = o(n), n is the length of word; SC = 26 * n * nums, nums is the numbers of words inserted into trie;
 class Node {
     public boolean isWord; 
     public Node[] children = new Node[26];
@@ -41,9 +42,9 @@ public class Trie {
         return true;
     }
 }
-*/
-// a solution from discuss with hashmap;
-
+//*/
+// a solution from discuss with hashmap; array is better
+/*
 class Trie {
 
     class TrieNode {
@@ -61,7 +62,7 @@ class Trie {
         root = new TrieNode();
     }
 
-    /** Inserts a word into the trie. */
+    //Inserts a word into the trie.
     public void insert(String word) {
         TrieNode curr = root;
         for (char ch : word.toCharArray()) {
@@ -76,7 +77,7 @@ class Trie {
         curr.isWord = true;
     }
 
-    /** Returns if the word is in the trie. */
+    // Returns if the word is in the trie. 
     public boolean search(String word) {
         TrieNode curr = root;
         for (char ch : word.toCharArray()) {
@@ -89,7 +90,7 @@ class Trie {
         return curr.isWord;
     }
 
-    /** Returns if there is any word in the trie that starts with the given prefix. */
+    // Returns if there is any word in the trie that starts with the given prefix. 
     public boolean startsWith(String prefix) {
         TrieNode curr = root;
         for (char ch : prefix.toCharArray()) {
@@ -102,6 +103,8 @@ class Trie {
         return true;
     }
 }
+*/
+
 /**
  * Your Trie object will be instantiated and called as such:
  * Trie obj = new Trie();

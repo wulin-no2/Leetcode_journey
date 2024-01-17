@@ -6,7 +6,7 @@ class Solution {
         // change low and high, check mid;
         int low = 0;
         int high = nums.length - 1;
-        while(low <= high){
+        while(low < high){
             int mid = (low + high) / 2;
             if(nums[mid] == target){
                 return mid;
@@ -16,7 +16,7 @@ class Solution {
                 high = mid - 1;
             }
         }
-        return -1;
-        
+        if(nums[low] == target) return low;
+        return -1;   
     }
 }

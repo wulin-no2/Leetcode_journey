@@ -96,7 +96,7 @@ class TimeMap {
     }
     */
     
-    // use treeMap:
+    // use treeMap: it's slower than use list;
     private static final String DEFAULT_VALUE = "";
     private final HashMap<String, TreeMap<Integer, String>> map;
 

@@ -1,59 +1,51 @@
-class Trie {
-    Node root;
+class TrieNode {
+    public char val;
+    public boolean isWord; 
+    public TrieNode[] children = new TrieNode[26];
+    public TrieNode() {}
+    TrieNode(char c){
+        TrieNode node = new TrieNode();
+        node.val = c;
+    }
+}
 
+public class Trie {
+    private TrieNode root;
     public Trie() {
-        root = new Node();
+        root = new TrieNode();
+        root.val = ' ';
     }
-    
+
     public void insert(String word) {
-        root.insert(word, 0);
-    }
-    
-    public boolean search(String word) {
-        return root.search(word, 0);
-    }
-    
-    public boolean startsWith(String prefix) {
-        return root.startsWith(prefix, 0);
-    }
-
-    class Node {
-        Node[] nodes;
-        boolean isEnd;
-
-        Node() {
-            nodes = new Node[26];
-        }
-
-        private void insert(String word, int idx) {
-            if (idx >= word.length()) return;
-            int i = word.charAt(idx) - 'a';
-            if (nodes[i] == null) {
-                nodes[i] = new Node();
+        TrieNode ws = root;
+        for(int i = 0; i < word.length(); i++){
+            char c = word.charAt(i);
+            if(ws.children[c - 'a'] == null){
+                ws.children[c - 'a'] = new TrieNode(c);
             }
-
-            if (idx == word.length()-1) nodes[i].isEnd = true;
-            nodes[i].insert(word, idx+1);
+            ws = ws.children[c - 'a'];
         }
+        ws.isWord = true;
+    }
 
-        private boolean search(String word, int idx) {
-            if (idx >= word.length()) return false;
-            Node node = nodes[word.charAt(idx) - 'a'];
-            if (node == null) return false;
-            if (idx == word.length() - 1 && node.isEnd) return true;
-
-            return node.search(word, idx+1);
-
+    public boolean search(String word) {
+        TrieNode ws = root; 
+        for(int i = 0; i < word.length(); i++){
+            char c = word.charAt(i);
+            if(ws.children[c - 'a'] == null) return false;
+            ws = ws.children[c - 'a'];
         }
+        return ws.isWord;
+    }
 
-        private boolean startsWith(String prefix, int idx) {
-            if (idx >= prefix.length()) return false;
-            Node node = nodes[prefix.charAt(idx) - 'a'];
-            if (node == null) return false;
-            if (idx == prefix.length() - 1) return true;
-
-            return node.startsWith(prefix, idx+1);
+    public boolean startsWith(String prefix) {
+        TrieNode ws = root; 
+        for(int i = 0; i < prefix.length(); i++){
+            char c = prefix.charAt(i);
+            if(ws.children[c - 'a'] == null) return false;
+            ws = ws.children[c - 'a'];
         }
+        return true;
     }
 }
 /**

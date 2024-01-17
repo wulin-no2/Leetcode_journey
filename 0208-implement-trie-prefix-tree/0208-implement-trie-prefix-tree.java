@@ -1,3 +1,4 @@
+/* a solution use array Node[];
 class Node {
     public boolean isWord; 
     public Node[] children = new Node[26];
@@ -36,6 +37,67 @@ public class Trie {
             char c = prefix.charAt(i);
             if(ws.children[c - 'a'] == null) return false;
             ws = ws.children[c - 'a'];
+        }
+        return true;
+    }
+}
+*/
+// a solution from discuss with hashmap;
+
+class Trie {
+
+    class TrieNode {
+        Map<Integer, TrieNode> children;
+        boolean isWord;
+
+        TrieNode() {
+            children = new HashMap<>();
+        }
+    }
+
+    private TrieNode root;
+
+    public Trie() {
+        root = new TrieNode();
+    }
+
+    /** Inserts a word into the trie. */
+    public void insert(String word) {
+        TrieNode curr = root;
+        for (char ch : word.toCharArray()) {
+            int key = ch - 'a';
+            if(!curr.children.containsKey(key)) {
+                // create new child node if doesn't exsit
+                curr.children.put(key, new TrieNode());
+            }
+
+            curr = curr.children.get(key);
+        }
+        curr.isWord = true;
+    }
+
+    /** Returns if the word is in the trie. */
+    public boolean search(String word) {
+        TrieNode curr = root;
+        for (char ch : word.toCharArray()) {
+            int key = ch - 'a';
+            if(!curr.children.containsKey(key)) {
+                return false;
+            }
+            curr = curr.children.get(key);
+        }
+        return curr.isWord;
+    }
+
+    /** Returns if there is any word in the trie that starts with the given prefix. */
+    public boolean startsWith(String prefix) {
+        TrieNode curr = root;
+        for (char ch : prefix.toCharArray()) {
+            int key = ch - 'a';
+            if(!curr.children.containsKey(key)) {
+                return false;
+            }
+            curr = curr.children.get(key);
         }
         return true;
     }

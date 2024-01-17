@@ -30,7 +30,7 @@ class Solution {
         */
     
     // bfs from discuss:
-    
+    /*
     public int orangesRotting(int[][] grid) {
         int m = grid.length;
         int n = grid[0].length;
@@ -76,17 +76,67 @@ class Solution {
         }
         
         if (countFreshOrange == 0)
-            return minutes-1;
+            return minutes - 1;
         return -1;
     }
+    */
+    // do it again with bfs:
+    public int orangesRotting(int[][] grid) {
+        // count the fresh and offer the bad into queue;
+        // use visited to record;
+        // bfs;
+        // we cound push int[] into queue instead of Pair;
+        int m = grid.length;
+        int n = grid[0].length;
+        int[][] visited = grid;
+        Queue<int[]> queue = new LinkedList<>();
+        int fresh = 0;
+        // traverse to count and offer;
+        for(int i = 0 ; i < m ; i++){
+            for(int j = 0 ; j < n ; j++){
+                if(visited[i][j] == 1) fresh ++;
+                if(visited[i][j] == 2) queue.offer(new int[]{i, j});
+            }
+        }
+        // see base cases;
+        if(fresh == 0) return 0;
+        if(queue.isEmpty()) return -1;
+        // count minutes;
+        int minutes = 0;
+        // need to use int[][] dir to help change coordinate; 
+        int[][] dirs = {{1,0},{-1,0},{0,1},{0,-1}};
+        // bfs:
+        while(!queue.isEmpty()){
+            int size = queue.size();
+            while(size-- > 0){
+                int[] curr = queue.poll();
+                int i = curr[0];
+                int j = curr[1];
+                // if 4 directions have 1, visited changed and offer it; else continue;
+                for(int[] dir : dirs){
+                    int newI = i + dir[0];
+                    int newJ = j + dir[1];
+                    if(newI >= 0 && newI < m && newJ >= 0 && newJ < n && visited[newI][newJ] == 1){
+                        visited[newI][newJ] = 2;
+                        queue.offer(new int[]{newI, newJ});
+                        fresh--;
+                    }
+                }
+            }
+            minutes++;
+        }
+        // all the rotting oranges are traversed;
+        if(fresh > 0) return -1;
+        return minutes - 1;
+        
+        
+        
+        
+        
+    }
+    
 }
-        
-        
-        
-        
-        
-        
-        
+
         
         // we can do it in BFS or DFS;
         // similar to Flood Fill;

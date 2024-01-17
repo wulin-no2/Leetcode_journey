@@ -1,29 +1,27 @@
-class TrieNode {
+class Node {
     public boolean isWord; 
-    public TrieNode[] children = new TrieNode[26];
-    public TrieNode() {}
+    public Node[] children = new Node[26];
+    public Node() {}
 }
 
 public class Trie {
-    private TrieNode root;
+    private Node root;
     public Trie() {
-        root = new TrieNode();
+        root = new Node();
     }
 
     public void insert(String word) {
-        TrieNode ws = root;
+        Node ws = root;
         for(int i = 0; i < word.length(); i++){
             char c = word.charAt(i);
-            if(ws.children[c - 'a'] == null){
-                ws.children[c - 'a'] = new TrieNode();
-            }
+            if(ws.children[c - 'a'] == null) ws.children[c - 'a'] = new Node();
             ws = ws.children[c - 'a'];
         }
         ws.isWord = true;
     }
 
     public boolean search(String word) {
-        TrieNode ws = root; 
+        Node ws = root; 
         for(int i = 0; i < word.length(); i++){
             char c = word.charAt(i);
             if(ws.children[c - 'a'] == null) return false;
@@ -33,7 +31,7 @@ public class Trie {
     }
 
     public boolean startsWith(String prefix) {
-        TrieNode ws = root; 
+        Node ws = root; 
         for(int i = 0; i < prefix.length(); i++){
             char c = prefix.charAt(i);
             if(ws.children[c - 'a'] == null) return false;

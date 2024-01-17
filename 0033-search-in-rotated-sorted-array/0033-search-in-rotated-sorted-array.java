@@ -43,6 +43,7 @@ class Solution {
         }
         return -1;
         */
+        /* solution from discuss:
         int low = 0;
         int high = nums.length - 1;
         while (low < high) {
@@ -64,6 +65,30 @@ class Solution {
             }
         }
         return nums[low] == target ? low : -1;
+        */
+        // do it again:
+        int low = 0;
+        int high = nums.length - 1;
+        while(low < high){
+            int mid = low + (high - low) / 2;
+            if(target == nums[mid]) return mid;
+            // compare mid with low to see where the mid is ;
+            if(nums[mid] >= nums[low]){// mid is in the left part;
+                if(target >= nums[low] && target < nums[mid])// see where target is; it's in the middle of mid and low;
+                    high = mid - 1;
+                else // target is in the right of mid;
+                    low = mid + 1;
+                }
+            else{// mid is in the right;
+                if(target > nums[mid] && target <= nums[high]) // t is in the middle of mid and high;
+                    low = mid + 1;
+                else high = mid - 1;
+            }
+        }
+        if(nums[low] == target) return low;
+        return -1;
+        
+        
             
             
     }

@@ -3,7 +3,7 @@ class Solution {
         // from 16:30
         // from this solution:https://leetcode.com/problems/longest-palindromic-substring/discuss/4212564/Beats-96.49-oror-5-Different-Approaches-oror-Brute-Force-oror-EAC-oror-DP-oror-MA-oror-Recursion-oror
         // Manacher's Algorithm & DP
-        /* first: O(N)
+        ///* first: O(N)
         if(s.length() == 1) return s;
         int maxLen = 1;
         String maxStr = s.substring(0, 1);
@@ -31,7 +31,7 @@ class Solution {
             }
         }
         return maxStr;
-        */
+        //*/
         
         // Second: DP, from center to expand, O(n^2)
         /*
@@ -60,6 +60,7 @@ class Solution {
 
         return s.substring(start, end + 1);
         */
+        /*
         if (s.length() <= 1) return s;
         int maxLen = 1;
         int start = 0;
@@ -81,5 +82,6 @@ class Solution {
             }
         }
         return s.substring(start, end + 1);
+        */
     }
 }

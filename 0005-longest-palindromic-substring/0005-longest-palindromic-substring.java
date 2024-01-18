@@ -33,7 +33,8 @@ class Solution {
         return maxStr;
         */
         
-        // Second: O(n^2)
+        // Second: DP, from center to expand, O(n^2)
+        /*
         if (s.length() <= 1) {
             return s;
         }
@@ -57,6 +58,28 @@ class Solution {
             }
         }
 
+        return s.substring(start, end + 1);
+        */
+        if (s.length() <= 1) return s;
+        int maxLen = 1;
+        int start = 0;
+        int end = 0;
+        boolean[][] dp = new boolean[s.length()][s.length()];
+        // from center to expand;
+        // we need to get dp[i + 1][j - 1] then can we get dp[i][j], which means the end index must be outer loop;
+        for(int j = 0 ; j < s.length(); j ++){
+            dp[j][j] = true;
+            for(int i = 0; i <= j; i++){
+                if(s.charAt(i) == s.charAt(j) && (j - i <= 2 || dp[i + 1][j - 1])) {
+                    dp[i][j] = true;
+                    if((j - i + 1) > maxLen){
+                        maxLen = j - i + 1;
+                        start = i;
+                        end = j;
+                    }
+                }
+            }
+        }
         return s.substring(start, end + 1);
     }
 }

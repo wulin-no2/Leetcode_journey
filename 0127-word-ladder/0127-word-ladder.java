@@ -1,0 +1,54 @@
+//package java;
+
+//import java.util.*;
+
+class Solution {
+    public int ladderLength(String beginWord, String endWord, List<String> wordList) {
+        if (!wordList.contains(endWord)) {
+            return 0;
+        }
+        
+        Map<String, List<String>> adjList = buildAdjacencyList(wordList, beginWord);
+        Queue<String> queue = new LinkedList<>();
+        Set<String> visited = new HashSet<>();
+        
+        queue.offer(beginWord);
+        visited.add(beginWord);
+        int step = 1;
+
+        while (!queue.isEmpty()) {
+            int size = queue.size();
+            for (int j = 0; j < size; j++) {
+                String currentWord = queue.poll();
+                for (int i = 0; i < currentWord.length(); i++) {
+                    String newWord = currentWord.substring(0, i) + '*' + currentWord.substring(i + 1);
+                    for (String adjacentWord : adjList.getOrDefault(newWord, new ArrayList<>())) {
+                        if (adjacentWord.equals(endWord)) {
+                            return step + 1;
+                        }
+                        if (!visited.contains(adjacentWord)) {
+                            queue.offer(adjacentWord);
+                            visited.add(adjacentWord);
+                        }
+                    }
+                }
+            }
+            step++;
+        }
+        return 0;
+    }
+
+    private Map<String, List<String>> buildAdjacencyList(List<String> wordList, String beginWord) {
+        Map<String, List<String>> adjList = new HashMap<>();
+        wordList.add(beginWord);
+        for (String word : wordList) {
+            for (int i = 0; i < word.length(); i++) {
+                String newWord = word.substring(0, i) + '*' + word.substring(i + 1);
+                List<String> adjacentWords = adjList.getOrDefault(newWord, new ArrayList<>());
+                adjacentWords.add(word);
+                adjList.put(newWord, adjacentWords);
+            }
+        }
+        return adjList;
+    }
+}

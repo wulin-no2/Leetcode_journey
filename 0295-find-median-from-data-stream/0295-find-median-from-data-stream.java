@@ -9,7 +9,7 @@ class MedianFinder {
     }
 
     public void addNum(int num) {
-        smallHeap.add(num);
+        smallHeap.add(num); // each time. we add it to smallHeap then change them;
         if (
             smallHeap.size() - largeHeap.size() > 1 ||
             !largeHeap.isEmpty() &&

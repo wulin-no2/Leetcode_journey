@@ -28,7 +28,7 @@ class MedianFinder {
         } else if (smallHeap.size() > largeHeap.size()) {
             return (double) smallHeap.peek();
         } else {
-            return (double) largeHeap.peek();
+            return (double) largeHeap.peek();// be sure to cast data type;
         }
     }
 }

@@ -9,7 +9,7 @@
  */
 public class Codec {
 
-    private int i;
+    //private int i;
 
     // Encodes a tree to a single string.
     public String serialize(TreeNode root) {
@@ -32,19 +32,24 @@ public class Codec {
     // Decodes your encoded data to tree.
     public TreeNode deserialize(String data) {
         String[] tokens = data.split(",");
-        return deserializeDFS(tokens);
+        int[] index = new int[]{0};
+        return deserializeDFS(tokens, index);
     }
 
-    private TreeNode deserializeDFS(String[] tokens) {
-        String token = tokens[i];
-        if (token.equals("N")) {
-            i++;
+    private TreeNode deserializeDFS(String[] tokens, int[] index) {
+        // String token = tokens[i];
+        // if (token.equals("N")) {
+        //     //i++;
+        //     return null;
+        // }
+        if (index[0] >= tokens.length || tokens[index[0]].equals("N")) {
+            index[0]++;  // Increment index for the next recursive call
             return null;
         }
-        TreeNode node = new TreeNode(Integer.parseInt(token));
-        i++;
-        node.left = deserializeDFS(tokens);
-        node.right = deserializeDFS(tokens);
+        TreeNode node = new TreeNode(Integer.parseInt(tokens[index[0]++]));
+        //i++;
+        node.left = deserializeDFS(tokens, index);
+        node.right = deserializeDFS(tokens, index);
         return node;
     }
 }

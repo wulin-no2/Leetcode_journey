@@ -1,15 +1,14 @@
-//package java;
-
-//import java.util.*;
-
 class Solution {
     public int ladderLength(String beginWord, String endWord, List<String> wordList) {
         if (!wordList.contains(endWord)) {
             return 0;
         }
-        
+        // BFS. Use Map<String, List<String>> to represent the graph;
+        // key is pattern; value is the neighborWords;
         Map<String, List<String>> adjList = buildAdjacencyList(wordList, beginWord);
+        // store adjacent nodes;
         Queue<String> queue = new LinkedList<>();
+        // memoization;
         Set<String> visited = new HashSet<>();
         
         queue.offer(beginWord);
@@ -39,6 +38,7 @@ class Solution {
     }
 
     private Map<String, List<String>> buildAdjacencyList(List<String> wordList, String beginWord) {
+        // why the patterns are key? cause different patterns may match multiple words; these multiple words are both neighbors;
         Map<String, List<String>> adjList = new HashMap<>();
         wordList.add(beginWord);
         for (String word : wordList) {

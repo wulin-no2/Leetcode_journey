@@ -36,13 +36,13 @@ public class Codec {
     }
 
     private TreeNode deserializeDFS(String[] tokens) {
-        String token = tokens[this.i];
+        String token = tokens[i];
         if (token.equals("N")) {
-            this.i++;
+            i++;
             return null;
         }
-        var node = new TreeNode(Integer.parseInt(token));
-        this.i++;
+        TreeNode node = new TreeNode(Integer.parseInt(token));
+        i++;
         node.left = deserializeDFS(tokens);
         node.right = deserializeDFS(tokens);
         return node;

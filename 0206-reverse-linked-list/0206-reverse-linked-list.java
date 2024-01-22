@@ -12,6 +12,8 @@
 
 class Solution {
     public ListNode reverseList(ListNode head) {
+        // try 2nd time at 0122.2024;
+        
         if(head == null) return head;
         // use a stack.
         Deque<ListNode> stack = new LinkedList<>();
@@ -27,7 +29,7 @@ class Solution {
             p.next = stack.pop();
             p = p.next;
         }
-        p.next = null;// why??
+        p.next = null;// why?? because p and p.next would be a cycle!!!
         return newHead.next;
     }
 }

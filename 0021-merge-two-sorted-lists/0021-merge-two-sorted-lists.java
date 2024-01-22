@@ -8,6 +8,43 @@
  *     ListNode(int val, ListNode next) { this.val = val; this.next = next; }
  * }
  */
+// second round in 1.22.2024
+class Solution {
+    public ListNode mergeTwoLists(ListNode l1, ListNode l2) {
+        if(l1 == null) return l2;
+        if(l2 == null) return l1;
+        ListNode head = new ListNode(0);
+        // 2 pointers;
+        ListNode p1 = l1;
+        ListNode p2 = l2;
+        ListNode p3 = head;
+        while(p1 != null && p2 != null){
+            if(p1.val <= p2.val){
+                p3.next = p1;
+                p1 = p1.next;
+            }
+            else{
+                p3.next = p2;
+                p2 = p2.next;
+            }
+            p3 = p3.next;
+        }
+        while(p1 != null){
+            p3.next = p1;
+            p1 = p1.next;
+            p3 = p3.next;
+        }
+        while(p2 != null){
+            p3.next = p2;
+            p2 = p2.next;
+            p3 = p3.next;
+        }
+        return head.next; 
+    }
+}
+        
+        
+/*      
 class Solution {
     public ListNode mergeTwoLists(ListNode l1, ListNode l2) {
         // recursive solution:
@@ -21,6 +58,7 @@ class Solution {
             return l2;
         }*/
         
+        /*
         // iterative solution:
         ListNode ans = new ListNode();
         ListNode ptr = ans;
@@ -48,3 +86,4 @@ class Solution {
         
     }
 }
+*/

@@ -8,7 +8,7 @@
  *     ListNode(int val, ListNode next) { this.val = val; this.next = next; }
  * }
  */
-// second round in 1.22.2024
+// second round in 1.22.2024 ;10 min
 class Solution {
     public ListNode mergeTwoLists(ListNode l1, ListNode l2) {
         if(l1 == null) return l2;

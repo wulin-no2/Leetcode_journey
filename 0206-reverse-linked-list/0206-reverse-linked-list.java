@@ -9,30 +9,42 @@
  * }
  */
 
-
 class Solution {
     public ListNode reverseList(ListNode head) {
-        // try 2nd time at 0122.2024;
-        
-        if(head == null) return head;
-        // use a stack.
-        Deque<ListNode> stack = new LinkedList<>();
-        // stack.push(head);
-        ListNode p = head;
-        while(p != null){
-            stack.push(p);
-            p = p.next;
+        ListNode prev = null;
+        ListNode current = head;
+        while (current != null) {
+            ListNode nextTemp = current.next; // store the next node
+            current.next = prev; // reverse the link
+            prev = current; // move prev to current
+            current = nextTemp; // move to next node
         }
-        ListNode newHead = new ListNode(0);
-        p = newHead;
-        while(!stack.isEmpty()){
-            p.next = stack.pop();
-            p = p.next;
-        }
-        p.next = null;// why?? because p and p.next would be a cycle!!!
-        return newHead.next;
+        return prev; // prev will be the new head
     }
 }
+// class Solution {
+//     public ListNode reverseList(ListNode head) {
+//         // try 2nd time at 0122.2024;
+        
+//         if(head == null) return head;
+//         // use a stack.
+//         Deque<ListNode> stack = new LinkedList<>();
+//         // stack.push(head);
+//         ListNode p = head;
+//         while(p != null){
+//             stack.push(p);
+//             p = p.next;
+//         }
+//         ListNode newHead = new ListNode(0);
+//         p = newHead;
+//         while(!stack.isEmpty()){
+//             p.next = stack.pop();
+//             p = p.next;
+//         }
+//         p.next = null;// why?? because p and p.next would be a cycle!!!
+//         return newHead.next;
+//     }
+// }
 
 
 

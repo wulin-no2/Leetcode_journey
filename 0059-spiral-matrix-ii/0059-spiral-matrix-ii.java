@@ -1,35 +1,34 @@
 class Solution {
     public int[][] generateMatrix(int n) {
         int[][] nums = new int[n][n];
-        int startX = 0, startY = 0;  // each loop start point
-        int offset = 1;  
-        int count = 1;  // the number in the matrix
-        int loop = 1; // count loop from 1;
-        int i, j;
+        int startX = 0, startY = 0;  // 每一圈的起始点
+        int offset = 1;
+        int count = 1;  // 矩阵中需要填写的数字
+        int loop = 1; // 记录当前的圈数
+        int i, j; // j 代表列, i 代表行;
 
-        while (loop <= n / 2) { 
-            // j is the colomn, i is the row;
-            
-            // for the top edge
-            // left close, right open; j != n - offset
+        while (loop <= n / 2) {
+
+            // 顶部
+            // 左闭右开，所以判断循环结束时， j 不能等于 n - offset
             for (j = startY; j < n - offset; j++) {
                 nums[startX][j] = count++;
             }
 
-            // the right edge, 
-            // left close, right open; i != n - offset
+            // 右列
+            // 左闭右开，所以判断循环结束时， i 不能等于 n - offset
             for (i = startX; i < n - offset; i++) {
                 nums[i][j] = count++;
             }
 
-            // the bottom edge
-            // left close, right open; j != startY
+            // 底部
+            // 左闭右开，所以判断循环结束时， j != startY
             for (; j > startY; j--) {
                 nums[i][j] = count++;
             }
 
-            // the left edge
-            // left close, right open; i != startX
+            // 左列
+            // 左闭右开，所以判断循环结束时， i != startX
             for (; i > startX; i--) {
                 nums[i][j] = count++;
             }
@@ -38,11 +37,9 @@ class Solution {
             offset++;
             loop++;
         }
-
-        if (n % 2 == 1) {
+        if (n % 2 == 1) { // n 为奇数时，单独处理矩阵中心的值
             nums[startX][startY] = count;
         }
-
         return nums;
     }
 }

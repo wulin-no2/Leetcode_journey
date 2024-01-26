@@ -1,3 +1,4 @@
+/* solution from camp:
 class ListNode{
     int val;
     ListNode next,prev;
@@ -96,8 +97,8 @@ class MyLinkedList {
         }
 }
 
-   
-/* approach from myself
+*/   
+//approach from myself
     class MyLinkedList {
     int val;
     int size = 0;
@@ -171,7 +172,7 @@ class MyLinkedList {
         }
     }
 }
-*/
+
 
 /**
  * Your MyLinkedList object will be instantiated and called as such:

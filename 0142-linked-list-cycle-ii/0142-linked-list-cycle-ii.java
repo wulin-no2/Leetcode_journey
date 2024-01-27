@@ -27,7 +27,6 @@ public class Solution {
         while(p != temp){
             p = p.next;
             temp = temp.next;
-            //if(p == temp) return temp;
         }
         return temp;
     }

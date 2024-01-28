@@ -1,37 +1,20 @@
 class Solution {
     public int[] twoSum(int[] nums, int target) {
-        /* the first time: 20230911
-        int[] index = {0,0};
-        for(int i = 0; i < nums.length; i ++){
-            for(int j = i + 1; j < nums.length; j ++){
-                if (nums[j] == target - nums[i]){
-                    index[0] = i;
-                    index[1] = j;
-                    return index;
-                }
-            }
-        } 
-        return index;
-        */
-        
-        /* the second time: 20231107 10:58
-        // analyze: 
-        // use a Hashmap
-        (from discuss. got it at 11:21)*/
-                
-        int[] result = new int[2];
-        Map<Integer, Integer> map = new HashMap<Integer, Integer>();
-        for (int i = 0; i < nums.length; i++) {
-            if (map.containsKey(target - nums[i])) {
-                result[1] = i;
-                result[0] = map.get(target - nums[i]);
-                return result;
-            }
+        // put num into map. then find target - num; and return their index;
+        Map<Integer, Integer> map = new HashMap<>();
+        for(int i = 0 ; i < nums.length ; i++){
+            int temp = target - nums[i];
+            if(map.containsKey(temp)) return new int[]{map.get(temp), i};
             map.put(nums[i], i);
         }
-        return result;
+        return new int[2];
+    }
+    
+}      
         
         
+        
+       
         /* the third time: 20231107 11:22
         // analyze:
         // use array to store every complement into the index of the new array; put the index as the new value:
@@ -56,6 +39,3 @@ class Solution {
         }
         return result;*/
         
-    }
-    
-}

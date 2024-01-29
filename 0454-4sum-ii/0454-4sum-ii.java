@@ -5,6 +5,7 @@ class Solution {
         // the last 2 arrays sum results;
         // then, it's 2 sum question now.
         // we can use map to store them. cause we need to know the counts;
+        // TC = O(n^2) , SC = O(n) 
         Map<Integer, Integer> map1 = new HashMap<>();
         Map<Integer, Integer> map2 = new HashMap<>();
         for(int i : nums1){

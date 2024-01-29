@@ -1,37 +1,34 @@
 class Solution {
     public List<List<Integer>> threeSum(int[] nums) {
-        /* almost do it, chose a wrong data structure;
-        // sort it;
+        // use List to store the result;
+        // no!!! we should use set to store the result!!! Elements should be unique!!!!
+        HashSet<List<Integer>> set = new HashSet<>();
+        List<List<Integer>> res = new ArrayList<>();
+        // sort it
         Arrays.sort(nums);
-        int n = nums.length;
-        if(nums[n - 1] < 0 || nums[0] > 0) return null;
-        // we need to search, so arraylist is better;
-        ArrayList<Integer> arr = new ArrayList(Arrays.asList(nums));
-        ArrayList<List<Integer>> res = new ArrayList<>();
-        // for the 3 num, they must ly on both sides of 0;
-        // we can use 2 pointers from 2 ends, and see if the 3rd number exists;
-        int i = 0;
-        int j = arr.size() - 1;
-        while(i < j){
-            int sum2 = arr.get(i) + arr.get(j);
-            int num3 = arr.indexOf(-sum2);
-            if(num3 != -1){
-                List<Integer> temp = new ArrayList<>();
-                temp.add(arr.get(i));
-                temp.add(arr.get(j));
-                temp.add(arr.get(num3));
-                res.add(temp);
-                arr.remove(num3);
-                i++;
-                j--;
-            }else{
-                i++;
-            } 
+        // traverse 
+        for(int i = 0 ; i < nums.length ; i ++){
+            if (nums[i] > 0) continue;
+            // 2 pointers inside;
+            
+            int left = i + 1;
+            int right = nums.length - 1;
+            
+            while(left < right){
+                if((nums[left] + nums[right]) == - nums[i]) {
+                    List<Integer> temp = new ArrayList<>();
+                    temp.add(nums[i]); 
+                    temp.add(nums[left]);
+                    temp.add(nums[right]);
+                    set.add(temp);}
+                if(nums[left] + nums[right] > - nums[i]) right --;
+                else left ++;
+            }
         }
-        return res;  
-        */
-        
+        res.addAll(set);
+        return res;
         //from discuss:
+        /*
         int target = 0;
         Arrays.sort(nums);
         // need to use hashSet;
@@ -55,7 +52,7 @@ class Solution {
         }
         res.addAll(s);
         return res;
-        
+        */
         
     }
 }

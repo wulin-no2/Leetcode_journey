@@ -6,6 +6,7 @@ class Solution {
         // then, it's 2 sum question now.
         // we can use map to store them. cause we need to know the counts;
         // TC = O(n^2) , SC = O(n) 
+        /* my own solution:
         Map<Integer, Integer> map1 = new HashMap<>();
         Map<Integer, Integer> map2 = new HashMap<>();
         for(int i : nums1){
@@ -18,12 +19,22 @@ class Solution {
                 map2.put( i + j, map2.getOrDefault( i + j , 0) + 1);
             }
         }
-        // HashSet<Integer> set = new HashSet<>();
         int res = 0;
         for(Integer i : map1.keySet()){
             int temp = 0 - i;
             if(map2.containsKey(temp)) res += map1.get(i) * map2.get(temp);
         }
         return res;  
+        */
+        // optimized version from discuss:
+        Map<Integer, Integer> map = new HashMap<>();
+        for(int k : nums3)
+            for(int l : nums4)
+                map.put(k + l, map.getOrDefault(k + l, 0) + 1);
+        int count = 0;
+        for(int i : nums1)
+            for(int j : nums2)
+                        count += map.getOrDefault(-(i + j), 0);
+        return count;
     }
 }

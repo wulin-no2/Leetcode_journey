@@ -20,8 +20,11 @@ class Solution {
                     temp.add(nums[i]); 
                     temp.add(nums[left]);
                     temp.add(nums[right]);
-                    set.add(temp);}
-                if(nums[left] + nums[right] > - nums[i]) right --;
+                    set.add(temp);
+                    left++;
+                    right--;
+                }
+                else if(nums[left] + nums[right] > - nums[i]) right --;
                 else left ++;
             }
         }

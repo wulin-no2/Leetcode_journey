@@ -120,11 +120,8 @@ class Solution {
         for(int i = 0 ; i < nums.length - 3; i++){
             if(target > 0 && nums[i] > target || target < 0 && nums[i] >= 0) continue;
             if (i > 0 && nums[i - 1] == nums[i]) continue;    // 对nums[i]去重
-                
-            
             for(int j = i + 1; j < nums.length - 2; j++){
                 if (j > i + 1 && nums[j - 1] == nums[j]) continue; // 对nums[j]去重
-                    
                 if(target > 0 && nums[i] + nums[j] > target || target < 0 && nums[i] + nums[j] >= 0) continue;
                 // 2 pointers;
                 int left = j + 1;

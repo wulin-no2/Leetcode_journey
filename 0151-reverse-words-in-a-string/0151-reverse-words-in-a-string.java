@@ -8,25 +8,19 @@ class Solution {
         int slow = 0;
         int fast = 0;
         while(fast < arr.length){
-            // 3.1 remove space and move to right position;
-            // remove first space;
+            // remove space until end or until there are characters;
             while(fast < arr.length && arr[fast] == ' ') fast++;
+            // if all the remaining is space, break;
             if (fast >= arr.length) break; 
-            // add space;
+            // add space before other characters;
             if (slow > 0) arr[slow++] = ' '; 
-             
+            // record the begining of the word; 
             int left = slow;
-            // System.out.println("fast is: " + fast + " slow is: " + slow + " left is: " + left);
             // move words;
             while(fast < arr.length && arr[fast] != ' '){
-                arr[slow] = arr[fast];
-                fast++;
-                slow++;
-                // System.out.println("while fast is: " + fast + " slow is: " + slow);
+                arr[slow++] = arr[fast++];
             }
-            // System.out.println("fast is: " + fast + " slow is: " + slow + " left is: " + left + " right is: " + right);
-            
-            // 3.2 reverse arr;
+            // reverse the word;
             reverseArr(arr, left, slow - 1);
         }
         // 4. convert to String;

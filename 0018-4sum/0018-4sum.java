@@ -114,11 +114,17 @@ class Solution {
         // sort it:
         Arrays.sort(nums);
         // use hashSet to store result;
-        HashSet<List<Integer>> set = new HashSet<>();
+        //HashSet<List<Integer>> set = new HashSet<>();
+        ArrayList<List<Integer>> set = new ArrayList<>();
         // just like 3 sum, we have more loop;
         for(int i = 0 ; i < nums.length - 3; i++){
             if(target > 0 && nums[i] > target || target < 0 && nums[i] >= 0) continue;
+            if (i > 0 && nums[i - 1] == nums[i]) continue;    // 对nums[i]去重
+                
+            
             for(int j = i + 1; j < nums.length - 2; j++){
+                if (j > i + 1 && nums[j - 1] == nums[j]) continue; // 对nums[j]去重
+                    
                 if(target > 0 && nums[i] + nums[j] > target || target < 0 && nums[i] + nums[j] >= 0) continue;
                 // 2 pointers;
                 int left = j + 1;
@@ -126,6 +132,8 @@ class Solution {
                 while(left < right){
                     if(nums[left] + nums[right] + nums[i] + nums[j] == target){
                         set.add(Arrays.asList(nums[left], nums[right], nums[i], nums[j]));
+                        while (right > left && nums[right] == nums[right - 1]) right--;
+                        while (right > left && nums[left] == nums[left + 1]) left++;
                         right--;
                         left++;
                     } 
@@ -134,9 +142,9 @@ class Solution {
                 }
             }
         }
-        List<List<Integer>> res = new ArrayList<>();
-        res.addAll(set);
-        return res;
+        // List<List<Integer>> res = new ArrayList<>();
+        // res.addAll(set);
+        return set;
     }
     
 }

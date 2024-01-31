@@ -1,4 +1,5 @@
 class Solution {
+    /* from camp:
     //前缀表（不减一）Java实现
     public int strStr(String haystack, String needle) {
         if (needle.length() == 0) return 0;
@@ -29,7 +30,8 @@ class Solution {
             next[i] = j; 
         }
     }
-    /* my own solution - brute force:
+    */
+    // my own solution - brute force:
     public int strStr(String haystack, String needle) {
         // find first char of needle, then find second..
         // use array to handle them;
@@ -64,5 +66,5 @@ class Solution {
         }
         return -1;
     }
-    */
+    //*/
 }

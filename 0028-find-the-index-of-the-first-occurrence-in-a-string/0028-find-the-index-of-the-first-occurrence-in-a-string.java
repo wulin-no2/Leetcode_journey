@@ -1,4 +1,14 @@
 class Solution {
+    public int strStr(String haystack, String needle) {
+  for (int i = 0; ; i++) {
+    for (int j = 0; ; j++) {
+      if (j == needle.length()) return i;
+      if (i + j == haystack.length()) return -1;
+      if (needle.charAt(j) != haystack.charAt(i + j)) break;
+    }
+  }
+}
+    
     /* from camp:
     //前缀表（不减一）Java实现
     public int strStr(String haystack, String needle) {
@@ -31,7 +41,7 @@ class Solution {
         }
     }
     */
-    // my own solution - brute force:
+    /* my own solution - brute force:
     public int strStr(String haystack, String needle) {
         // find first char of needle, then find second..
         // use array to handle them;
@@ -66,5 +76,5 @@ class Solution {
         }
         return -1;
     }
-    //*/
+    */
 }

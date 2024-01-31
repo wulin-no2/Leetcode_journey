@@ -1,12 +1,18 @@
 class Solution {
+    // from discuss:
     public int strStr(String haystack, String needle) {
-  for (int i = 0; ; i++) {
-    for (int j = 0; ; j++) {
-      if (j == needle.length()) return i;
-      if (i + j == haystack.length()) return -1;
-      if (needle.charAt(j) != haystack.charAt(i + j)) break;
-    }
-  }
+        // use array to handle them;
+        if(needle.length() > haystack.length()) return -1;
+        char[] hay = haystack.toCharArray();
+        char[] need = needle.toCharArray();
+        
+        for (int i = 0; ; i++) {
+            for (int j = 0; ; j++) {
+              if (j == need.length) return i;
+              if (i + j == hay.length) return -1;
+              if (need[j] != hay[i + j]) break;
+            }
+        }
 }
     
     /* from camp:

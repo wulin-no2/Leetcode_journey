@@ -1,6 +1,6 @@
 class Solution {
     public boolean repeatedSubstringPattern(String s) {
-        /*
+        ///*
         for (int i = 1; i <= s.length() / 2; i++) {
             if (s.length() % i == 0) {
                 String substring = s.substring(0, i);
@@ -14,7 +14,8 @@ class Solution {
             }
         }
         return false;
-        */
+        //*/
+        /* my own solution: slooooooow;
         // convert to StringBuilder;
         // StringBuilder sb = new StringBuilder(s);
         // find the nth same letter with first letter; use subArray to see if it's work;
@@ -27,5 +28,6 @@ class Solution {
             if(temp.toString().equals(s)) return true;
         }
         return false;  
+        */
     }
 }

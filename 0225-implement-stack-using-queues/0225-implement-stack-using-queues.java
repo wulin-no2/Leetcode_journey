@@ -1,4 +1,31 @@
 class MyStack {
+    Queue<Integer> q = new LinkedList<>();
+    public MyStack(){
+        
+    }
+    public void push(int x){
+        // everytime we push an element, move all the previous elements to the end of the element;
+        q.offer(x);
+        int i = q.size();
+        while( i > 1){
+            q.offer(q.poll());
+            i--;
+        }
+        
+    }
+    public int pop(){
+        return q.poll();
+        
+    }
+    public int top(){
+        return q.peek();
+        
+    }
+    public boolean empty(){
+        return q.isEmpty();
+        
+    }
+    /*my solution before:
     // analyze:
     // use 2 queues;
     // when push(), q1.push();
@@ -46,6 +73,7 @@ class MyStack {
         return q1.isEmpty();
         
     }
+    */
 }
 
 /**

@@ -2,11 +2,12 @@ class Solution {
 
     public String removeDuplicates(String s) {
         // my own solution:
-        /*
+        // /*
         // use stack to handle adjacent letters;
         Deque<Character> stack = new LinkedList<>();
-        for(int i = 0 ; i < s.length() ; i ++){
-            if(stack.isEmpty() || stack.peek() != s.charAt(i) ) stack.push(s.charAt(i));
+        char[] arr = s.toCharArray();
+        for(int i = 0 ; i < arr.length ; i ++){
+            if(stack.isEmpty() || stack.peek() != arr[i]) stack.push(arr[i]);
             else {
                 stack.pop();
             }
@@ -16,9 +17,10 @@ class Solution {
             sb.insert(0, stack.pop());
         }
         return sb.toString();
-        */
+        // */
         
         // from camp: fast slow approach:
+        /*
         char[] ch = s.toCharArray();
         int fast = 0;
         int slow = 0;
@@ -34,6 +36,6 @@ class Solution {
             fast++;
         }
         return new String(ch,0,slow);
-        
+        */
     }
 }

@@ -12,11 +12,17 @@ class Solution {
                 stack.pop();
             }
         }
-        StringBuilder sb = new StringBuilder();
+        String res = "";
+        while(!stack.isEmpty()){
+            res = stack.pop() + res;
+        }
+        return res;
+        /*StringBuilder sb = new StringBuilder();
         while(!stack.isEmpty()){
             sb.insert(0, stack.pop());
         }
         return sb.toString();
+        */
         // */
         
         // from camp: fast slow approach:

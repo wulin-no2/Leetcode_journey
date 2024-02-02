@@ -13,8 +13,8 @@ class Solution {
             }
             else return false;
         }
-        if(!stack.isEmpty()) return false;
-        return true;
+        //if(!stack.isEmpty()) return false;
+        return stack.isEmpty();
         
         
         

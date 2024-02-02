@@ -1,5 +1,30 @@
 class Solution {
     public int evalRPN(String[] tokens) {
+        // use stack, each time we came across non number,  pop() twice;
+        // or we push it;
+        if(tokens == null || tokens.length == 0) return 0;
+        Deque<Integer> stack = new LinkedList<>();
+        String operators = "+-*/";
+        for(int i = 0 ; i < tokens.length ; i ++){
+            if(operators.contains(tokens[i])){
+                int num2 = stack.pop();
+                int num1 = stack.pop();
+                if(tokens[i].equals("+")) stack.push(num1 + num2);
+                if(tokens[i].equals("-")) stack.push(num1 - num2);
+                if(tokens[i].equals("*")) stack.push(num1 * num2);
+                if(tokens[i].equals("/")) stack.push(num1 / num2);
+            }
+            else stack.push(Integer.valueOf(tokens[i]));              
+        }
+        return stack.pop();
+                                                 
+        
+        
+        
+        
+        
+        
+        
         // analyze:
         // traverse:
         // 1) if number, push to stack;
@@ -42,9 +67,10 @@ class Solution {
         }
         return res;   
         */
+        /* before:
         if(tokens == null || tokens.length == 0) return 0;
         Deque<Integer> stack = new LinkedList<>();
-        String operators = "+-*/";
+        String operators = "+-* /";
         for(int i = 0;i< tokens.length;i++){
             if(operators.contains(tokens[i])){
                 int num1 = stack.pop();
@@ -56,5 +82,6 @@ class Solution {
             }else stack.push(Integer.valueOf(tokens[i]));
         }
         return stack.peek();
+        */
     }
 }

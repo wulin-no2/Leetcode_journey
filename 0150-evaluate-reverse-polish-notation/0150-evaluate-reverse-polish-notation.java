@@ -2,7 +2,7 @@ class Solution {
     public int evalRPN(String[] tokens) {
         // use stack, each time we came across non number,  pop() twice;
         // or we push it;
-        if(tokens == null || tokens.length == 0) return 0;
+        // if(tokens == null || tokens.length == 0) return 0;
         Deque<Integer> stack = new LinkedList<>();
         String operators = "+-*/";
         for(int i = 0 ; i < tokens.length ; i ++){
@@ -17,14 +17,6 @@ class Solution {
             else stack.push(Integer.valueOf(tokens[i]));              
         }
         return stack.pop();
-                                                 
-        
-        
-        
-        
-        
-        
-        
         // analyze:
         // traverse:
         // 1) if number, push to stack;

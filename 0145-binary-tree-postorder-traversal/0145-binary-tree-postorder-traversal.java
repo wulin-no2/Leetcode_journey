@@ -25,6 +25,7 @@ class Solution {
         return list;
         */
         // iterative approach.
+        // postorder: add the leaf first. but need to confirm all the nodes that are not leaves should be trimed(remove their children);
         List<Integer> list = new ArrayList<>();
         if(root == null) return list;
         Deque<TreeNode> stack = new LinkedList<>();
@@ -34,11 +35,8 @@ class Solution {
             if(temp.right == null && temp.left == null) list.add(stack.pop().val);
             if(temp.right != null) {stack.push(temp.right); temp.right = null; }
             if(temp.left != null) {stack.push(temp.left); temp.left = null; } 
-
         }
         return list;
-        
-        
         
         // analyze:
         // 2 approach:

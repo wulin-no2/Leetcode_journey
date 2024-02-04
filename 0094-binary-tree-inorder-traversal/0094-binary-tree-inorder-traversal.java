@@ -30,15 +30,13 @@ class Solution {
         Deque<TreeNode> stack = new LinkedList<>();
         stack.push(root);
         while(!stack.isEmpty()){
-            TreeNode temp = stack.peek();
-            if(temp.left == null && temp.right == null) list.add(stack.pop().val);
-            if(temp.right != null) {stack.pop(); stack.push(temp.right); stack.push(temp); temp.right = null;}
-            if(temp.left != null){stack.push(temp.left); temp.left = null;}
+            TreeNode temp = stack.pop();
+            if(temp.left == null && temp.right == null) list.add(temp.val);
+            else if(temp.right != null && temp.left == null) {stack.push(temp.right); stack.push(temp); temp.right = null;}
+            else if(temp.right != null && temp.left != null) {stack.push(temp.right); stack.push(temp); stack.push(temp.left); temp.right = null;temp.left = null;}
+            else {stack.push(temp); stack.push(temp.left); temp.left = null;}
         }
         return list;
-        
-        
-        
         
         // recursive approach: 2024.1.7.23.52;
         /*

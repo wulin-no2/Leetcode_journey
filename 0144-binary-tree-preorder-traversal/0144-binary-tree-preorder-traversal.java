@@ -27,6 +27,7 @@ class Solution {
         */
         
         // iterative approach:
+        // /* o(n) o(n) 
         List<Integer> list = new ArrayList<>();
         Deque<TreeNode> stack = new LinkedList<>();
         if(root == null) return list;
@@ -38,8 +39,6 @@ class Solution {
             if(temp.left != null) stack.push(temp.left);
         }
         return list;
-        
-        
         
         
         // analyze:

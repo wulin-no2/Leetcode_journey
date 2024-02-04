@@ -15,6 +15,14 @@
  */
 class Solution {
     public List<Integer> postorderTraversal(TreeNode root) {
+        // recursive approach. 0204
+        List<Integer> list = new ArrayList<>();
+        if(root == null) return list;
+        list.addAll(postorderTraversal(root.left));
+        list.addAll(postorderTraversal(root.right));
+        list.add(root.val);
+        return list;
+        
         // analyze:
         // 2 approach:
         // first, recursive: done at 22:25, Jan.7.2024
@@ -86,6 +94,7 @@ class Solution {
         
         // my solution correctly:
         // Create an array list to store the solution result...
+        /* solution before:
         List<Integer> sol = new ArrayList<Integer>();
         // Return the solution answer if the tree is empty...
         if(root==null) return sol;
@@ -115,6 +124,6 @@ class Solution {
             }
         }
         return sol;     // Return the solution list...
-        
+        */
     }
 }

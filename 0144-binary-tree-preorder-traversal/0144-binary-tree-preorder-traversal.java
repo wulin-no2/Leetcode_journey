@@ -15,6 +15,15 @@
  */
 class Solution {
     public List<Integer> preorderTraversal(TreeNode root) {
+        // recursive approach. 0204;
+        // use list to store the values;
+        List<Integer> list = new ArrayList<>();
+        if(root == null) return list;
+        list.add(root.val);
+        list.addAll(preorderTraversal(root.left));
+        list.addAll(preorderTraversal(root.right));
+        return list;
+        
         // analyze:
         // we need an arraylist to store the values;
         // we can use recursive approach or iterative approach:
@@ -38,6 +47,8 @@ class Solution {
         // if the node has children, 
         // we push right child into stack, then left;
         // until the stack is empty.
+        
+        /*another approach:
         ArrayList<Integer> arr = new ArrayList<>();
         Stack<TreeNode> stack = new Stack<TreeNode>();
         
@@ -58,13 +69,8 @@ class Solution {
                 stack.push(p.left);
             }
         }
-        return arr;
-        
-        
-        
-        
-        
-        
+        return arr; 
+        */
         
         /* following is iterative approach before.
         List<Integer> arrayList1 = new ArrayList<>();

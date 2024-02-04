@@ -16,12 +16,27 @@
 class Solution {
     public List<Integer> inorderTraversal(TreeNode root) {
         // recursive approach. 0204
+        /*
         List<Integer> list = new ArrayList<>();
         if(root == null) return list;
         list.addAll(inorderTraversal(root.left));
         list.add(root.val);
         list.addAll(inorderTraversal(root.right));
         return list;
+        */
+        // iterative approach.
+        List<Integer> list = new ArrayList<>();
+        if(root == null) return list;
+        Deque<TreeNode> stack = new LinkedList<>();
+        stack.push(root);
+        while(!stack.isEmpty()){
+            TreeNode temp = stack.peek();
+            if(temp.left == null && temp.right == null) list.add(stack.pop().val);
+            if(temp.right != null) {stack.pop(); stack.push(temp.right); stack.push(temp); temp.right = null;}
+            if(temp.left != null){stack.push(temp.left); temp.left = null;}
+        }
+        return list;
+        
         
         
         

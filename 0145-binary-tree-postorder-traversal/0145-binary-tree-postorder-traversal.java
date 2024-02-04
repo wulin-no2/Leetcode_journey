@@ -16,12 +16,29 @@
 class Solution {
     public List<Integer> postorderTraversal(TreeNode root) {
         // recursive approach. 0204
+        /*
         List<Integer> list = new ArrayList<>();
         if(root == null) return list;
         list.addAll(postorderTraversal(root.left));
         list.addAll(postorderTraversal(root.right));
         list.add(root.val);
         return list;
+        */
+        // iterative approach.
+        List<Integer> list = new ArrayList<>();
+        if(root == null) return list;
+        Deque<TreeNode> stack = new LinkedList<>();
+        stack.push(root);
+        while(!stack.isEmpty()){
+            TreeNode temp = stack.peek();
+            if(temp.right == null && temp.left == null) list.add(stack.pop().val);
+            if(temp.right != null) {stack.push(temp.right); temp.right = null; }
+            if(temp.left != null) {stack.push(temp.left); temp.left = null; } 
+
+        }
+        return list;
+        
+        
         
         // analyze:
         // 2 approach:

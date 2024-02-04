@@ -15,6 +15,16 @@
  */
 class Solution {
     public List<Integer> inorderTraversal(TreeNode root) {
+        // recursive approach. 0204
+        List<Integer> list = new ArrayList<>();
+        if(root == null) return list;
+        list.addAll(inorderTraversal(root.left));
+        list.add(root.val);
+        list.addAll(inorderTraversal(root.right));
+        return list;
+        
+        
+        
         // recursive approach: 2024.1.7.23.52;
         /*
         List<Integer> arr = new ArrayList<>();
@@ -34,6 +44,7 @@ class Solution {
         // if a node has no left child, add its value into arr and see right child;
         
         // use stack;
+        /* solution before:
         List<Integer> arr = new ArrayList<>();
         Stack<TreeNode> stack = new Stack<>();
         if(root == null){
@@ -54,5 +65,6 @@ class Solution {
         }
         
         return arr;
+        */
     }
 }

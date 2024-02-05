@@ -15,6 +15,31 @@
  */
 class Solution {
     public List<List<Integer>> levelOrder(TreeNode root) {
+        // 0205
+        // use a list to store result;
+        List<List<Integer>> res = new ArrayList<>();
+        if(root == null) return res;
+        // use a queue to BFS:
+        Deque<TreeNode> q = new LinkedList<>();
+        q.offer(root);
+        while(!q.isEmpty()){
+            int size = q.size();
+            List<Integer> list = new ArrayList<>();
+            while(size-- > 0){
+                TreeNode temp = q.poll();
+                list.add(temp.val);
+                if(temp.left != null) q.offer(temp.left);
+                if(temp.right != null) q.offer(temp.right);
+            }
+            res.add(list);
+        }
+        return res;
+        
+        
+        
+        
+        
+        
         // can't do it, juct copy one and see why
         // BFS iterative approach:
         /*
@@ -46,6 +71,7 @@ class Solution {
         */
         
         // DFS recursive approach:
+        /* solution before:
         List<List<Integer>> res = new ArrayList<>();
 		if (root == null)
 			return res;
@@ -68,6 +94,6 @@ class Solution {
 		}
 		levelOrderHelper(res, root.left, level + 1);
 		levelOrderHelper(res, root.right, level + 1);
-        
+        */
     }
 }

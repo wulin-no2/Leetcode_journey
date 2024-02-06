@@ -14,6 +14,29 @@
  * }
  */
 class Solution {
+        public List<Integer> rightSideView(TreeNode root) {
+            // use level order
+            List<Integer> res = new ArrayList<>();
+            if(root == null) return res;
+            // use queue to traverse:
+            Deque<TreeNode> q = new LinkedList<>();
+            q.offer(root);
+            while(!q.isEmpty()){
+                int size = q.size();
+                List<Integer> list = new ArrayList<>();
+                while(size -- > 0){
+                    TreeNode temp = q.poll();
+                    if(size == 0) res.add(temp.val);
+                    if(temp.left != null) q.offer(temp.left);
+                    if(temp.right != null) q.offer(temp.right);
+                }
+            }
+            return res;
+            
+            
+            
+            
+        }
     /*
     public List<Integer> rightSideView(TreeNode root) {
         // from 21:30; analyze 2min;
@@ -27,7 +50,6 @@ class Solution {
         // base cases:
         if(root == null) return new ArrayList<>();
         ArrayList<Integer> res = new ArrayList<>();
-        // if(root.val == null) return res;
         
         // use queue to traverse;
         Queue<TreeNode> queue = new LinkedList<>();
@@ -48,7 +70,7 @@ class Solution {
     }
     */
     // a simple recursive approach from discuss;
-    
+    /*
     public List<Integer> rightSideView(TreeNode root) {
         var list = new ArrayList<Integer>();
         rec(root,list,0);
@@ -60,5 +82,5 @@ class Solution {
         if(root.right!=null) rec(root.right,list,depth+1);
         if(root.left!=null) rec(root.left,list,depth+1);
     }
-    //
+    */
 }

@@ -79,7 +79,7 @@ class Solution {
         
         // see others:
         // DFS:
-        // /*
+        /*
         if(root == null) {
         return 0;
         }
@@ -103,12 +103,12 @@ class Solution {
             }
         }
         return max;
-        // */
+        */
         
         
         
         // BFS:
-        /*solution before:
+        // /*solution before:
         if(root == null) {
         return 0;
         }
@@ -129,6 +129,6 @@ class Solution {
             count++;
         }
         return count;
-        */
+        // */
     }
 }

@@ -16,6 +16,7 @@
 class Solution {
     public int maxDepth(TreeNode root) {
         //0206: level order
+        /*
         int res = 0;
         if(root == null) return res;
         Deque<TreeNode> q = new LinkedList<>();
@@ -30,7 +31,7 @@ class Solution {
             res++;
         }
         return res;
-        
+        */
         
         
         
@@ -78,7 +79,7 @@ class Solution {
         
         // see others:
         // DFS:
-        /*
+        // /*
         if(root == null) {
         return 0;
         }
@@ -102,7 +103,7 @@ class Solution {
             }
         }
         return max;
-        */
+        // */
         
         
         

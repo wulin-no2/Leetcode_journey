@@ -15,6 +15,26 @@
  */
 class Solution {
     public int maxDepth(TreeNode root) {
+        //0206: level order
+        int res = 0;
+        if(root == null) return res;
+        Deque<TreeNode> q = new LinkedList<>();
+        q.offer(root);
+        while(!q.isEmpty()){
+            int size = q.size();
+            while(size-- > 0){
+                TreeNode temp = q.poll();
+                if(temp.left != null) q.offer(temp.left);
+                if(temp.right != null) q.offer(temp.right);
+            }
+            res++;
+        }
+        return res;
+        
+        
+        
+        
+        
         // analyze:
         // d(root) = d(child) + 1;
         // we use recursive approach:
@@ -87,7 +107,7 @@ class Solution {
         
         
         // BFS:
-        
+        /*solution before:
         if(root == null) {
         return 0;
         }
@@ -108,6 +128,6 @@ class Solution {
             count++;
         }
         return count;
-        
+        */
     }
 }

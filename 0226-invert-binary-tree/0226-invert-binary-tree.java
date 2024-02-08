@@ -15,6 +15,17 @@
  */
 class Solution {
     public TreeNode invertTree(TreeNode root) {
+        // 0208
+        // recursive first: pre-order or post-order
+        if(root == null) return root;
+        TreeNode temp = root.left;
+        root.left = root.right;
+        root.right = temp;
+        invertTree(root.left);
+        invertTree(root.right);
+        return root;
+        
+        
         // use recursive approach:
         /* Time Complexity : O(n), Space Complexity : O(n)
         if(root == null){
@@ -29,7 +40,7 @@ class Solution {
         // use iterative approach:
         // it's similar to levelOrder, use linkedlist to create a queue;
         // analyze:
-        
+        /*
         LinkedList<TreeNode> q = new LinkedList<>();
         // base case:
         if(root == null){
@@ -53,6 +64,6 @@ class Solution {
             temp.right = p;
         }
         return root;  
-        
+        */
     }
 }

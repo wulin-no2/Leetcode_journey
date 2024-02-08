@@ -17,6 +17,7 @@ class Solution {
     public TreeNode invertTree(TreeNode root) {
         // 0208
         // recursive first: pre-order or post-order
+        /*
         if(root == null) return root;
         TreeNode temp = root.left;
         root.left = root.right;
@@ -24,6 +25,27 @@ class Solution {
         invertTree(root.left);
         invertTree(root.right);
         return root;
+        */
+        // irerative: level order
+        if(root == null) return root;
+        Deque<TreeNode> q = new LinkedList<>();
+        q.offer(root);
+        while(!q.isEmpty()){
+            int size = q.size();
+            while(size -- > 0){
+                TreeNode temp = q.poll();
+                if(temp.left != null) q.offer(temp.left);
+                if(temp.right != null) q.offer(temp.right);
+                TreeNode temp1 = temp.right;
+                temp.right = temp.left;
+                temp.left = temp1;
+            }
+            
+        }
+        return root;
+        
+        
+        
         
         
         // use recursive approach:

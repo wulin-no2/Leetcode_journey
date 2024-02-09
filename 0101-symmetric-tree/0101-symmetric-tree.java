@@ -45,23 +45,13 @@ class Solution {
     }
 
     private boolean compare(TreeNode left, TreeNode right) {
-
-        if (left == null && right != null) {
-            return false;
-        }
-        if (left != null && right == null) {
-            return false;
-        }
-
-        if (left == null && right == null) {
-            return true;
-        }
-        if (left.val != right.val) {
-            return false;
-        }
-        // 比较外侧
+        if (left == null && right != null) return false;
+        if (left != null && right == null) return false;
+        if (left == null && right == null) return true;
+        if (left.val != right.val) return false;
+        // compare outside
         boolean compareOutside = compare(left.left, right.right);
-        // 比较内侧
+        // compare inside
         boolean compareInside = compare(left.right, right.left);
         return compareOutside && compareInside;
     }

@@ -26,6 +26,7 @@ class Solution {
             if (left == null && right == null) continue;
             if (left == null || right == null) return false;
             if (left.val != right.val) return false;
+            // see how to add node to the queue. outside then inside;
             q.add(left.left);
             q.add(right.right);
             q.add(left.right);

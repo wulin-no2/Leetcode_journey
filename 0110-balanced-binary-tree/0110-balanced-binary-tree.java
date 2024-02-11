@@ -14,7 +14,8 @@
  * }
  */
 class Solution {
-    //boolean res = true;
+
+    /* new attempt:
     private int h(TreeNode root){
         if(root == null) return 0;
         int leftHeight = h(root.left);
@@ -28,7 +29,7 @@ class Solution {
     }
     public boolean isBalanced(TreeNode root) {
         return h(root) != -1;
-        // new attempt in 0210;
+        */
         
         // analyze:
         // if both the left child and the right child is balanced and their height difference <= 1, return true;
@@ -51,14 +52,17 @@ class Solution {
         
         // the second approach, optimized by checking if subtree is balanced in the h() method:
         // now the time complexity is O(n), space complexity is O(n)
-        /* solution before:
-        // base case:
-        if(root == null){
-            return true;
-        }
-        int h1 = h(root.left);
-        int h2 = h(root.right);
-        return Math.abs(h1 - h2) <= 1 && res;
+        // /* solution before:
+        
+        boolean res = true;
+        public boolean isBalanced(TreeNode root) {
+            // base case:
+            if(root == null){
+                return true;
+            }
+            int h1 = h(root.left);
+            int h2 = h(root.right);
+            return Math.abs(h1 - h2) <= 1 && res;
     }
     public int h(TreeNode root){
         if(root == null){return 0;}
@@ -69,6 +73,6 @@ class Solution {
             res = false;
         }
         return height;
-        */
+        // */
     }
 }

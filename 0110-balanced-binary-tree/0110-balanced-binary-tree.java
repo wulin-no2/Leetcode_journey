@@ -14,8 +14,22 @@
  * }
  */
 class Solution {
-    boolean res = true;
+    //boolean res = true;
+    private int h(TreeNode root){
+        if(root == null) return 0;
+        int leftHeight = h(root.left);
+        if (leftHeight == -1) return -1; // Left subtree is not balanced
+        
+        int rightHeight = h(root.right);
+        if (rightHeight == -1) return -1; // Right subtree is not balanced
+        
+        if (Math.abs(leftHeight - rightHeight) > 1) return -1;
+        return Math.max(h(root.left), h(root.right)) + 1;
+    }
     public boolean isBalanced(TreeNode root) {
+        return h(root) != -1;
+        // new attempt in 0210;
+        
         // analyze:
         // if both the left child and the right child is balanced and their height difference <= 1, return true;
         // how to get the height of a node?
@@ -37,6 +51,7 @@ class Solution {
         
         // the second approach, optimized by checking if subtree is balanced in the h() method:
         // now the time complexity is O(n), space complexity is O(n)
+        /* solution before:
         // base case:
         if(root == null){
             return true;
@@ -54,5 +69,6 @@ class Solution {
             res = false;
         }
         return height;
+        */
     }
 }

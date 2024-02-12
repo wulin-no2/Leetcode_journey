@@ -15,6 +15,7 @@
  */
 class Solution {
     public List<String> binaryTreePaths(TreeNode root) {
+        /* solution 1
         List<String> res = new ArrayList<>();// 存最终的结果
         if (root == null) {
             return res;
@@ -46,6 +47,34 @@ class Solution {
             traversal(root.right, paths, res);
             paths.remove(paths.size() - 1);// 回溯
         }
+        */
+        List<String> result = new ArrayList<>();
+        if (root == null)
+            return result;
+        Stack<Object> stack = new Stack<>();
+        // 节点和路径同时入栈
+        stack.push(root);
+        stack.push(root.val + "");
+        while (!stack.isEmpty()) {
+            // 节点和路径同时出栈
+            String path = (String) stack.pop();
+            TreeNode node = (TreeNode) stack.pop();
+            // 若找到叶子节点
+            if (node.left == null && node.right == null) {
+                result.add(path);
+            }
+            //右子节点不为空
+            if (node.right != null) {
+                stack.push(node.right);
+                stack.push(path + "->" + node.right.val);
+            }
+            //左子节点不为空
+            if (node.left != null) {
+                stack.push(node.left);
+                stack.push(path + "->" + node.left.val);
+            }
+        }
+        return result;
         
     }
 }

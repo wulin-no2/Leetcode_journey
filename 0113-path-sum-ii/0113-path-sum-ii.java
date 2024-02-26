@@ -15,6 +15,7 @@
  */
 class Solution {
     // 2024.2.26
+    /*
     private void dfs(TreeNode node, List<Integer> list, List<List<Integer>> res, int target){
         if(node==null) return; 
         list.add(node.val);
@@ -31,8 +32,9 @@ class Solution {
         dfs(root, list, res, targetSum);
         return res;
     }
+    */
     
-    /*
+    
     public List<List<Integer>> pathSum(TreeNode root, int targetSum) {
         // recursive, but have to see how to store res;
         List<List<Integer>> res = new ArrayList<>();
@@ -60,7 +62,7 @@ class Solution {
             list.remove(list.size()-1);
         }
     }
-    */
+    
     // solution 2
     /*
     List<List<Integer>> result;

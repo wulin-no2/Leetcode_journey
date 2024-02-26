@@ -20,7 +20,7 @@ class Solution {
         if(node==null) return; 
         list.add(node.val);
         target-=node.val;
-        //System.out.println(list);
+        System.out.println(list);
         if(node.left==null && node.right==null && target == 0){res.add(new LinkedList(list));}
         dfs(node.left, list, res, target);
         dfs(node.right, list, res, target);

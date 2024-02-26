@@ -20,15 +20,15 @@ class Solution {
         if(node==null) return; 
         list.add(node.val);
         target-=node.val;
-        System.out.println(list);
-        if(node.left==null && node.right==null && target == 0){res.add(new LinkedList(list));}
+        //System.out.println(list);
+        if(node.left==null && node.right==null && target == 0){res.add(new ArrayList(list));}
         dfs(node.left, list, res, target);
         dfs(node.right, list, res, target);
         list.remove(list.size()-1);
     }
     public List<List<Integer>> pathSum(TreeNode root, int targetSum) {
-        List<List<Integer>> res = new LinkedList<>();
-        List<Integer> list = new LinkedList<>();
+        List<List<Integer>> res = new ArrayList<>();
+        List<Integer> list = new ArrayList<>();
         dfs(root, list, res, targetSum);
         return res;
     }

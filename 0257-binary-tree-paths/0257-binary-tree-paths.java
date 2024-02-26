@@ -14,6 +14,22 @@
  * }
  */
 class Solution {
+    
+    public List<String> binaryTreePaths(TreeNode root) {
+        List<String> res = new ArrayList<>();
+        dfs(root, "", res);
+        return res;
+        
+    }
+    private void dfs(TreeNode node, String s, List res){
+        if(s.equals("")) s = s + node.val;
+        else s = s + "->" + node.val;
+        if(node.left==null && node.right==null) {res.add(s); return;}
+        if(node.left!=null){dfs(node.left, s, res);}
+        if(node.right!=null){dfs(node.right, s, res);}
+    }
+    
+    /*
     List<String> result = new ArrayList<>();
 
     public List<String> binaryTreePaths(TreeNode root) {
@@ -32,6 +48,8 @@ class Solution {
         deal(node.left, tmp);
         deal(node.right, tmp);
     }
+    */
+}
     //public List<String> binaryTreePaths(TreeNode root) {
         /* solution 1
         List<String> res = new ArrayList<>();// 存最终的结果
@@ -97,4 +115,3 @@ class Solution {
         return result;
         */
     // }
-}

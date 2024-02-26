@@ -18,7 +18,7 @@ class Solution {
         dfs(root,1);
         return res;
         // remember the leftmost of each layer, update the value when level-order traverse;
-        /* first approach: DFS
+        /* first approach: BFS
         Deque<TreeNode> q = new LinkedList<>();
         q.offer(root);
         int res = root.val;
@@ -49,6 +49,7 @@ class Solution {
             }
             return;
         }
+        // how to recursive each step?
         if(root.left!=null){
             depth++;
             dfs(root.left, depth);

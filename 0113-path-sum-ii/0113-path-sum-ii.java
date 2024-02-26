@@ -34,7 +34,7 @@ class Solution {
     }
     */
     
-    
+    /*
     public List<List<Integer>> pathSum(TreeNode root, int targetSum) {
         // recursive, but have to see how to store res;
         List<List<Integer>> res = new ArrayList<>();
@@ -62,9 +62,10 @@ class Solution {
             list.remove(list.size()-1);
         }
     }
+    */
     
     // solution 2
-    /*
+    
     List<List<Integer>> result;
     LinkedList<Integer> path;
     public List<List<Integer>> pathSum (TreeNode root,int targetSum) {
@@ -84,5 +85,5 @@ class Solution {
         travesal(root.right, count);
         path.removeLast(); // 回溯
     }
-    */
+    
 }

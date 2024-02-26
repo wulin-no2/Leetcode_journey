@@ -14,6 +14,24 @@
  * }
  */
 class Solution {
+    // 2024.2.26
+    private void dfs(TreeNode node, List<Integer> list, List<List<Integer>> res, int target){
+        if(node==null) return; 
+        list.add(node.val);
+        target-=node.val;
+        System.out.println(list);
+        if(node.left==null && node.right==null && target == 0){res.add(new ArrayList(list));}
+        dfs(node.left, list, res, target);
+        dfs(node.right, list, res, target);
+        list.remove(list.size()-1);
+    }
+    public List<List<Integer>> pathSum(TreeNode root, int targetSum) {
+        List<List<Integer>> res = new ArrayList<>();
+        List<Integer> list = new ArrayList<>();
+        dfs(root, list, res, targetSum);
+        return res;
+    }
+    
     /*
     public List<List<Integer>> pathSum(TreeNode root, int targetSum) {
         // recursive, but have to see how to store res;
@@ -44,6 +62,7 @@ class Solution {
     }
     */
     // solution 2
+    /*
     List<List<Integer>> result;
     LinkedList<Integer> path;
     public List<List<Integer>> pathSum (TreeNode root,int targetSum) {
@@ -63,4 +82,5 @@ class Solution {
         travesal(root.right, count);
         path.removeLast(); // 回溯
     }
+    */
 }

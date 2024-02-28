@@ -9,26 +9,17 @@ class Solution {
         
         /*
         int maxEndingHere = nums[0];
-        //LinkedList<Integer> cddArray = new LinkedList<>();
-        //cddArray.add(nums[0]);
-        
         int max = nums[0];
-        //LinkedList<Integer> maxArray = new LinkedList<>();
-        //maxArray.add(nums[0]);
         
         for(int i = 1; i < nums.length; i++){
             if(maxEndingHere + nums[i] > nums[i]){
                 maxEndingHere = maxEndingHere + nums[i];
-                //cddArray.add(nums[i]); 
             }else{
                 maxEndingHere = nums[i];
-                //cddArray = null;
-                //cddArray.add(nums[i]); 
             }
             
             if(max < maxEndingHere){
                 max = maxEndingHere;
-                //maxArray = cddArray;
             } 
         }
         return max;

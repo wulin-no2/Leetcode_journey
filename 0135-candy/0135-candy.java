@@ -13,16 +13,14 @@ class Solution {
         }
         // 2nd pass:
         for(int i = 0; i < ratings.length - 1 ; i++){
-            while(ratings[i] > ratings[i + 1] && candy[i] <= candy[i + 1]) {candy[i]++;res++;}
-            while(ratings[i] < ratings[i + 1] && candy[i] >= candy[i + 1]) {candy[i+1]++;res++;}
+            if(ratings[i] > ratings[i + 1] && candy[i] <= candy[i + 1]) {int temp = candy[i]; candy[i] = candy[i + 1] + 1;res += candy[i] - temp;}
+            if(ratings[i] < ratings[i + 1] && candy[i] >= candy[i + 1]) {int temp = candy[i+1]; candy[i + 1] = candy[i] + 1;res += candy[i + 1] - temp;}
         }
         // 3rd pass:
         for(int i = ratings.length - 1; i >= 1 ; i--){
-            while(ratings[i] > ratings[i - 1] && candy[i] <= candy[i - 1]) {candy[i]++;res++;}
-            while(ratings[i] < ratings[i - 1] && candy[i] >= candy[i - 1]) {candy[i-1]++;res++;}
+            if(ratings[i] > ratings[i - 1] && candy[i] <= candy[i - 1]) {int temp = candy[i]; candy[i] = candy[i - 1] + 1;res += candy[i] - temp;}
+            if(ratings[i] < ratings[i - 1] && candy[i] >= candy[i - 1]) {int temp = candy[i-1]; candy[i - 1] = candy[i] + 1;res += candy[i - 1] - temp;}
         }
         return res;
-        
-        
     }
 }

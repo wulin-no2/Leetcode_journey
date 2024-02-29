@@ -1,6 +1,7 @@
 class Solution {
     public int canCompleteCircuit(int[] gas, int[] cost) {
         // calculate gas[i] - cost[i], only when it's >= 0, can we go next station;
+        // totally don't understand;
         int sGas = 0, sCost = 0, res = 0, total = 0;
         for(int i = 0;i<gas.length;i++){
             sGas += gas[i];

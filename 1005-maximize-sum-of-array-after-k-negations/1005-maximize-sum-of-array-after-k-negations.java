@@ -5,23 +5,14 @@ class Solution {
         
         Arrays.sort(nums);
         int i = 0;
-        while(k > 0 && i < nums.length && nums[i] < 0) {
-            nums[i] = -nums[i];
-            i++;
-            k--;
-        }
+        while(k > 0 && i < nums.length && nums[i] < 0) {nums[i] = -nums[i]; i++; k--;}
         if(k == 0) return sumArray(nums);
         if(k % 2 == 0) return sumArray(nums);
-        else {
-            Arrays.sort(nums);
-            return sumArray(nums) - nums[0]*2;
-        }
+        else {Arrays.sort(nums); return sumArray(nums) - nums[0]*2;}
     }
     private int sumArray(int[] nums){
         int sum = 0;
-        for(int i = 0; i<nums.length; i++){
-            sum += nums[i];
-        }
+        for(int i = 0; i<nums.length; i++) sum += nums[i];
         return sum;
     }
 }

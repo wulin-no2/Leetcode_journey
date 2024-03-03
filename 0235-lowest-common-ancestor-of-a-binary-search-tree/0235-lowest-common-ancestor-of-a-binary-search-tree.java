@@ -10,6 +10,13 @@
 
 class Solution {
     public TreeNode lowestCommonAncestor(TreeNode root, TreeNode p, TreeNode q) {
+        // in fact, no need to swap q and q;
+        // Directly use the properties of BST to find LCA.
+    if (root.val > p.val && root.val > q.val) return lowestCommonAncestor(root.left, p, q);
+    else if (root.val < p.val && root.val < q.val)  return lowestCommonAncestor(root.right, p, q);
+    else return root;
+    
+        /*
         // preorder. if for the 2 nodes, p>=node.val, q<node.val;or vise versa, return node; otherwise, find its child;
         if(p.val < q.val){
             TreeNode temp = p;
@@ -20,6 +27,7 @@ class Solution {
         if(root.val > q.val && root.val < p.val || root.val == q.val || root.val == p.val) return root;
         else if(root.val > p.val) return lowestCommonAncestor(root.left, p, q);
         else return lowestCommonAncestor(root.right, p, q);
+        */
         
         /*
         // analyze:

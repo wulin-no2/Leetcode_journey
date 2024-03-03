@@ -1,5 +1,6 @@
 class Solution {
     public int findMinArrowShots(int[][] points) {
+        /*my own solution:
         // sort it at first;
         Arrays.sort(points, (a, b) -> Integer.compare(a[0], b[0]));
         // merge it if they overlap with each other;
@@ -35,5 +36,24 @@ class Solution {
             }
         }
         return list.size();
+        */
+        // from gpt:
+        // Sort the points based on the end position
+        Arrays.sort(points, (a, b) -> Integer.compare(a[1], b[1]));
+        
+        int res = 1; // Start with one arrow for the first balloon
+        int end = points[0][1]; // End position of the first balloon
+
+        for (int i = 1; i < points.length; i++) {
+            // If the current balloon starts after the last balloon ends, increase arrow count
+            if (points[i][0] > end) {
+                res++;
+                end = points[i][1]; // Update the end to the current balloon's end
+            }
+            // If overlapping, we keep the current end since we sorted by end, ensuring minimum overlap
+        }
+
+        return res;
+        
     }
 }

@@ -29,12 +29,7 @@ class Solution {
                 p.right = root.right;
                 root = p; 
             }
-            else {
-                TreeNode p = findSmallest(root.right);
-                p.right = deleteNode(root.right, p.val);
-                p.left = root.left;
-                root = p; 
-            }
+            else root = root.right; 
         }
         return root;
     }
@@ -44,12 +39,5 @@ class Solution {
             p = p.right;
         }
         return p;
-    } 
-    private TreeNode findSmallest(TreeNode node){
-        TreeNode p = node;
-        while(p.left!=null){
-            p = p.left;
-        }
-        return p;  
     } 
 }

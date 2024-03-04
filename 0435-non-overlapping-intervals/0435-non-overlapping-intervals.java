@@ -12,14 +12,11 @@ class Solution {
             if(temp[1] > temp1[0]){
                 // overlap:
                 count++;
-                if(temp[1] > temp1[1]) {slow = fast; fast++;}
-                else fast++;
+                if(temp[1] > temp1[1]) slow = fast; 
             }
-            else {
-                // not overlap:
-                slow = fast;
-                fast++;
-            }
+            // not overlap:
+            else slow = fast;
+            fast++;
         }
         return count;
     }

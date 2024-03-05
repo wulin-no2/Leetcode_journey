@@ -4,7 +4,6 @@ class Solution {
         if(n < 10) return n;
         String s = n + "";
         char[] chars = s.toCharArray();
-        int flag = chars.length - 1;
         for(int i = chars.length - 1; i >= 1 ; i--){
             if(chars[i] == '0' || chars[i - 1] > chars[i]) {
                 if(chars[i - 1] > chars[i]) {
@@ -12,11 +11,10 @@ class Solution {
                 }
                 // set all the digit after be 9;
                 int temp = i;
-                while(temp <= flag){
+                while(temp < chars.length){
                     chars[temp] = '9';
                     temp++;
                 }
-                flag = i - 1;
             }
         }
         return Integer.parseInt(new String(chars));

@@ -12,7 +12,7 @@ class Solution {
             return;
         }
         for(int i = start; i <= n ; i++){
-            
+            if( n - i + 1 < (k - path.size())) return;
             path.add(i);
             backtracking(n, k, i + 1);
             path.remove(path.size() - 1);

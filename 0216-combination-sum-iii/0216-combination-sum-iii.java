@@ -14,6 +14,7 @@ class Solution {
         }
         // each level:
         for(int i = start ; i <= end ; i++){
+            if(target < 0) return;
             // trim:
             if(end - start + 1 < k - path.size()) return;
             path.add(i);

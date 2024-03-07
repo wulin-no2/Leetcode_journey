@@ -1,29 +1,33 @@
-class Solution {    
-
-    
-    
+class Solution {
     /*
     public List<String> letterCombinations(String digits) {
-        if (digits.isEmpty()) return Collections.emptyList();
-
-        String[] phone_map = {"abc", "def", "ghi", "jkl", "mno", "pqrs", "tuv", "wxyz"};
-        List<String> output = new ArrayList<>();
-        backtrack("", digits, phone_map, output);
-        return output;
+        List<String> res = new ArrayList<>();
+        String path = "";
+        String[] s = {"abc","def","ghi","jkl","mno","pqrs","tuv","wxyz"};
+        backtracking(digits, s, 0, digits.length() - 1, res, path);
+        return res;
+        
     }
-
-    private void backtrack(String combination, String next_digits, String[] phone_map, List<String> output) {
-        if (next_digits.isEmpty()) {
-            output.add(combination);
-        } else {
-            String letters = phone_map[next_digits.charAt(0) - '2'];
-            for (char letter : letters.toCharArray()) {
-                backtrack(combination + letter, next_digits.substring(1), phone_map, output);
-            }
+    void backtracking(String digits, String[] s, int start, int end, List<String> res, String path){
+        // end condition:
+        if(path.length() == digits.length()){
+            // get result;
+            res.add(path);
+            return;
         }
-    }    
-    */
+        // each level:
+        for(int i = start ; i < digits.length() ; i++){
+            int num = (int)digits.charAt(i);
+            for(int j = 0 ; j < s[num - 2].length(); j++){
+                path = path + s[num - 2].charAt(j);
+                backtracking(digits, s, i + 1, end, res, path);
+                path = path.substring(0, path.length() - 1);
+            }  
+        }
+    }
+*/
     // do backtracking again;
+    
     public List<String> letterCombinations(String digits) {
         // first base case:
         if(digits.length() == 0) return new ArrayList();
@@ -46,6 +50,7 @@ class Solution {
             }
         }
     }
+    
 
     // another approach:
     /*

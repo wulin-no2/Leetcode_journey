@@ -6,21 +6,15 @@ class Solution {
         int sum = 0;
         for(int num: nums) sum += num;
         if(sum % 2 != 0) return false;
-        
         // if sum is even:
         sum = sum / 2;
         //System.out.println("sum = " + sum);
         int n = nums.length - 1;
         // dp[i][j] means from (nums[0] to nums[i]), can we get sum = j;
-        // return dp[nums[n - 1][sum]];
         // dp[i][j] = dp[i - 1][j] || dp[i - 1][j - nums[i]];
         boolean[][] dp = new boolean[n + 1][sum + 1];
         // initialize:
-        
-        for(int i = 0 ; i <= n ; i++) {
-            dp[i][0] = true;
-            
-        }
+        for(int i = 0 ; i <= n ; i++) dp[i][0] = true;
         //System.out.print("i = 0 ");
         for(int j = 1 ; j <= sum ; j++) {
             if(j == nums[0]) dp[0][j] = true;
@@ -28,7 +22,7 @@ class Solution {
             //System.out.print(dp[0][j] +" ");
         }
         //System.out.println("");
-        for( int i = 1 ; i <= n ; i++){
+        for(int i = 1 ; i <= n ; i++){
             //System.out.print("i = " + i + " ");
             for(int j = 1 ; j <= sum ; j++) {
                 if(j >= nums[i]) dp[i][j] = dp[i - 1][j] || dp[i - 1][j - nums[i]];
@@ -38,11 +32,7 @@ class Solution {
             //System.out.println("");
         }
         return dp[n - 1][sum];
-        
 
-        
-
-        
         
         /*
         // 1) sum must be even, or return false;

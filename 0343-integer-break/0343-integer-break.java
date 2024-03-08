@@ -10,9 +10,7 @@ class Solution {
         // 9 = 3 * 3 * 3
         // 10 = 3 * 3 * 4
         // 11 = 3 * 3 * 3 * 2
-        // basically, we only need 3, then 2 or 4
-        // separate the number into 2 numbers that as equal as possible until 2 and 3
-        // 36 = 18 + 18 
+        // basically, we only need multile 3s, then one 2 or one 4
         if(n < 4) return n - 1;
         int exp = n / 3;
         int remain = n % 3;

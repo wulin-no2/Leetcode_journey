@@ -1,6 +1,7 @@
 class Solution {
     
     public boolean canPartition(int[] nums) {
+        /* do it myself:
         if(nums.length == 1) return false;
         // find subarray so that their sum is half the original array;
         int sum = 0;
@@ -32,6 +33,24 @@ class Solution {
             //System.out.println("");
         }
         return dp[n - 1][sum];
+        */
+        // use camp pattern:
+        if(nums == null || nums.length == 0) return false;
+        int n = nums.length;
+        int sum = 0;
+        for(int num : nums) sum += num;
+        if(sum % 2 != 0) return false;
+        int target = sum / 2;
+        int[] dp = new int[target + 1];
+        for(int i = 0; i < n; i++) {
+            for(int j = target; j >= nums[i]; j--) {
+                // for i, weight and value are all nums[i];
+                dp[j] = Math.max(dp[j], dp[j - nums[i]] + nums[i]);
+            }
+            //trim:
+            if(dp[target] == target) return true;
+        }
+        return dp[target] == target;
 
         
         /*

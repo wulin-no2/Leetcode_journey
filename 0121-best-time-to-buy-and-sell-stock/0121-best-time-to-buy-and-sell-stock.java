@@ -17,7 +17,7 @@ class Solution {
         //calculate:
         for(int j = 1; j < length; j++){
             dp[j][0] = Math.max(dp[j - 1][0], dp[j - 1][1] + prices[j]);
-            dp[j][1] = Math.max(dp[j - 1][1], - prices[j]);
+            dp[j][1] = Math.max(dp[j - 1][1], - prices[j]); // the problem is: only buy and sell once, so only -prices[j] here.
         }
         return dp[length-1][0];
     }

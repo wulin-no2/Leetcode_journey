@@ -1,82 +1,46 @@
 class MyQueue {
-    Deque<Integer> s1 = new LinkedList<>();
-    Deque<Integer> s2 = new LinkedList<>();
-    public MyQueue(){
-        
-    }
-    public void push(int x){
-        // always push to s1;
-        s1.push(x);
-    }
-    public int pop(){
-        // always pop() from s2 until it's empty; then pop all elements from s1 to s2 and pop();
-        if(s2.isEmpty()){
-            while(!s1.isEmpty()){
-                s2.push(s1.pop());
-            }
-        }
-        return s2.pop();
-    }
-    public int peek(){
-        // always peek()  from s2 until it's empty; then pop all elements from s1 to s2 and peek();
-        if(s2.isEmpty()){
-            while(!s1.isEmpty()){
-                s2.push(s1.pop());
-            }
-        }
-        return s2.peek();
-    }
-    public boolean empty(){
-        return s1.isEmpty() && s2.isEmpty();
-        
-    }
-    /*mu solution before:
-    // analyze:
-    // how to make if FIFO?
-    // use 2 stacks in which the second one is as an assistant;
-    // when push(), find first one to push;
-    // when pop(), pop() all the elements to the assistant and pop(), and pop() to the first one again;
-    // when peek, similar to pop;
-    // when empty(), the first stack should be empty;
-    Stack stack;
-    Stack stackA;
-    
+    // we can implement a quque with 2 stacks;
+    Deque<Integer> inStack;
+    Deque<Integer> outStack;
 
     public MyQueue() {
-        stack = new Stack();
-        stackA = new Stack();
+        inStack = new ArrayDeque<>();
+        outStack = new ArrayDeque<>();
     }
     
     public void push(int x) {
-        stack.push(x);
+        // push in in stack
+        inStack.push(x);
     }
     
     public int pop() {
-        while(!stack.isEmpty()){
-            stackA.push(stack.pop());
+        // every time we have to pop:
+        // 1) check out stack, if not null, pop;
+        if(!outStack.isEmpty()){
+            return outStack.pop();
         }
-        int res = (int)stackA.pop();
-        while(!stackA.isEmpty()){
-            stack.push(stackA.pop());
+        // 2) if null, put all elements in stack into out stack, then pop;
+        // if(inStack.isEmpty()) return null;
+        while(! inStack.isEmpty()){
+            outStack.push(inStack.pop());
         }
-        return res;
+        return outStack.pop();
     }
     
     public int peek() {
-        while(!stack.isEmpty()){
-            stackA.push(stack.pop());
-        }
-        int res = (int)stackA.peek();
-        while(!stackA.isEmpty()){
-            stack.push(stackA.pop());
-        }
-        return res;
+        // pop from out stack, then put in out stack;
+        // if(this.empty()) return null;
+        int temp = this.pop();
+        outStack.push(temp);
+        return temp;
+
     }
     
     public boolean empty() {
-        return stack.isEmpty();
+        // if both in stack and out stack are empty;
+        if(inStack.isEmpty() && outStack.isEmpty()) return true;
+        return false;
     }
-    */
 }
 
 /**

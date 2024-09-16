@@ -10,41 +10,19 @@
 
 class Solution {
     public TreeNode lowestCommonAncestor(TreeNode root, TreeNode p, TreeNode q) {
-        // in fact, no need to swap q and q;
-        // Directly use the properties of BST to find LCA.
-    if (root.val > p.val && root.val > q.val) return lowestCommonAncestor(root.left, p, q);
-    else if (root.val < p.val && root.val < q.val)  return lowestCommonAncestor(root.right, p, q);
-    else return root;
-    
-        /*
-        // preorder. if for the 2 nodes, p>=node.val, q<node.val;or vise versa, return node; otherwise, find its child;
-        if(p.val < q.val){
-            TreeNode temp = p;
-            p = q;
-            q = temp;
-        }
-        // now p.val > q.val.
-        if(root.val > q.val && root.val < p.val || root.val == q.val || root.val == p.val) return root;
-        else if(root.val > p.val) return lowestCommonAncestor(root.left, p, q);
-        else return lowestCommonAncestor(root.right, p, q);
-        */
-        
-        /*
-        // analyze:
-        // let p.val < q.val
-        // for a node p 
-        // if both of them < p.val,go left; both of them > p.val, go right;
-        // if one >= p.val && one =< p.val, then return p;
-        // we can use recursive:
-        // TC = 0(nlogn), SC = 0(1)
-        int max = Math.max(q.val, p.val);
-        int min = Math.min(q.val, p.val);
+        int small = Math.min(p.val,q.val);
+        int large = Math.max(p.val,q.val);
+        return traverse(root, small, large);
 
-        if(min <= root.val && max >= root.val) return root;
-        // branch 1: all the left;
-        if(max < root.val) return lowestCommonAncestor(root.left, p, q);
-        // branch 2: all the right;
-        return lowestCommonAncestor(root.right, p, q);  
-        */
+    }
+    public TreeNode traverse(TreeNode root, int small, int large){
+        // preOrder traverse, similar to binary search;
+        // if node.value > large, traverse node.left;
+        // if node.value < small, traverse node.right;
+        // else return node;
+        if(root.val==small || root.val==large) return root;
+        if(root.val>large) return traverse(root.left, small, large);
+        if(root.val<small) return traverse(root.right, small, large);
+        return root;
     }
 }

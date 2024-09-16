@@ -17,11 +17,8 @@ class Solution {
     public boolean isBalanced(TreeNode root) {
         // if Math.abs(node.left.height-node.right.height)<=1, node is balanced;
         // we use postOrder traverse to calculate the height, and if it's balanced;
-        if(root==null) return true;
-        int left = getHeight(root.left);
-        int right = getHeight(root.right);
-        if(left==-1 || right==-1) return false;
-        return Math.abs(left-right) <= 1;
+        if(getHeight(root)==-1) return false;
+        return true;
     }
     
     public int getHeight(TreeNode node){

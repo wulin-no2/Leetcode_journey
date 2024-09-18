@@ -12,7 +12,7 @@ class Solution {
         // 4. how to traverse
         for(int i = 3; i <= n ; i++){
             dp[i] = dp[i-1] + dp[i-2];
-            //System.out.println("dp["+n+"] is "+dp[n]);
+            //System.out.println("dp["+i+"] is "+dp[i]);
         }
         // 5. result
         return dp[n];

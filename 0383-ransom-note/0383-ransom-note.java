@@ -1,29 +1,22 @@
 class Solution {
     public boolean canConstruct(String ransomNote, String magazine) {
-        // it's letters so we can use array or map;
+        // array hashing for 26 lowercase letters
+        // 1. traverse magazine and store info into array
         int[] arr = new int[26];
-        for(int i = 0 ; i < magazine.length() ; i ++){
-            arr[magazine.charAt(i) - 'a']++;
+        for(int i = 0 ; i< magazine.length() ; i++){
+            int index = magazine.charAt(i) - 'a';
+            arr[index]++;
         }
-        for(int i = 0 ; i < ransomNote.length() ; i ++){
-            arr[ransomNote.charAt(i)-'a']--;
-            if(arr[ransomNote.charAt(i)-'a']< 0) return false;
+        
+        // 2. traverse ransomNote, if element in array is -1, return false;
+        for(int i = 0 ; i< ransomNote.length() ; i++){
+            int index = ransomNote.charAt(i) - 'a';
+            arr[index]--;
+            if(arr[index] < 0) return false;
         }
+        
+        // 3. after traverse, return true;
         return true;
         
-        // again, it's a string with alphametic and we have to know the count of each alphametic, so we we can use int[] to store the count of magezine
-        /*
-        int[] count = new int[26];
-        for(char m : magazine.toCharArray()){
-            count[m - 'a']++;
-        }
-        for(char r : ransomNote.toCharArray()){
-            count[r - 'a']--;
-            if(count[r - 'a'] < 0){
-                return false;
-            }
-        }
-        return true;
-        */
     }
 }

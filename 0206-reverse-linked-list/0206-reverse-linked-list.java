@@ -8,34 +8,25 @@
  *     ListNode(int val, ListNode next) { this.val = val; this.next = next; }
  * }
  */
-
 class Solution {
     public ListNode reverseList(ListNode head) {
-        // for each node cur: cur.next = pre;
-        // until cur == null;
-        // return pre;
-        if(head == null) return head;
-        ListNode cur = head;
+        // we use 2 pointers pre, curr to change direction
+        // use a temp to store the following node
+        // until curr is null
+        ListNode curr = head;
         ListNode pre = null;
-        while(cur != null){
-            ListNode temp = cur.next;
-            cur.next = pre;
-            pre = cur;
-            cur = temp;
+        ListNode temp = null;
+        while(curr!=null){
+            // store following list;
+            temp = curr.next;
+            // change direction;
+            curr.next = pre;
+            // move pointers;
+            pre = curr;
+            curr = temp;
         }
         return pre;
-        /*
-        ListNode prev = null;
-        ListNode current = head;
-        while (current != null) {
-            ListNode nextTemp = current.next; // store the next node
-            current.next = prev; // reverse the link
-            prev = current; // move prev to current
-            current = nextTemp; // move to next node
-        }
-        return prev; // prev will be the new head
-        */
+        
+        
     }
 }
- 
-        

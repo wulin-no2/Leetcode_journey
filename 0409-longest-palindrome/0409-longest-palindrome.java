@@ -1,34 +1,25 @@
 class Solution {
     public int longestPalindrome(String s) {
-        // analyze:
-        // if we want to get palindrome, except the middle one, each letters should appear even times.
-        // transfer string to array;
-        // We don't care the order. so, we can use a hashset and a count;
-        // traverse:
-        // if letter is in the hashset, remove it, count++;
-        // else, add it into hashset;
-        // in the end, if the size of hashset isn't 0; 
-        // the result should be count * 2 + 1;
-        // else the result should be count * 2
-        // time complexity should be O(n), space is O(n);
-        char[] charS = s.toCharArray();
-        HashSet<Character> set = new HashSet<>();
+        // hashing
+        // count each digits, we can use all the even count nunmbers（+ 1 odd count number）
+        // hashing
+        HashMap<Character, Integer> map = new HashMap<>();
+        // traverse and put elements into map
+        // Traverse the string and populate the HashMap
+        for (char c : s.toCharArray()) {
+            map.put(c, map.getOrDefault(c, 0) + 1);
+        }
+        // count the even count numbers
+        int hasOdd = 0;
         int count = 0;
-        
-        for(char c: charS){
-            if(set.contains(c)){
-                set.remove(c);
-                count++;
-            }else{
-                set.add(c);
+        for(int i: map.values()){
+            if(i % 2 == 0) count += i;
+            else {
+                count += i - 1;  // Add the largest even part of odd counts
+                hasOdd = 1;  // Mark that there's at least one odd count}
             }
         }
-        if(set.size() != 0){
-            return count * 2 + 1;
-        }
-        return count * 2;
-        
-        
+        return count + hasOdd;
         
     }
 }

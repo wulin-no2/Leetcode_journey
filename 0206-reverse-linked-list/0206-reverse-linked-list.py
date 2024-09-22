@@ -9,7 +9,7 @@ class Solution:
         curr = head
         pre = None
         # traverse
-        while curr!=None:
+        while curr:
             temp = curr.next
             curr.next = pre
             pre = curr

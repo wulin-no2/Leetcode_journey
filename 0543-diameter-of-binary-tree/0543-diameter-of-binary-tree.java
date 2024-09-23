@@ -24,7 +24,6 @@ class Solution {
     public int traverse(TreeNode root){
         // base case
         if(root==null) return 0;
-        // if(root.left==null && root.right==null) {res = 0; return 1;}
         // one layer logic
         int leftH = traverse(root.left);
         int rightH = traverse(root.right);

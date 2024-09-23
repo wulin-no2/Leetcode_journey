@@ -14,62 +14,22 @@
  * }
  */
 class Solution {
-    /*
+    int res = 0;
     public int diameterOfBinaryTree(TreeNode root) {
-        // analyze:
-        // if level is 1, res = 0; level is 2, res = 1; 
-        // res = max(each node's height of left child + height of right child) 
-        // how to avoid redundant calculation? now it's O(n^2)
-        /*
-        if(root == null) return 0;
-        if(root.left == null && root.right == null) return 0;
-        int max = 0;
-        // use a point to traverse;
-        TreeNode p = root;
-        Stack<TreeNode> stack = new Stack<>();
-        stack.push(p);
-        while(! stack.isEmpty()){
-            p = stack.pop();
-            max = Math.max(max, h(p.left) + h(p.right));
-            if(p.left != null){
-                stack.push(p.left);
-            }
-            if(p.right != null){
-                stack.push(p.right);
-            }
-        }
-        return max;
+        // the diameter of a node = height of left tree + height of right tree
+        // postOrder traverse
+        traverse(root);
+        return res;
     }
-    // O(n)
-    private int h(TreeNode root){
-        if(root == null) return 0;
-        // use a point to traverse;
-        // TreeNode p = root;
-        // if(root.left == null && root.right == null) return 0;-----------shouldn't add this line. why???
-        return Math.max(h(root.left), h(root.right)) + 1; 
+    public int traverse(TreeNode root){
+        // base case
+        if(root==null) return 0;
+        // if(root.left==null && root.right==null) {res = 0; return 1;}
+        // one layer logic
+        int leftH = traverse(root.left);
+        int rightH = traverse(root.right);
+        res = Math.max(res, leftH + rightH);
+        //System.out.println("res is", res);
+        return Math.max(leftH, rightH) + 1;
     }
-    */
-    
-    // how to make it better? 
-    //we can calculate the diameter each time we get height.
-    // then diameter will be a viarable of the class;
-    int max = 0;
-    public int diameterOfBinaryTree(TreeNode root) {
-        if(root == null) return 0;
-        height(root);
-        return max;
-        
-    }
-    private int height(TreeNode root){
-        //if root==null height==0
-        if(root == null) return 0;
-        
-        int L = height(root.left);
-        int R = height(root.right);
-        //ans signfies(no. of nodes farthest apart) or the DIAMETER
-        max = Math.max(max, L + R);
-        //height of the tree is max of LST & RST +1
-        return Math.max(L, R) + 1;
-    }
-    
 }

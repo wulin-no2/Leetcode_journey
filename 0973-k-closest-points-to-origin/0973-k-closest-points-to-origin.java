@@ -1,27 +1,29 @@
 class Solution {
     public int[][] kClosest(int[][] points, int k) {
-        // analyze:
-        // 1) create an int[][] res to store the result;
-        // 2) for each point, the distance is i*i + j*j;
-        // 3) get all the distances of the points;
-        // 4) sort the distances;
-        // 5) return the Kth points(include same distance point);
+        // traverse
+        // use heap to store points and their distances to the origin
+        PriorityQueue<int[]> pq = new PriorityQueue<>((a,b)->Integer.compare(distance(b),distance(a)));
         
-        // There must a comparator, which is inner class:
-        Comparator<int[]> pointComparator = new Comparator<int[]>() {
-            @Override
-            public int compare(int[] p1, int[] p2) {
-                int distanceSq1 = p1[0] * p1[0] + p1[1] * p1[1];
-                int distanceSq2 = p2[0] * p2[0] + p2[1] * p2[1];
-                return Integer.compare(distanceSq1, distanceSq2);
+        for(int[] point: points){
+            // add element into heap
+            pq.offer(point);
+            // remove redundant element
+            if(pq.size() > k){
+                pq.poll();
             }
-        };
-            
-        Arrays.sort(points, pointComparator);
-        return Arrays.copyOfRange(points, 0, k);
-        
-        
+        }
+        int[][] result = new int[k][];
 
-        
+        // get top k elements from big heap:
+        while(k > 0){
+            result[k-1] = pq.poll();
+            k--;
+        }
+        // return
+        return result;
+    }
+    // helper function 
+    public int distance(int[] i){
+        return i[0]*i[0] + i[1]*i[1];
     }
 }

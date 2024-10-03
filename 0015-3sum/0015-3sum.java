@@ -6,6 +6,7 @@ class Solution {
         List<List<Integer>> res = new ArrayList<>();
         // 3 pointers. fix one, then use 2 pointers to find solution
         for(int i = 0 ; i < nums.length - 2 ; i++){
+            if (nums[i] > 0) return res;
             // check duplicate
             if(i != 0 && nums[i]==nums[i-1]) continue;
             int sumForTwo = 0 - nums[i];

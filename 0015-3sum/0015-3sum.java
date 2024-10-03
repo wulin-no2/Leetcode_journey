@@ -14,7 +14,8 @@ class Solution {
             int j = i + 1;
             int k = nums.length - 1;
             while(j < k){
-                if(nums[j] + nums[k]==sumForTwo){
+                int num = nums[j] + nums[k];
+                if(num==sumForTwo){
                     res.add(new ArrayList<>(Arrays.asList(nums[i], nums[j], nums[k])));
                     j++;
                     k--;
@@ -22,7 +23,7 @@ class Solution {
                     while(j < k && nums[j]==nums[j-1]) j++;
                     while(j < k && nums[k]==nums[k+1]) k--;
                 } 
-                else if(nums[j] + nums[k] > sumForTwo) {
+                else if(num > sumForTwo) {
                     k--;
                     while(j < k && nums[k]==nums[k+1]) k--;
                 }

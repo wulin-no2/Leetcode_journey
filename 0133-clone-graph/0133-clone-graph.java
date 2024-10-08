@@ -19,7 +19,26 @@ class Node {
 */
 
 class Solution {
+    HashMap<Node, Node> map = new HashMap<>();
+    
     public Node cloneGraph(Node node) {
+        // DFS
+        if(node == null) return null;
+        // check if it's cloned or not
+        if(map.containsKey(node)) return map.get(node);
+        // clone node
+        Node clone = new Node(node.val); 
+        map.put(node, clone);
+        // clone neighbors
+        for(Node neighbor: node.neighbors){
+            // clone it
+            Node clonedNeighbor = cloneGraph(neighbor);
+            clone.neighbors.add(clonedNeighbor);
+        }
+        return clone;
+        
+        
+        /* BFS
         if(node == null) return null;
         // use map to store original node for us to clone so that we can't clone duplicatedly
         HashMap<Node, Node> map = new HashMap<>();
@@ -47,7 +66,7 @@ class Solution {
             }
         }
         return map.get(node);
-
+        */
     }
     
 }

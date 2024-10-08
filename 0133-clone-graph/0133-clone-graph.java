@@ -19,80 +19,35 @@ class Node {
 */
 
 class Solution {
-    /*
     public Node cloneGraph(Node node) {
-        // graph search. we can BFS and DFS.
-        // since it has on direction. we have to record the node we've visited.
-        // try BFS with queue. 
-        // mark the node we visited as value = -1;
-        // get one node from queue: [record] it's neighbors / create List<node> with values, set visited; for each neighbors: if it's not visited, push into queue; 
-        // how to record its visited? use another int[100], if its visited set int[i] = 1;
-        
         if(node == null) return null;
-        Map<Node, Node> clonedMap = new HashMap<>();
-        
-        Node copy = new Node();
-        if(node.neighbors == null) {
-            copy.val = 1;
-            copy.neighbors = null;
-            return copy;
-        }
-        // if node has neighbors:
-        Queue<Node> q = new LinkedList<>(); // used for storing nodes for further processing;
-        int[] arr = new int[101];
+        // use map to store original node for us to clone so that we can't clone duplicatedly
+        HashMap<Node, Node> map = new HashMap<>();
+        // use BFS to traverse and clone
+        Queue<Node> q = new LinkedList<>();
         q.offer(node);
-        arr[1] = 1;
-        // add following 2 lines from GPT:
-
-        clonedMap.put(node, new Node(node.val, new ArrayList<>()));
         
+        //put node into map
+        map.put(node, new Node(node.val));
+        
+        // traverse
         while(! q.isEmpty()){
-            Node p = q.poll();
-            // Node curNew = q.poll(); 
-            // create list for each node;
-            // List<Node> pL = new ArrayList<>();
-            for(Node n : p.neighbors){
-                // Node m = new Node();
-                // m.val = n.val;
-                // pL.add(m);
-                clonedMap.putIfAbsent(n, new Node(n.val, new ArrayList<>()));
-                // populate list with n;
-                clonedMap.get(p).neighbors.add(clonedMap.get(n));
-                if(arr[n.val] != 1) {
-                    q.offer(n);
-                    arr[n.val] = 1;
+            // get a node
+            Node temp = q.poll();
+            // process all the neighbours
+            for(Node neighbor: temp.neighbors){
+                if(!map.containsKey(neighbor)){
+                        // if not cloned, clone it
+                        map.put(neighbor, new Node(neighbor.val));
+                        // add it to the queue
+                        q.offer(neighbor);
+                }
+                // add cloned neighbor to the current node's cloned version
+                map.get(temp).neighbors.add(map.get(neighbor));
             }
-            // curNew.val = p.val;
-            // curNew.neighbors = pL;
-            // arr[p.val] = 1;
-            // if(curNew.val == 1) copy = curNew;
         }
-        }
-        return clonedMap.get(node);
+        return map.get(node);
+
     }
     
-    */
-    
-    // a cleanup version need to be watched;
-    public Node cloneGraph(Node node) {
-    if(node==null) return node;
-    
-    Map<Node, Node> x = new HashMap<>();
-    Queue<Node> queue = new LinkedList<>();
-    x.put(node, new Node(node.val));
-    
-    queue.add(node);
-    while(!queue.isEmpty()){
-        Node curr = queue.poll();
-        for(Node n : curr.neighbors){
-            if(!x.containsKey(n)){
-                x.put(n, new Node(n.val));
-                queue.add(n);
-            }
-            x.get(curr).neighbors.add(x.get(n));
-        }
-    }
-    
-    return x.get(node);
-}
 }

@@ -1,18 +1,15 @@
 class Solution:
     def lengthOfLongestSubstring(self, s: str) -> int:
-        res = 0
-        # sliding window to track the left and the right of the non-repeating substring
+        # use set to store elements
+        setForStore = set()
+        # use left & i to create a sliding window
         left = 0
-        length = len(s)
-        # Use a dictionary to store the most recent index of each character
-        arr = {}
-        for i in range(length):
-            c = s[i]
-            if c in arr  and arr[c] >= left:  # c exist, update res, update left, update arr[c]
-                left = arr[c] + 1
-            arr[c] = i
+        res = 0
+        for i in range(len(s)):
+            while s[i] in setForStore:
+                setForStore.remove(s[left])
+                left+=1
+            setForStore.add(s[i])
             res = max(res, i - left + 1)
         return res
-                
-                
-            
+        

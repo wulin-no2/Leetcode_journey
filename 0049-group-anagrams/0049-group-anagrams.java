@@ -19,8 +19,7 @@ class Solution {
             
             
             // if code in map, group them; if not, put into map;
-            if(! map.containsKey(code)) map.put(code, new ArrayList<String>());
-            map.get(code).add(str);
+            map.computeIfAbsent(code, k-> new ArrayList<>()).add(str);
         }
         return new ArrayList<>(map.values());
     }

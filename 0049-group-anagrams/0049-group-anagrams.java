@@ -3,6 +3,25 @@ class Solution {
         // use map for tracking
         HashMap<String, List<String>> map = new HashMap<>();
         // traverse strs
+        // sort and use sortedString as code
+        for(String str: strs){
+            // get str and sort it as code
+            char[] arr = str.toCharArray(); 
+            Arrays.sort(arr);
+            // String sortedStr = arr.toString();
+            String sortedStr = new String(arr);  // Correctly convert sorted char array to String
+            
+            // check if code in map or not;
+            map.computeIfAbsent(sortedStr, k->new ArrayList()).add(str);
+
+        }
+        
+        
+        
+        
+        
+        
+        /* use code
         for(String str: strs){
             // convert it into a code and group by code
             int[] codeArr = new int[26];
@@ -21,6 +40,7 @@ class Solution {
             // if code in map, group them; if not, put into map;
             map.computeIfAbsent(code, k-> new ArrayList<>()).add(str);
         }
+        */
         return new ArrayList<>(map.values());
     }
 }

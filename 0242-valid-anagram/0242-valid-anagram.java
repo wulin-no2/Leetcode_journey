@@ -1,6 +1,9 @@
 class Solution {
     public boolean isAnagram(String s, String t) {
+        
+        
         if(s.length()!=t.length()) return false;
+        /*
         // use map to track elements and counts;
         HashMap<Character, Integer> map = new HashMap<>();
         // traverse 1st string;
@@ -13,12 +16,23 @@ class Solution {
             map.put(c, map.getOrDefault(c, 0) - 1);
             if(map.get(c) < 0) return false;
         }
-        // check if all counts are zero
-//         for(int count : map.values()) {
-//             if(count != 0) return false;
-//         }
-        
         return true;
+        */
+        
+        // use array as hashing cause we only have 26 letters
+        int[] arr = new int[26];
+        for(char c: s.toCharArray()){
+            arr[c-'a'] += 1;
+        }
+        for(char c: t.toCharArray()){
+            arr[c-'a'] -= 1;
+            if(arr[c-'a'] < 0) return false;
+            
+        }
+        return true;
+        
+        
+        
         
     }
 }

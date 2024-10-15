@@ -13,8 +13,7 @@ class Solution {
             // convert arr to string
             StringBuilder sb = new StringBuilder();
             for(int i = 0;i < 26;i++){
-                sb.append('#');
-                sb.append(codeArr[i]);
+                sb.append(codeArr[i]).append('#');
             }
             String code = sb.toString();
             

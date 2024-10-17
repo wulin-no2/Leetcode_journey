@@ -1,30 +1,21 @@
 class Solution {
     public int[] productExceptSelf(int[] nums) {
-        // analyze1:
-        // int newArray[n];
-        // newArray[i] = preProduct[i] * sufProduct[i];
-        // preProduct[i] = preProduct[i-1] * nums[i-1];
-        // sufProduct[i] = sufProduct[i+1] * nums[i+1];
-        // we can use several for loops to solve this problem:
-        int n = nums.length;
-        int[] newArray = new int[n];
-        int[] preProduct = new int[n];
-        int[] sufProduct = new int[n];
-        for(int i = 0; i < n; i++){
-            newArray[i] = 1;
+        int[] pre = new int[nums.length];
+        // traverse once to get prefix products
+        for(int i = 0; i < nums.length; i++){
+            pre[i] = 1;
+            if(i > 0) pre[i] = nums[i - 1] * pre[i - 1];
         }
-        preProduct[0] = 1;
-        for(int i = 1; i < n; i++){
-            preProduct[i] = preProduct[i-1] * nums[i-1];
+        int[] suf = new int[nums.length];
+        // traverse twice to get suffix products & results
+        for(int i = nums.length - 1; i >= 0 ; i--){
+            suf[i] = 1;
+            if(i < nums.length - 1) suf[i] = nums[i + 1] * suf[i + 1];
         }
-        sufProduct[n-1] = 1;
-        for(int i = n - 2; i >= 0; i--){
-            sufProduct[i] = sufProduct[i+1] * nums[i+1];
+        for(int i = nums.length - 1; i >= 0 ; i--){
+            pre[i] = pre[i] * suf[i];
         }
-        for(int i = 0; i < n; i++){
-            newArray[i] = preProduct[i] * sufProduct[i]; 
-        }
-        return newArray;
-            
+        return pre;
+        
     }
 }

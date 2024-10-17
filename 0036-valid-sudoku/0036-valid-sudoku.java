@@ -1,5 +1,42 @@
 class Solution {
     public boolean isValidSudoku(char[][] board) {
+    // 使用布尔数组来跟踪数字是否已存在
+        boolean[][] rows = new boolean[9][9];
+        boolean[][] cols = new boolean[9][9];
+        boolean[][] cubes = new boolean[9][9];
+
+        for (int i = 0; i < 9; i++) {
+            for (int j = 0; j < 9; j++) {
+                if (board[i][j] != '.') {
+                    int num = board[i][j] - '1'; // 将字符 '1'-'9' 转换为索引 0-8
+
+                    // 检查行
+                    if (rows[i][num]) {
+                        return false;
+                    }
+                    rows[i][num] = true;
+
+                    // 检查列
+                    if (cols[j][num]) {
+                        return false;
+                    }
+                    cols[j][num] = true;
+
+                    // 检查3x3的子盒子
+                    int cubeIndex = (i / 3) * 3 + j / 3;
+                    if (cubes[cubeIndex][num]) {
+                        return false;
+                    }
+                    cubes[cubeIndex][num] = true;
+                }
+            }
+        }
+
+        return true;
+    }
+    /*
+    public boolean isValidSudoku(char[][] board) {
+        
         return isValidRow(board) && isValidColumn(board) && isValidCube(board);
         
     }
@@ -42,7 +79,7 @@ class Solution {
             }
         }
         return true;
-        
-        
+
     }
+    */
 }

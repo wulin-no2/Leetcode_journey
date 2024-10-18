@@ -1,36 +1,29 @@
 class Solution {
     public List<List<Integer>> threeSum(int[] nums) {
-        // sort
-        Arrays.sort(nums); // n log n
-        // use list to record result
+        // use list get result;
         List<List<Integer>> res = new ArrayList<>();
-        // 3 pointers. fix one, then use 2 pointers to find solution
-        for(int i = 0 ; i < nums.length - 2 ; i++){
-            if (nums[i] > 0) return res;
-            // check duplicate
-            if(i != 0 && nums[i]==nums[i-1]) continue;
-            int sumForTwo = 0 - nums[i];
-            // 2 pointers to find sumForTwo
-            int j = i + 1;
-            int k = nums.length - 1;
-            while(j < k){
-                int num = nums[j] + nums[k];
-                if(num==sumForTwo){
-                    res.add(new ArrayList<>(Arrays.asList(nums[i], nums[j], nums[k])));
-                    j++;
-                    k--;
-                    // check duplicate
-                    while(j < k && nums[j]==nums[j-1]) j++;
-                    while(j < k && nums[k]==nums[k+1]) k--;
-                } 
-                else if(num > sumForTwo) {
-                    k--;
-                    while(j < k && nums[k]==nums[k+1]) k--;
+        // sort it;
+        Arrays.sort(nums);
+        // trimming:
+        if(nums[nums.length - 1] < 0) return res;
+        // 2 pointers
+        for(int i = 0; i < nums.length - 2; i++){
+            // trimming:
+            if(nums[i] > 0) break;
+            if(i > 0 && nums[i]==nums[i-1]) continue;
+            int target = 0 - nums[i];
+            int left = i + 1;
+            int right = nums.length - 1;
+            while(left < right){
+                if(nums[left] + nums[right]==target) {
+                    res.add(Arrays.asList(nums[i], nums[left], nums[right]));
+                    left++;
+                    right--;
+                    while(left < right && nums[left]==nums[left-1]) left++;
+                    while(left < right && nums[right]==nums[right+1]) right--;
                 }
-                else {
-                    j++;
-                    while(j < k && nums[j]==nums[j-1]) j++;
-                }
+                while(left < right && (nums[left] + nums[right] < target)) left++;
+                while(left < right && (nums[left] + nums[right] > target)) right--;
             }
         }
         return res;

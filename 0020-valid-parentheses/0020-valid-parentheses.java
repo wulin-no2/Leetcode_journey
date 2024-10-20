@@ -9,9 +9,9 @@ class Solution {
             else if(c=='[') stack.push(']');
             else if(c=='{') stack.push('}');
             else{
-                if(stack.isEmpty()) return false;
-                char temp = stack.pop();
-                if(c != temp) return false;
+                if (stack.isEmpty() || stack.pop() != c) {
+                    return false; // Not a valid match
+                }
             }
         }
         return stack.isEmpty();

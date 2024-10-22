@@ -1,7 +1,7 @@
 class Solution {
     public int minEatingSpeed(int[] piles, int h) {
         int left = 1;
-        int right = getMaxPile(piles);
+        int right = getMaxPile(piles) + 1;
         
         while (left < right) {
             int mid = left + (right - left) / 2;

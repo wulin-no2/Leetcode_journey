@@ -1,96 +1,21 @@
 class Solution {
     public int search(int[] nums, int target) {
-        /* can't make it out;
-        // binary search;
-        // left part always larger than right part;
-        // compare target with nums[0], see it's in left part or right part first;
-        // then every time, cut half and compare with the other side;
-        int n = nums.length;
-        // watch out the boundary case: n = 1;
-        if(n == 1 && target == nums[0]) return 0;
-        if(n == 1 && target != nums[0]) return -1;
-        int low = 0;
-        int high = n - 1;
-        /*int k = nums[0];
-        // binary search find k first;( nums[i - 1] > nums[i] return i;)
-        // then binary search find target;
-        while(low <= high){
-            int mid = low + (high - low)/2;
-            if(mid >= 1){
-                if(nums[mid - 1] > nums[mid]) k = mid;
-                if(nums[mid] > nums[low]) low = mid;
-                else high = mid;
+        // binary search
+        int left = 0;
+        int right = nums.length;
+        while(left < right){
+            int mid = (left + right) / 2;
+            if(nums[mid]==target) return mid;
+            if(nums[mid] >= nums[left]){ // left part ascending
+                if(target >= nums[left] && target < nums[mid]) right = mid;
+                else left = mid + 1; 
             }
-        }
-        
-        while(low <= high){
-            int mid = low + (high - low)/2;
-            if(target == nums[low]) return low;
-            if(target < nums[low]){// t is in right part;
-                if(target == nums[mid]) return mid;
-                if(nums[mid] > nums[low]){ // mid in left part;
-                    low = mid;
-                }else{ // mid is left than t;
-                    low = mid;
-                }
+            else{ // left part not ordered, right part ordered
+                if(target > nums[mid] && target <= nums[right-1]) left = mid + 1;
+                else right = mid;
             }
-            else{ // t is in left part;
-                if(target == nums[mid]) return mid;
-                if(target < nums[mid]) // t is left of mid ,change high;
-                
-            }
-            
         }
         return -1;
-        */
-        /* solution from discuss:
-        int low = 0;
-        int high = nums.length - 1;
-        while (low < high) {
-            int mid = (low + high) / 2;
-            if (nums[mid] == target) return mid;
-
-            if (nums[low] <= nums[mid]) {
-                if (target >= nums[low] && target < nums[mid]) {
-                    high = mid - 1;
-                } else {
-                    low = mid + 1;
-                }
-            } else {
-                if (target > nums[mid] && target <= nums[high]) {
-                    low = mid + 1;
-                } else {
-                    high = mid - 1;
-                }
-            }
-        }
-        return nums[low] == target ? low : -1;
-        */
-        // do it again:
-        int low = 0;
-        int high = nums.length - 1;
-        while(low < high){
-            int mid = low + (high - low) / 2;
-            if(target == nums[mid]) return mid;
-            // compare mid with low to see where the mid is ;
-            if(nums[mid] >= nums[low]){// mid is in the left part;
-                if(target >= nums[low] && target < nums[mid])// see where target is; it's in the middle of mid and low;
-                    high = mid - 1;
-                else // target is in the right of mid;
-                    low = mid + 1;
-                }
-            else{// mid is in the right;
-                if(target > nums[mid] && target <= nums[high]) // t is in the middle of mid and high;
-                    low = mid + 1;
-                else high = mid - 1;
-            }
-        }
-        // now we consider if there are equals finally;
-        if(nums[high] == target) return high;
-        return -1;
         
-        
-            
-            
     }
 }

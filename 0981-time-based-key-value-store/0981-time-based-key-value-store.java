@@ -1,134 +1,25 @@
 class TimeMap {
-    // use HashMap<Node, String> map to store the value;
-    // can't do it. TLE
-    /*
-    HashMap<Node, String> map = new HashMap<>();
-    Node node;
-    class Node{
-        String nkey;
-        int nstamp;
-        public Node(){
-            nkey = "";
-            nstamp = 0;
-        }
-        public Node(String nkey, int nstamp){
-            this.nkey = nkey;
-            this.nstamp = nstamp;
-        }
-        public boolean equals(Object o) {
-            if (this == o) return true;
-            if (o == null || getClass() != o.getClass()) return false;
-            Node node = (Node) o;
-            return nstamp == node.nstamp &&
-                   Objects.equals(nkey, node.nkey);
-        }
-        public int hashCode() {
-            return Objects.hash(nkey, nstamp);
-        }
-    }
+    // each key is associated with a list/map including several values and timestamps
+    // which can be retrived according to the number of value, so TreeMap
+    // Map<String, TreeMap<Integer, String>>
+    Map<String, TreeMap<Integer, String>> map = new HashMap<>();
 
     public TimeMap() {
     }
     
     public void set(String key, String value, int timestamp) {
-        Node temp = new Node(key, timestamp);
-        map.put(temp, value);
+        map.putIfAbsent(key, new TreeMap<>());
+        map.get(key).put(timestamp, value);
     }
     
     public String get(String key, int timestamp) {
-        for(int i = timestamp ; i >= 0; i--){
-            Node nodeKey = new Node(key, i);
-            if(map.containsKey(nodeKey)) return map.get(nodeKey);
-        }
-        return ""; 
+        if(! map.containsKey(key)) return "";
+        TreeMap<Integer, String> treeMap = map.get(key);
+        Integer keyTreeMap =treeMap.floorKey(timestamp);
+        if (keyTreeMap == null) return "";
+        return treeMap.get(keyTreeMap);
+        
     }
-    */
-
-    /* binary search!!!
-    private HashMap<String, ArrayList<Pair>> hashMap;
-
-    public TimeMap() {
-        hashMap = new HashMap<>();
-    }
-    
-    class Pair {
-        int timestamp;
-        String val;
-
-        Pair(int timestamp, String val) {
-            this.timestamp = timestamp;
-            this.val = val;
-        }
-    }
-
-    public void set(String key, String value, int timestamp) {
-        if (hashMap.containsKey(key)) {
-            hashMap.get(key).add(new Pair(timestamp, value));
-        } else {
-            ArrayList<Pair> arr = new ArrayList<>();
-            arr.add(new Pair(timestamp, value));
-            hashMap.put(key, arr);
-        }
-    }
-
-    public String get(String key, int timestamp) {
-
-        String cand = "";
-
-        if (hashMap.containsKey(key)) {
-            ArrayList<Pair> arr = hashMap.get(key);
-            int low = 0, high = arr.size() - 1;
-
-            while (low <= high) {
-                int mid = (low + high) / 2;
-                int timeVal = arr.get(mid).timestamp;
-                if (timeVal == timestamp) {
-                    return arr.get(mid).val;
-                } else if (timeVal < timestamp) {
-                    cand = arr.get(low).val;
-                    low = mid + 1;
-                } else {
-                    high = mid - 1;
-                }
-            }
-        }
-        return cand;
-    }
-    */
-    
-    // use treeMap: it's slower than use list;
-    private static final String DEFAULT_VALUE = "";
-    private final HashMap<String, TreeMap<Integer, String>> map;
-
-    /** Initialize your data structure here. */
-    public TimeMap() {
-        map = new HashMap<>();
-    }
-    
-    public void set(String key, String value, int timestamp) {
-        TreeMap<Integer, String> timeMap;
-        if (map.containsKey(key)) {
-            timeMap = map.get(key);
-        } else {
-            timeMap = new TreeMap<>();
-            map.put(key, timeMap);
-        }
-        timeMap.put(timestamp, value);
-    }
-    
-    public String get(String key, int timestamp) {
-        if (map.containsKey(key)) {
-            TreeMap<Integer, String> timeMap = map.get(key);
-            Integer floorKey = timeMap.floorKey(timestamp);
-            if (floorKey != null) {
-                return timeMap.get(floorKey);
-            }
-        }
-        return DEFAULT_VALUE;
-    }
-    
-    
-    
 }
 
 /**

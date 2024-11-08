@@ -10,23 +10,16 @@
  */
 class Solution {
     public ListNode reverseList(ListNode head) {
-        // we use 2 pointers pre, curr to change direction
-        // use a temp to store the following node
-        // until curr is null
-        ListNode curr = head;
+        // pre, curr, temp
         ListNode pre = null;
-        ListNode temp = null;
-        while(curr!=null){
-            // store following list;
-            temp = curr.next;
-            // change direction;
+        ListNode curr = head;
+
+        while(curr != null){
+            ListNode temp = curr.next;
             curr.next = pre;
-            // move pointers;
             pre = curr;
             curr = temp;
         }
         return pre;
-        
-        
     }
 }

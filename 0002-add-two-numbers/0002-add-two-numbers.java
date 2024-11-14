@@ -10,7 +10,32 @@
  */
 class Solution {
     public ListNode addTwoNumbers(ListNode l1, ListNode l2) {
+        ListNode res = new ListNode(); // Dummy node to start the result list
+        ListNode p = res; // Pointer to traverse and build the result list
+        int carry = 0;
+
+        // Main loop to process both lists
+        while (l1 != null || l2 != null || carry != 0) {
+            int sum = carry; // Start with the carry from the previous addition
+            if (l1 != null) {
+                sum += l1.val;
+                l1 = l1.next;
+            }
+            if (l2 != null) {
+                sum += l2.val;
+                l2 = l2.next;
+            }
+
+            // Set current node's value and update carry
+            p.next = new ListNode(sum % 10); // Create a new node with the unit place value
+            carry = sum / 10; // Update carry
+            p = p.next; // Move the pointer forward
+        }
+
+        // Return the next node of the dummy node (actual start of the result list)
+        return res.next;
         // use 2 pointers, update and return l1
+        /* my approach:
         ListNode res = new ListNode();
         ListNode p = res;
         ListNode p1 = l1;
@@ -46,5 +71,6 @@ class Solution {
         }
         if(carry == 1) p.val = 1;
         return res;
+        */
     }
 }

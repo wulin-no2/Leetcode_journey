@@ -7,21 +7,14 @@ class Solution {
         int left = 0;
         Set<Character> set = new HashSet<>();
         int res = 0;
-        int currLength = 0;
         for(int right = 0; right < s.length(); right++){
             char c = s.charAt(right);
-            if(! set.contains(c)){
-                currLength = right - left + 1;
-                res = Math.max(res, currLength);
-            }
-            else{
-                while(set.contains(c)){
-                    set.remove(s.charAt(left));
-                    left++;
-                    currLength = right - left + 1;
-                }
+            while(set.contains(c)){
+                set.remove(s.charAt(left));
+                left++;
             }
             set.add(c);
+            res = Math.max(res, right - left + 1);
         }
         return res;
     }

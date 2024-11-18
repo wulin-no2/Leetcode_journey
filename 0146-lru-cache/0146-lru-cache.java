@@ -1,131 +1,78 @@
-/*class LRUCache {
+class LRUCache {
+    // 1. key-value pair, use map to store it; so we can get by key within O(1) and change the value within O(1)
+    // 2. how to keep the order so that we can find the least recently used key && delete it in a place and put it in another place withinO(1)? LinkedList
+    // 3. in order to delete the node and keep the order, we have to find the prev node. We could use double LinkedList
+    // 4. we have to insert a node in the first, and delete the node in the last, so better use dummyHead and dummyTail to make things easier;
+    class Node{
+        int val = 0;
+        int key = 0;
+        Node next = null;
+        Node prev = null;
+        public Node(){};
+        public Node(int key,int val){
+            this.val = val;
+            this.key = key;
+        };
+    }
+    int capacity = 0;
+    Map<Integer, Node> map = new HashMap<>();
+    Node dummyHead = new Node(0,0);
+    Node dummyTail = new Node(0,0);
 
-    // one solution from discuss:
+    public LRUCache(int capacity) {
+        this.capacity = capacity;
+
+        dummyHead.next = dummyTail;
+        dummyTail.prev = dummyHead;
+
+    }
     
-    Node head = new Node(0, 0), tail = new Node(0, 0);
-    Map<Integer, Node> map = new HashMap();
-    int capacity;
-
-    public LRUCache(int _capacity) {
-        capacity = _capacity;
-        head.next = tail;
-        tail.prev = head;
-    }
-
     public int get(int key) {
-        if(map.containsKey(key)) {
-          Node node = map.get(key);
-          remove(node);
-          insert(node);
-          return node.value;
-        } else {
-          return -1;
-        }
+        //1. if not exist, return -1;
+        if(! map.containsKey(key)) return -1;
+        //2. if exist, 2.1. change list: delete it, add to the first, then return value; 
+        Node node = map.get(key);
+        delete(node);
+        addFirst(node);
+        return node.val;
     }
-
+    
     public void put(int key, int value) {
-        if(map.containsKey(key)) {
-          remove(map.get(key));
+        //1. if exist: 1.1. get from map, change it's value; 1.2. change list: delete it, add to the first; 
+        if(map.containsKey(key)){
+            Node node = map.get(key);
+            node.val = value;
+            delete(node);
+            addFirst(node);
         }
-        if(map.size() == capacity) {
-          remove(tail.prev);
+        // 2. if not exist:
+        else{
+             
+        // 2.1. if not full: put into map; add to the first of list;
+        // 2.2. if full: delete the last of list && delete from map; put into first of the list; put into map;
+            if(map.size() == capacity) {
+                Node nodeRemove = dummyTail.prev;
+                delete(nodeRemove);
+                map.remove(nodeRemove.key);
+            }
+            
+            Node temp = new Node(key, value);
+            addFirst(temp);
+            map.put(key, temp);
         }
-        insert(new Node(key, value));
     }
-
-    private void remove(Node node) {
-        map.remove(node.key);
+    public void delete(Node node){
         node.prev.next = node.next;
         node.next.prev = node.prev;
+        
     }
-
-    private void insert(Node node){
-        map.put(node.key, node);
-        Node headNext = head.next;
-        head.next = node;
-        node.prev = head;
-        headNext.prev = node;
-        node.next = headNext;
-    }
-
-    class Node{
-        Node prev, next;
-        int key, value;
-        Node(int _key, int _value) {
-          key = _key;
-          value = _value;
-        }
-    }
-    }
-    */
-    
-/*
-    class Node{//节点[pre|key|value|next]
-    int key,val;
-    Node next,pre;
-    public Node(int key,int val){
-        this.key = key;
-        this.val = val;
+    public void addFirst(Node node){
+        node.next = dummyHead.next;
+        node.prev = dummyHead;
+        dummyHead.next.prev = node;
+        dummyHead.next = node;
     }
 }
-class DoubleList{//双链表head<->[key,val]<->tail
-    Node head;//头结点
-    Node tail;//尾结点
-    public DoubleList(){
-        head = new Node(0,0);
-        tail = new Node(0,0);
-        head.next = tail;
-        tail.pre = head;
-    }
-    void addFirst(Node n){//头插
-        head.next.pre = n;
-        n.next = head.next;
-        n.pre = head;
-        head.next = n;
-    }
-    void remove(Node n){//删除指定节点n
-        n.pre.next = n.next;
-        n.next.pre = n.pre;
-    }
-    Node removeLast(){//删除尾结点，并返回该节点
-        Node res = tail.pre;
-        remove(res);
-        return res;
-    }
-}
-class LRUCache {
-    HashMap<Integer,Node> map;
-    DoubleList cache;
-    int cap;//容量
-    public LRUCache(int capacity) {
-        map = new HashMap<>();
-        cache = new DoubleList();
-        this.cap = capacity;
-    }
-    
-    public int get(int key) {
-        if(!map.containsKey(key))//若该节点不存在
-            return -1;
-        Node res = map.get(key);
-        cache.remove(res);
-        cache.addFirst(res);
-        return res.val;
-    }
-    
-    public void put(int key, int value) {
-        Node n = new Node(key,value);
-        if(map.containsKey(key)){//若该节点已经存在
-            cache.remove(map.get(key));
-        }else if(map.size()==cap){//若该节点不存在，但是cache已满
-            Node last = cache.removeLast();
-            map.remove(last.key);
-        }
-        cache.addFirst(n);
-        map.put(key,n);
-    }
-}
- //*/ 
-       
 
 /**
  * Your LRUCache object will be instantiated and called as such:
@@ -133,79 +80,3 @@ class LRUCache {
  * int param_1 = obj.get(key);
  * obj.put(key,value);
  */
-class LRUCache {
-    // analyze:
-    //  1) use the linkedlist; put node into the list;
-    // 2) in the node, we have key && value in the node;
-    // 3) use hashmap to store key value so that we can get and put key and value in O(1) time;
-    Map<Integer, Node> map = new HashMap<>();
-    // List<Node> list = new LinkedList<>();
-    int capacity = 0;
-    Node head;
-    Node tail;
-    
-    public LRUCache(int capacity) {
-        this.capacity = capacity;
-        this.head = new Node(0, 0);
-        this.tail = new Node(0, 0);
-        head.next = tail;
-        tail.pre = head;
-    }
-    
-    public int get(int key) {
-        // get the value & remove the node,and add to the last;
-        if(map.containsKey(key)){
-            Node node = map.get(key);
-            remove(key);
-            add(key, node._value);
-            return node._value;
-        }
-        return -1;
-    }
-    
-    public void put(int key, int value) {
-        // see if exist; if exist, remove the node, and update value to the last;
-        // if not exist, if full, remove the first, add to the last;
-        // if not exist, if not full, add to the last, capacity++;
-        if(map.containsKey(key)){
-            remove(key);
-        }
-        if(capacity == map.size()){
-            remove(head.next._key);
-        }
-        add(key, value);
-    }
-    // remove node
-    public void remove(int key){
-        // find from map;
-        // remove from map and list;
-        if(map.containsKey(key)){
-            Node node = map.get(key);
-            node.pre.next = node.next;
-            node.next.pre = node.pre;
-            map.remove(key);
-        }
-    }
-    
-    // addLast node. it's not full;
-    public void add(int key, int value){
-        Node node = new Node(key, value);
-        node.next = tail;
-        node.pre = tail.pre;
-        tail.pre.next = node;
-        tail.pre = node;
-        map.put(key, node);
-    }
-    // the LinkedList should be double ended;
-    class Node{
-        int _key;
-        int _value;
-        Node pre;
-        Node next;
-        
-        public Node(int key, int value){
-            this._key = key;
-            this._value = value;
-        }
-    }
-}

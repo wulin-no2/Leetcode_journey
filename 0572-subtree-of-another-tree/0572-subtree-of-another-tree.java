@@ -15,17 +15,29 @@
  */
 class Solution {
     public boolean isSubtree(TreeNode root, TreeNode subRoot) {
+        // pre order
+        // find the same node from root
+        // base case
         if(root==null) return false;
-        // subRoot must be left or right child's subRoot
-        return isSame(root, subRoot) || isSubtree(root.left,subRoot) || isSubtree(root.right,subRoot);
-        
+        // if roots are identical 
+        if(isSameTree(root, subRoot)) return true;
+        // left
+        boolean left = isSubtree(root.left, subRoot);
+        // right
+        boolean right = isSubtree(root.right, subRoot);
+        return left || right;
         
     }
-    private boolean isSame(TreeNode p, TreeNode q){
-        if(q==null && p==null) return true;
-        else if(q==null && p!=null) return false;
-        else if(q!=null && p==null) return false;
-        else if(q!=null && p!=null && q.val != p.val) return false;
-        return isSame(q.left, p.left) && isSame(q.right, p.right);
+    public boolean isSameTree(TreeNode p, TreeNode q){
+        // post order
+        // base case
+        if(p==null && q==null) return true;
+        if(p == null || q==null || p.val != q.val) return false;
+        // left 
+        boolean left = isSameTree(p.left, q.left);
+        // right
+        boolean right = isSameTree(p.right, q.right);
+        // node
+        return left && right; 
     }
 }

@@ -14,21 +14,22 @@
  * }
  */
 class Solution {
-    int res = 0;
+    int diameter = 0;
     public int diameterOfBinaryTree(TreeNode root) {
-        // the diameter of a node = height of left tree + height of right tree
-        // postOrder traverse
-        traverse(root);
-        return res;
+        // post order
+        height(root);
+        return diameter;
     }
-    public int traverse(TreeNode root){
+    public int height(TreeNode node){
         // base case
-        if(root==null) return 0;
-        // one layer logic
-        int leftH = traverse(root.left);
-        int rightH = traverse(root.right);
-        res = Math.max(res, leftH + rightH);
-        //System.out.println("res is", res);
-        return Math.max(leftH, rightH) + 1;
+        if(node == null) return 0;
+        // left
+        int left = height(node.left);
+        // right
+        int right = height(node.right);
+        int height = Math.max(left, right) + 1;
+        diameter = Math.max(left + right, diameter);
+        // node
+        return height;
     }
 }

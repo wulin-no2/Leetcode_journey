@@ -14,24 +14,21 @@
  * }
  */
 class Solution {
+
     public boolean isBalanced(TreeNode root) {
-        // if Math.abs(node.left.height-node.right.height)<=1, node is balanced;
-        // we use postOrder traverse to calculate the height, and if it's balanced;
-        if(getHeight(root)==-1) return false;
-        return true;
+        // each node should be balanced. post order
+        int res = height(root);
+        return res != -1;
     }
-    
-    public int getHeight(TreeNode node){
-        // base case:
-        if(node==null) return 0;
-        if(node.left==null && node.right==null) return 1;
-        // one layer:
-        // left:
-        int left = getHeight(node.left);
-        // right:
-        int right = getHeight(node.right);
-        // node:
-        if(left==-1 || right==-1 || Math.abs(left-right) > 1) return -1;
-        return Math.max(left, right) + 1;
+    public int height(TreeNode node) {
+        // base case
+        if(node == null) return 0;
+        // left
+        int left = height(node.left);
+        // right
+        int right = height(node.right);
+        // node
+        if(left== -1 || right == -1 || Math.abs(left - right) > 1) return -1; 
+        return Math.max(left, right) + 1;  
     }
 }

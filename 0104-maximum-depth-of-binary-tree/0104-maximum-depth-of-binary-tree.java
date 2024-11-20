@@ -15,19 +15,22 @@
  */
 class Solution {
     public int maxDepth(TreeNode root) {
-        int res = traverse(root);
-        return res;
+        // post order
+        return height(root);
+        
     }
-    // traverse it in postOrder and return the height of root
-    public int traverse(TreeNode node){
-        //base case
-        if(node==null) return 0;
-        // one layer logic
-        // left
-        int left = traverse(node.left);
+    public int height(TreeNode node){
+        // base case
+        if(node == null) return 0;
+        
+        // left 
+        int left = height(node.left);
+        
         // right
-        int right = traverse(node.right);
+        int right = height(node.right);
+        
         // node
-        return Math.max(left, right) + 1;
+        return Math.max(right, left) + 1;
     }
+    
 }

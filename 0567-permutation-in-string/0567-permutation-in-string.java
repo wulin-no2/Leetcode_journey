@@ -21,21 +21,14 @@ class Solution {
         // move window forward
         for(int i = s1.length() ; i < s2.length(); i++){
             if(matches==26) return true;
-            //int outIdx = s2.charAt(i - s1.length()) - 'a'; // Character leaving the window
-            //int inIdx = s2.charAt(i) - 'a'; // Character entering the window
-
-
-            
-            
-            
-            char c1 = s2.charAt(i - s1.length());
-            char c2 = s2.charAt(i);
-            if(arr1[c1-'a'] == arr2[c1-'a']) matches--;
-            else if(arr1[c1-'a'] == arr2[c1-'a']-1) matches++;
-            arr2[c1-'a']--;
-            if(arr1[c2-'a'] == arr2[c2-'a'] + 1) matches++;
-            else if(arr1[c2-'a'] == arr2[c2-'a']) matches--;
-            arr2[c2-'a']++;
+            int outIdx = s2.charAt(i - s1.length()) - 'a'; // Character leaving the window
+            int inIdx = s2.charAt(i) - 'a'; // Character entering the window
+            if(arr1[outIdx] == arr2[outIdx]) matches--;
+            else if(arr1[outIdx] == arr2[outIdx]-1) matches++;
+            arr2[outIdx]--;
+            if(arr1[inIdx] == arr2[inIdx] + 1) matches++;
+            else if(arr1[inIdx] == arr2[inIdx]) matches--;
+            arr2[inIdx]++;
         }
         return matches == 26;
         

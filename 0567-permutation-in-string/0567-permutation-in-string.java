@@ -1,6 +1,6 @@
 class Solution {
     public boolean checkInclusion(String s1, String s2) {
-        if (s1.length() > s2.length()) return false; // Edge case: s1 longer than s2
+         if (s1.length() > s2.length()) return false; // Edge case: s1 longer than s2
 
         // hashing
         // use 2 arrays to record the letters and frequencies in s1 and window;

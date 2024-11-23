@@ -14,22 +14,26 @@
  * }
  */
 class Solution {
-    int diameter = 0;
+    int maxDiameter;
+    
     public int diameterOfBinaryTree(TreeNode root) {
-        // post order
+        // diameter of each node = leftHeight + rightHeight;
+        // post order traversal
+        // update diameter while traversing
+        // current diameter is not necessarily equal to universal max diameter
         height(root);
-        return diameter;
+        return maxDiameter;
     }
     public int height(TreeNode node){
         // base case
-        if(node == null) return 0;
+        if(node==null) return 0;
         // left
         int left = height(node.left);
         // right
         int right = height(node.right);
-        int height = Math.max(left, right) + 1;
-        diameter = Math.max(left + right, diameter);
+        // update diameter
+        maxDiameter = Math.max(left + right, maxDiameter);
         // node
-        return height;
+        return Math.max(left, right) + 1;
     }
 }

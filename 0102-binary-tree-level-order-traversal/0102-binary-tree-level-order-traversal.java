@@ -15,19 +15,16 @@
  */
 class Solution {
     public List<List<Integer>> levelOrder(TreeNode root) {
-        // BFS
-        // use Queue to traverse
+        // use list to store result
         List<List<Integer>> res = new ArrayList<>();
-        Queue<TreeNode> q = new LinkedList<>();
-        // put first level into q
-        if(root == null) return res;
+        // use queue to track each level's nodes
+        Deque<TreeNode> q = new LinkedList<>();
+        if(root==null) return res;
         q.offer(root);
-        while(!q.isEmpty()){
-            // record level size
+        while(! q.isEmpty()){
             int size = q.size();
             List<Integer> list = new ArrayList<>();
             while(size > 0){
-                // traverse one level
                 TreeNode node = q.poll();
                 list.add(node.val);
                 if(node.left!=null) q.offer(node.left);
@@ -37,5 +34,6 @@ class Solution {
             res.add(list);
         }
         return res;
+        
     }
 }

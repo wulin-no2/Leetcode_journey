@@ -14,73 +14,24 @@
  * }
  */
 class Solution {
-        public List<Integer> rightSideView(TreeNode root) {
-            // use level order
-            List<Integer> res = new ArrayList<>();
-            if(root == null) return res;
-            // use queue to traverse:
-            Deque<TreeNode> q = new LinkedList<>();
-            q.offer(root);
-            while(!q.isEmpty()){
-                int size = q.size();
-                List<Integer> list = new ArrayList<>();
-                while(size -- > 0){
-                    TreeNode temp = q.poll();
-                    if(size == 0) res.add(temp.val);
-                    if(temp.left != null) q.offer(temp.left);
-                    if(temp.right != null) q.offer(temp.right);
-                }
-            }
-            return res;
-            
-            
-            
-            
-        }
-    /*
     public List<Integer> rightSideView(TreeNode root) {
-        // from 21:30; analyze 2min;
-        // BFS, return the last value of each level
-        // Use queue
-        // if can't write it, please review BFS again. But put right first, then left;
-        // Use queue to traverse, use ArrayList to store the result;
-        // use height to record the height. before height--, add the value to result;
-        
-        
-        // base cases:
-        if(root == null) return new ArrayList<>();
-        ArrayList<Integer> res = new ArrayList<>();
-        
-        // use queue to traverse;
-        Queue<TreeNode> queue = new LinkedList<>();
-        queue.offer(root);
-        while(!queue.isEmpty()){
-            // each time, check the size of queue. poll all of them and offer again;
-            int levelSize = queue.size();
-            for (int i = 0; i < levelSize; i++) {
-                TreeNode p = queue.poll();
-                if(i == 0) {
-                    res.add(p.val);
-                }
-                if(p.right != null) queue.offer(p.right);
-                if(p.left != null) queue.offer(p.left);
+        // level order
+        // record the last node.val
+        List<Integer> res = new ArrayList<>();
+        if(root==null) return res;
+        // use queue to record each level
+        Deque<TreeNode> q = new LinkedList<>();
+        q.offer(root);
+        while(! q.isEmpty()){
+            int size = q.size();
+            while(size > 0){
+                TreeNode node = q.poll();
+                if(size == 1) res.add(node.val);
+                if(node.left!=null) q.offer(node.left);
+                if(node.right!=null) q.offer(node.right);
+                size--;
             }
         }
-        return res; 
+        return res;
     }
-    */
-    // a simple recursive approach from discuss;
-    /*
-    public List<Integer> rightSideView(TreeNode root) {
-        var list = new ArrayList<Integer>();
-        rec(root,list,0);
-        return list;
-    }
-    void rec(TreeNode root,ArrayList<Integer> list, int depth){
-        if (root == null) return;
-        if(list.size()==depth) list.add(root.val);
-        if(root.right!=null) rec(root.right,list,depth+1);
-        if(root.left!=null) rec(root.left,list,depth+1);
-    }
-    */
 }

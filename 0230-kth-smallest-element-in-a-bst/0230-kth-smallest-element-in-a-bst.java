@@ -14,21 +14,18 @@
  * }
  */
 class Solution {
+    PriorityQueue<Integer> pq = new PriorityQueue<>((a,b)->Integer.compare(b,a));
     public int kthSmallest(TreeNode root, int k) {
-        // analyze: inOrder traverse;
-        // DFS, Stack
-        // if(root.left==null && root.right==null && k==1) return root.val;
-        Stack<TreeNode> stack = new Stack<>();
-        while(!stack.isEmpty() || root != null){
-            while(root != null){
-                stack.push(root);
-                root = root.left;
-            }
-            root = stack.pop();
-            k--;
-            if(k == 0) break;
-            root = root.right;
-        }
-        return root.val;
+        // use a minHeap with k length track the fistKSmallest values when traversing
+        traversal(root, k);
+        return pq.poll();
+    }
+    public void traversal(TreeNode node, int k){
+        // base case
+        if(node==null) return;
+        pq.offer(node.val);
+        if(pq.size() > k) pq.poll();
+        traversal(node.left, k);
+        traversal(node.right, k);
     }
 }

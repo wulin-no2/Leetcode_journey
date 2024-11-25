@@ -15,21 +15,21 @@
  */
 class Solution {
     public TreeNode invertTree(TreeNode root) {
-        // post order traversal
+        // invert children first and pass it to node
+        // post Order traversal
         return invert(root);
-        
         
     }
     public TreeNode invert(TreeNode node){
-        // base case 
+        // base case
         if(node==null) return node;
         // left
-        TreeNode left = invert(node.right);
-        // right 
-        TreeNode right = invert(node.left);
+        TreeNode left = invert(node.left);
+        // right
+        TreeNode right = invert(node.right);
         // node
-        node.left = left;
-        node.right = right;
+        node.left = right;
+        node.right = left;
         return node;
     }
 }

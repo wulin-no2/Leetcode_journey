@@ -14,18 +14,21 @@
  * }
  */
 class Solution {
-    PriorityQueue<Integer> pq = new PriorityQueue<>((a,b)->Integer.compare(b,a));
+    int count = 0;
+    int res = -1;
     public int kthSmallest(TreeNode root, int k) {
-        // use a minHeap with k length track the fistKSmallest values when traversing
-        traversal(root, k);
-        return pq.poll();
+        // BST, in order, kth node
+        count = k;
+        traversal(root);
+        return res;
+
     }
-    public void traversal(TreeNode node, int k){
-        // base case
+    public void traversal(TreeNode node){
         if(node==null) return;
-        pq.offer(node.val);
-        if(pq.size() > k) pq.poll();
-        traversal(node.left, k);
-        traversal(node.right, k);
+        traversal(node.left);
+        count--;
+        if(count==0) {res = node.val; return;}
+        traversal(node.right);
     }
+
 }

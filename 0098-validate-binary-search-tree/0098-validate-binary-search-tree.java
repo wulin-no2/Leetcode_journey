@@ -15,21 +15,20 @@
  */
 class Solution {
     public boolean isValidBST(TreeNode root) {
-        // post order
-        // if node.val <= maxLeft or >= smallestRight, it's false
-        return traversal(root, Long.MIN_VALUE, Long.MAX_VALUE);
-        
-        
+        // post order traversal
+        // min of left child should < node.val;
+        // max of right child should > node.val;
+        long min = Long.MIN_VALUE;
+        long max = Long.MAX_VALUE;
+        return traversal(root, min, max);
     }
     public boolean traversal(TreeNode node, long min, long max){
         // base case
         if(node==null) return true;
-        // left
-        // Check if the current node violates the min/max constraint
-        if (node.val <= min || node.val >= max) return false;
-        
+        if(node.val <= min || node.val >= max) return false;
+        // left 
         boolean left = traversal(node.left, min, node.val);
-        // right
+        // right        
         boolean right = traversal(node.right, node.val, max);
         // node
         return left && right;

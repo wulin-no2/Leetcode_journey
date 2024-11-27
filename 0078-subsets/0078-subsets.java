@@ -1,18 +1,24 @@
 class Solution {
     public List<List<Integer>> subsets(int[] nums) {
-        List<List<Integer>> list = new ArrayList<>();
-        backtrack(list, new ArrayList(), nums, 0);
-        return list;
-
-        
+        List<List<Integer>> res = new ArrayList<>();
+        List<Integer> list = new ArrayList<>();
+        backtracking(nums, 0, res, list);
+        return res;
         
     }
-    private void backtrack(List<List<Integer>> list, List<Integer> tempList, int[] nums, int start){
-        list.add(new ArrayList<>(tempList));
-        for(int i = start; i < nums.length; i++){
-            tempList.add(nums[i]);
-            backtrack(list, tempList, nums, i + 1);
-            tempList.remove(tempList.size() - 1);
+    public void backtracking(int[] nums, int index, List<List<Integer>> res, List<Integer> list){
+        // base case, get result
+        if(index == nums.length){
+            res.add(new ArrayList<>(list)); // add a copy of the current list
+            return;
         }
+        // one layer - choose the current element
+        list.add(nums[index]);
+        backtracking(nums, index + 1, res, list);
+        list.remove(list.size()-1);
+        
+        // one layer - don't choose it
+        backtracking(nums, index + 1, res, list);
     }
+    
 }

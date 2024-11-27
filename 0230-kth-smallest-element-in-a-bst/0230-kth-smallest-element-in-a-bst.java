@@ -14,21 +14,24 @@
  * }
  */
 class Solution {
-    int count = 0;
-    int res = -1;
+    int count;
+    int res;
     public int kthSmallest(TreeNode root, int k) {
-        // BST, in order, kth node
+        // in order traversal, find the kth node and return its value
         count = k;
         traversal(root);
         return res;
-
+        
     }
     public void traversal(TreeNode node){
+        // base case 
         if(node==null) return;
+        // left 
         traversal(node.left);
+        // node 
         count--;
-        if(count==0) {res = node.val; return;}
+        if(count==0) res = node.val;
+        // right
         traversal(node.right);
     }
-
 }

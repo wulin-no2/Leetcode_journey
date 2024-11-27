@@ -16,25 +16,24 @@
 class Solution {
     int res = 0;
     public int goodNodes(TreeNode root) {
+        // it's good if the max until now is <= node.val;
         // pre order
-        // record the max from root until current
-        // if current is the max, then it's good
-        traversal(root, root.val); // root.val as the initial max
+        traversal(root, root.val);
         return res;
         
         
     }
-    public void traversal(TreeNode node, int currentMax){
+    public void traversal(TreeNode node, int max){
         // base case
-        if(node==null) return;
+        if(node == null) return;
         // node
-        if(node.val >= currentMax) res++; 
-        currentMax = Math.max(node.val, currentMax);
-
+        if(node.val >= max) res++;
+        max = Math.max(node.val, max);
+        
         // left
-        if(node.left != null) traversal(node.left, currentMax);
+        traversal(node.left, max);
         // right
-        if(node.right != null) traversal(node.right, currentMax); 
+        traversal(node.right, max);
         
     }
 }

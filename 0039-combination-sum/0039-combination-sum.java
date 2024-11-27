@@ -1,20 +1,29 @@
 class Solution {
-    public List<List<Integer>> combinationSum(int[] nums, int target) {
-        List<List<Integer>> list = new ArrayList<>();
-        // Arrays.sort(nums);
-        backtrack(list, new ArrayList<>(), nums, target, 0);
-        return list;
+    public List<List<Integer>> combinationSum(int[] candidates, int target) {
+        List<List<Integer>> res = new ArrayList<>();
+        List<Integer> list = new ArrayList<>();
+        backtracking(candidates, target, 0, res, list);
+        return res;
+        
     }
-    // general solution of backtracking
-    private void backtrack(List<List<Integer>> list, List<Integer> tempList, int[] nums, int remain, int start){
-        if(remain < 0) return;
-        else if(remain == 0) list.add(new ArrayList<>(tempList));
-        else{
-            for(int i = start; i < nums.length; i++){
-                tempList.add(nums[i]);
-                backtrack(list, tempList, nums, remain - nums[i], i); // not i + 1 because we can reuse some elements
-                tempList.remove(tempList.size() - 1);
-            }
+    public void backtracking(int[] candidates, int target, int index, List<List<Integer>> res, List<Integer> list){
+        // base case, get result
+        if(target==0) {
+            res.add(new ArrayList(list)); 
+            return;
+        }
+        for(int i = index; i < candidates.length ; i++){
+            // skip if current candidate exceeds the remaining target
+            if(candidates[i] > target) continue;
+            
+            // include current candidate in the combination
+            list.add(candidates[i]);
+            
+            // recursively try to find combinations with the updated target
+            backtracking(candidates, target - candidates[i], i, res, list);
+            
+            // backtrack: remove last element to explore others
+            list.remove(list.size() - 1);
         }
     }
 }

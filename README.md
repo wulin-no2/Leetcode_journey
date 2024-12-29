@@ -7,6 +7,7 @@
 |  |
 | ------- |
 | [0001-two-sum](https://github.com/wulin-no2/Leetcode_journey/tree/master/0001-two-sum) |
+| [0039-combination-sum](https://github.com/wulin-no2/Leetcode_journey/tree/master/0039-combination-sum) |
 | [0078-subsets](https://github.com/wulin-no2/Leetcode_journey/tree/master/0078-subsets) |
 ## Hash Table
 |  |
@@ -15,6 +16,7 @@
 ## Backtracking
 |  |
 | ------- |
+| [0039-combination-sum](https://github.com/wulin-no2/Leetcode_journey/tree/master/0039-combination-sum) |
 | [0078-subsets](https://github.com/wulin-no2/Leetcode_journey/tree/master/0078-subsets) |
 ## Bit Manipulation
 |  |

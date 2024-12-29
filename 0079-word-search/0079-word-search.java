@@ -1,29 +1,40 @@
 class Solution {
-    // boolean res = false;
     public boolean exist(char[][] board, String word) {
-        // DFS or backtracking
+        // recursive
+        // used[i] to record
+        // dfs
+
         int m = board.length;
         int n = board[0].length;
-        //int len = word.length();
-        // DFS for each elements;
-        for(int i = 0 ; i < m ; i++){
-            for(int j = 0 ; j < n ; j++){
-                if(dfs(i, j, 0, board, word)) return true;
+        boolean[][] used = new boolean[m][n];
+
+        // Start backtracking from every cell
+        for (int i = 0; i < m; i++) {
+            for (int j = 0; j < n; j++) {
+                if (backtracking(board, word, used, 0, i, j, m, n)) {
+                    return true; // Return true if the word is found
+                }
             }
         }
-        return false;  
+
+        return false; // Word not found
     }
-    private boolean dfs(int i, int j, int start, char[][] board, String word){
-        if(start == word.length()) return true; // handle end case;
-        if(i < 0 || i >= board.length || j < 0 || j >= board[0].length || board[i][j] != word.charAt(start)) return false; // handle boundary case;
-        char temp = board[i][j];
-        board[i][j] = '#'; // record visited to optimize efficiency;
-        boolean found = 
-            dfs(i, j + 1, start + 1, board, word) ||
-            dfs(i + 1, j, start + 1, board, word) ||
-            dfs(i, j - 1, start + 1, board, word) ||
-            dfs(i - 1, j, start + 1, board, word);
-        board[i][j] = temp; // restore the value;
+    public boolean backtracking(char[][] board, String word, boolean[][] used, int index, int i , int j, int m, int n){
+        if(index == word.length()){
+            return true;
+        } 
+         // Check boundaries and conditions
+        if (i < 0 || i >= m || j < 0 || j >= n || used[i][j] || board[i][j] != word.charAt(index)) {
+            return false;
+        }
+        // Mark the cell as used
+        used[i][j] = true;
+        // Explore all four directions
+        boolean found = backtracking(board, word, used, index + 1, i + 1, j, m, n) ||
+                        backtracking(board, word, used, index + 1, i - 1, j, m, n) ||
+                        backtracking(board, word, used, index + 1, i, j + 1, m, n) ||
+                        backtracking(board, word, used, index + 1, i, j - 1, m, n);
+        used[i][j] = false;
         return found;
     }
 }

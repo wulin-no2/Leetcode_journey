@@ -44,5 +44,14 @@
 ## Dynamic Programming
 |  |
 | ------- |
+| [0070-climbing-stairs](https://github.com/wulin-no2/Leetcode_journey/tree/master/0070-climbing-stairs) |
 | [0131-palindrome-partitioning](https://github.com/wulin-no2/Leetcode_journey/tree/master/0131-palindrome-partitioning) |
+## Math
+|  |
+| ------- |
+| [0070-climbing-stairs](https://github.com/wulin-no2/Leetcode_journey/tree/master/0070-climbing-stairs) |
+## Memoization
+|  |
+| ------- |
+| [0070-climbing-stairs](https://github.com/wulin-no2/Leetcode_journey/tree/master/0070-climbing-stairs) |
 <!---LeetCode Topics End-->

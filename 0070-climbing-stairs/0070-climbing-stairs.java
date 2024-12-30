@@ -1,20 +1,16 @@
 class Solution {
     public int climbStairs(int n) {
-        // 1. dp definition: for n steps stairs, we have dp[n] ways to the top;
-        int[] dp = new int[n + 1];
-        
-        // 2. dp equations
-        //dp[n] = dp[n-1] + dp[n-2];
-        
-        // 3. initialize
-        dp[1] = 1; if(n==1) return dp[1]; 
-        dp[2] = 2;
-        // 4. how to traverse
-        for(int i = 3; i <= n ; i++){
-            dp[i] = dp[i-1] + dp[i-2];
-            //System.out.println("dp["+i+"] is "+dp[i]);
+        // easy to solve it with dynamic programming
+        // we could easily get result from the previous step and the step before that
+        // arr[n] = arr[n-1] + arr[n-2]
+        int[] arr = new int[n+1];
+        arr[0] = 1;
+        arr[1] = 1;
+        for(int i = 2; i<=n; i++){
+            arr[i] = arr[i-1] + arr[i-2];
+            //System.out.println(i + " " + arr[i]);
         }
-        // 5. result
-        return dp[n];
+        return arr[n];
+        
     }
 }

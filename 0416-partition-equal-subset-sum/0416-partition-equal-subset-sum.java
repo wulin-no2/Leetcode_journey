@@ -1,23 +1,19 @@
 class Solution {
     public boolean canPartition(int[] nums) {
-        int totalSum = 0;
-        for (int num : nums) {
-            totalSum += num;
-        }
-
-        // If the total sum is odd, it's impossible to partition
-        if (totalSum % 2 != 0) return false;
-
-        int target = totalSum / 2;
+        int sum = 0;
+        for(int num: nums) sum += num;
+        if(sum % 2 != 0) return false;
+        int target = sum / 2;
+        // 0-1 knapsack 
+        // dynamic programming
+        // dp[j] = dp[j] || dp[j-num]   //j is target, dp[j] is whether we can get target 
         boolean[] dp = new boolean[target + 1];
-        dp[0] = true; // Base case: sum of 0 is always possible
-
-        for (int num : nums) {
-            for (int j = target; j >= num; j--) {
-                dp[j] = dp[j] || dp[j - num];
+        dp[0] = true;
+        for(int num: nums){
+            for(int j = target; j >= 0; j--){
+                if(j-num >= 0) dp[j] = dp[j] || dp[j-num];
             }
         }
-
         return dp[target];
         
     }

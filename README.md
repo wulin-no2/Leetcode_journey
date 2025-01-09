@@ -58,6 +58,7 @@
 | [0049-group-anagrams](https://github.com/wulin-no2/Leetcode_journey/tree/master/0049-group-anagrams) |
 | [0079-word-search](https://github.com/wulin-no2/Leetcode_journey/tree/master/0079-word-search) |
 | [0091-decode-ways](https://github.com/wulin-no2/Leetcode_journey/tree/master/0091-decode-ways) |
+| [0125-valid-palindrome](https://github.com/wulin-no2/Leetcode_journey/tree/master/0125-valid-palindrome) |
 | [0131-palindrome-partitioning](https://github.com/wulin-no2/Leetcode_journey/tree/master/0131-palindrome-partitioning) |
 | [0139-word-break](https://github.com/wulin-no2/Leetcode_journey/tree/master/0139-word-break) |
 | [0242-valid-anagram](https://github.com/wulin-no2/Leetcode_journey/tree/master/0242-valid-anagram) |
@@ -96,6 +97,7 @@
 |  |
 | ------- |
 | [0005-longest-palindromic-substring](https://github.com/wulin-no2/Leetcode_journey/tree/master/0005-longest-palindromic-substring) |
+| [0125-valid-palindrome](https://github.com/wulin-no2/Leetcode_journey/tree/master/0125-valid-palindrome) |
 | [0647-palindromic-substrings](https://github.com/wulin-no2/Leetcode_journey/tree/master/0647-palindromic-substrings) |
 ## Breadth-First Search
 |  |

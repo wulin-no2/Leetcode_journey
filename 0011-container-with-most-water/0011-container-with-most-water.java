@@ -8,18 +8,11 @@ class Solution {
         int right = height.length - 1;
         int max = Math.min(height[right], height[left]) * (right - left);
         while(left < right){
-            if(height[left] <= height[right]){
-                left++;
-                if(height[left] > height[left-1]){
-                    max = Math.max(max, Math.min(height[right], height[left]) * (right - left));
-                }
-            }else{
-                right--;
-                if(height[right] > height[right + 1]){
-                    max = Math.max(max, Math.min(height[right], height[left]) * (right - left));
-                }
-            }
+            if(height[left] <= height[right]) left++;
+            else right--;
+            max = Math.max(max, Math.min(height[right], height[left]) * (right - left));
         }
+        
 
         return max;
     }

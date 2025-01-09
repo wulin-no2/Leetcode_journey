@@ -1,31 +1,31 @@
 class Solution {
     public List<List<Integer>> threeSum(int[] nums) {
-        // use list get result;
         List<List<Integer>> res = new ArrayList<>();
-        // sort it;
+        // to avoid duplicate result, we sort it first
         Arrays.sort(nums);
-        // trimming:
-        if(nums[nums.length - 1] < 0) return res;
-        // 2 pointers
-        for(int i = 0; i < nums.length - 2; i++){
-            // trimming:
+        // fix one number, then use 2 pointers to find result;
+        // jump the duplicate elements in same position:
+        for(int i = 0; i < nums.length-2;i++){
+            // Skip duplicates for the first number
+            if (i > 0 && nums[i] == nums[i - 1]) continue;
             if(nums[i] > 0) break;
-            if(i > 0 && nums[i]==nums[i-1]) continue;
-            int target = 0 - nums[i];
             int left = i + 1;
             int right = nums.length - 1;
             while(left < right){
-                if(nums[left] + nums[right]==target) {
+                if(nums[right] < 0) break;
+                if(nums[left] + nums[right] + nums[i]==0){
                     res.add(Arrays.asList(nums[i], nums[left], nums[right]));
                     left++;
                     right--;
-                    while(left < right && nums[left]==nums[left-1]) left++;
-                    while(left < right && nums[right]==nums[right+1]) right--;
-                }
-                while(left < right && (nums[left] + nums[right] < target)) left++;
-                while(left < right && (nums[left] + nums[right] > target)) right--;
+                    while(left < right && nums[left]==nums[left - 1]) left++; // skip dulpicate
+                    while(left < right && nums[right]==nums[right + 1]) right--; // skip dulpicate
+                } else if(left < right && nums[left] + nums[right] + nums[i] < 0) left++;
+                else right--;
             }
         }
         return res;
+
+        
+        
     }
 }

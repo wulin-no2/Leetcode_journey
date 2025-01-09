@@ -58,6 +58,7 @@
 |  |
 | ------- |
 | [0005-longest-palindromic-substring](https://github.com/wulin-no2/Leetcode_journey/tree/master/0005-longest-palindromic-substring) |
+| [0020-valid-parentheses](https://github.com/wulin-no2/Leetcode_journey/tree/master/0020-valid-parentheses) |
 | [0049-group-anagrams](https://github.com/wulin-no2/Leetcode_journey/tree/master/0049-group-anagrams) |
 | [0079-word-search](https://github.com/wulin-no2/Leetcode_journey/tree/master/0079-word-search) |
 | [0091-decode-ways](https://github.com/wulin-no2/Leetcode_journey/tree/master/0091-decode-ways) |
@@ -154,4 +155,8 @@
 |  |
 | ------- |
 | [0011-container-with-most-water](https://github.com/wulin-no2/Leetcode_journey/tree/master/0011-container-with-most-water) |
+## Stack
+|  |
+| ------- |
+| [0020-valid-parentheses](https://github.com/wulin-no2/Leetcode_journey/tree/master/0020-valid-parentheses) |
 <!---LeetCode Topics End-->

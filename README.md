@@ -28,6 +28,7 @@
 | [0001-two-sum](https://github.com/wulin-no2/Leetcode_journey/tree/master/0001-two-sum) |
 | [0139-word-break](https://github.com/wulin-no2/Leetcode_journey/tree/master/0139-word-break) |
 | [0217-contains-duplicate](https://github.com/wulin-no2/Leetcode_journey/tree/master/0217-contains-duplicate) |
+| [0242-valid-anagram](https://github.com/wulin-no2/Leetcode_journey/tree/master/0242-valid-anagram) |
 ## Backtracking
 |  |
 | ------- |
@@ -51,6 +52,7 @@
 | [0091-decode-ways](https://github.com/wulin-no2/Leetcode_journey/tree/master/0091-decode-ways) |
 | [0131-palindrome-partitioning](https://github.com/wulin-no2/Leetcode_journey/tree/master/0131-palindrome-partitioning) |
 | [0139-word-break](https://github.com/wulin-no2/Leetcode_journey/tree/master/0139-word-break) |
+| [0242-valid-anagram](https://github.com/wulin-no2/Leetcode_journey/tree/master/0242-valid-anagram) |
 | [0647-palindromic-substrings](https://github.com/wulin-no2/Leetcode_journey/tree/master/0647-palindromic-substrings) |
 ## Matrix
 |  |
@@ -102,4 +104,5 @@
 |  |
 | ------- |
 | [0217-contains-duplicate](https://github.com/wulin-no2/Leetcode_journey/tree/master/0217-contains-duplicate) |
+| [0242-valid-anagram](https://github.com/wulin-no2/Leetcode_journey/tree/master/0242-valid-anagram) |
 <!---LeetCode Topics End-->

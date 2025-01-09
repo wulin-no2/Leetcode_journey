@@ -7,6 +7,7 @@
 |  |
 | ------- |
 | [0001-two-sum](https://github.com/wulin-no2/Leetcode_journey/tree/master/0001-two-sum) |
+| [0015-3sum](https://github.com/wulin-no2/Leetcode_journey/tree/master/0015-3sum) |
 | [0036-valid-sudoku](https://github.com/wulin-no2/Leetcode_journey/tree/master/0036-valid-sudoku) |
 | [0039-combination-sum](https://github.com/wulin-no2/Leetcode_journey/tree/master/0039-combination-sum) |
 | [0040-combination-sum-ii](https://github.com/wulin-no2/Leetcode_journey/tree/master/0040-combination-sum-ii) |
@@ -98,6 +99,7 @@
 |  |
 | ------- |
 | [0005-longest-palindromic-substring](https://github.com/wulin-no2/Leetcode_journey/tree/master/0005-longest-palindromic-substring) |
+| [0015-3sum](https://github.com/wulin-no2/Leetcode_journey/tree/master/0015-3sum) |
 | [0125-valid-palindrome](https://github.com/wulin-no2/Leetcode_journey/tree/master/0125-valid-palindrome) |
 | [0167-two-sum-ii-input-array-is-sorted](https://github.com/wulin-no2/Leetcode_journey/tree/master/0167-two-sum-ii-input-array-is-sorted) |
 | [0647-palindromic-substrings](https://github.com/wulin-no2/Leetcode_journey/tree/master/0647-palindromic-substrings) |
@@ -117,6 +119,7 @@
 ## Sorting
 |  |
 | ------- |
+| [0015-3sum](https://github.com/wulin-no2/Leetcode_journey/tree/master/0015-3sum) |
 | [0049-group-anagrams](https://github.com/wulin-no2/Leetcode_journey/tree/master/0049-group-anagrams) |
 | [0217-contains-duplicate](https://github.com/wulin-no2/Leetcode_journey/tree/master/0217-contains-duplicate) |
 | [0242-valid-anagram](https://github.com/wulin-no2/Leetcode_journey/tree/master/0242-valid-anagram) |

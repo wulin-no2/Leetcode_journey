@@ -19,6 +19,7 @@
 | [0198-house-robber](https://github.com/wulin-no2/Leetcode_journey/tree/master/0198-house-robber) |
 | [0213-house-robber-ii](https://github.com/wulin-no2/Leetcode_journey/tree/master/0213-house-robber-ii) |
 | [0217-contains-duplicate](https://github.com/wulin-no2/Leetcode_journey/tree/master/0217-contains-duplicate) |
+| [0238-product-of-array-except-self](https://github.com/wulin-no2/Leetcode_journey/tree/master/0238-product-of-array-except-self) |
 | [0300-longest-increasing-subsequence](https://github.com/wulin-no2/Leetcode_journey/tree/master/0300-longest-increasing-subsequence) |
 | [0322-coin-change](https://github.com/wulin-no2/Leetcode_journey/tree/master/0322-coin-change) |
 | [0347-top-k-frequent-elements](https://github.com/wulin-no2/Leetcode_journey/tree/master/0347-top-k-frequent-elements) |
@@ -132,4 +133,8 @@
 |  |
 | ------- |
 | [0347-top-k-frequent-elements](https://github.com/wulin-no2/Leetcode_journey/tree/master/0347-top-k-frequent-elements) |
+## Prefix Sum
+|  |
+| ------- |
+| [0238-product-of-array-except-self](https://github.com/wulin-no2/Leetcode_journey/tree/master/0238-product-of-array-except-self) |
 <!---LeetCode Topics End-->

@@ -14,6 +14,7 @@
 | [0040-combination-sum-ii](https://github.com/wulin-no2/Leetcode_journey/tree/master/0040-combination-sum-ii) |
 | [0046-permutations](https://github.com/wulin-no2/Leetcode_journey/tree/master/0046-permutations) |
 | [0049-group-anagrams](https://github.com/wulin-no2/Leetcode_journey/tree/master/0049-group-anagrams) |
+| [0074-search-a-2d-matrix](https://github.com/wulin-no2/Leetcode_journey/tree/master/0074-search-a-2d-matrix) |
 | [0078-subsets](https://github.com/wulin-no2/Leetcode_journey/tree/master/0078-subsets) |
 | [0079-word-search](https://github.com/wulin-no2/Leetcode_journey/tree/master/0079-word-search) |
 | [0090-subsets-ii](https://github.com/wulin-no2/Leetcode_journey/tree/master/0090-subsets-ii) |
@@ -77,6 +78,7 @@
 |  |
 | ------- |
 | [0036-valid-sudoku](https://github.com/wulin-no2/Leetcode_journey/tree/master/0036-valid-sudoku) |
+| [0074-search-a-2d-matrix](https://github.com/wulin-no2/Leetcode_journey/tree/master/0074-search-a-2d-matrix) |
 | [0079-word-search](https://github.com/wulin-no2/Leetcode_journey/tree/master/0079-word-search) |
 ## Dynamic Programming
 |  |
@@ -125,6 +127,7 @@
 ## Binary Search
 |  |
 | ------- |
+| [0074-search-a-2d-matrix](https://github.com/wulin-no2/Leetcode_journey/tree/master/0074-search-a-2d-matrix) |
 | [0167-two-sum-ii-input-array-is-sorted](https://github.com/wulin-no2/Leetcode_journey/tree/master/0167-two-sum-ii-input-array-is-sorted) |
 | [0300-longest-increasing-subsequence](https://github.com/wulin-no2/Leetcode_journey/tree/master/0300-longest-increasing-subsequence) |
 | [0792-binary-search](https://github.com/wulin-no2/Leetcode_journey/tree/master/0792-binary-search) |

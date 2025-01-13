@@ -34,6 +34,7 @@
 | [0747-min-cost-climbing-stairs](https://github.com/wulin-no2/Leetcode_journey/tree/master/0747-min-cost-climbing-stairs) |
 | [0792-binary-search](https://github.com/wulin-no2/Leetcode_journey/tree/master/0792-binary-search) |
 | [0883-car-fleet](https://github.com/wulin-no2/Leetcode_journey/tree/master/0883-car-fleet) |
+| [0907-koko-eating-bananas](https://github.com/wulin-no2/Leetcode_journey/tree/master/0907-koko-eating-bananas) |
 ## Hash Table
 |  |
 | ------- |
@@ -131,6 +132,7 @@
 | [0167-two-sum-ii-input-array-is-sorted](https://github.com/wulin-no2/Leetcode_journey/tree/master/0167-two-sum-ii-input-array-is-sorted) |
 | [0300-longest-increasing-subsequence](https://github.com/wulin-no2/Leetcode_journey/tree/master/0300-longest-increasing-subsequence) |
 | [0792-binary-search](https://github.com/wulin-no2/Leetcode_journey/tree/master/0792-binary-search) |
+| [0907-koko-eating-bananas](https://github.com/wulin-no2/Leetcode_journey/tree/master/0907-koko-eating-bananas) |
 ## Sorting
 |  |
 | ------- |

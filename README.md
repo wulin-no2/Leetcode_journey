@@ -29,6 +29,7 @@
 | [0322-coin-change](https://github.com/wulin-no2/Leetcode_journey/tree/master/0322-coin-change) |
 | [0347-top-k-frequent-elements](https://github.com/wulin-no2/Leetcode_journey/tree/master/0347-top-k-frequent-elements) |
 | [0416-partition-equal-subset-sum](https://github.com/wulin-no2/Leetcode_journey/tree/master/0416-partition-equal-subset-sum) |
+| [0739-daily-temperatures](https://github.com/wulin-no2/Leetcode_journey/tree/master/0739-daily-temperatures) |
 | [0747-min-cost-climbing-stairs](https://github.com/wulin-no2/Leetcode_journey/tree/master/0747-min-cost-climbing-stairs) |
 ## Hash Table
 |  |
@@ -166,8 +167,13 @@
 | [0020-valid-parentheses](https://github.com/wulin-no2/Leetcode_journey/tree/master/0020-valid-parentheses) |
 | [0150-evaluate-reverse-polish-notation](https://github.com/wulin-no2/Leetcode_journey/tree/master/0150-evaluate-reverse-polish-notation) |
 | [0155-min-stack](https://github.com/wulin-no2/Leetcode_journey/tree/master/0155-min-stack) |
+| [0739-daily-temperatures](https://github.com/wulin-no2/Leetcode_journey/tree/master/0739-daily-temperatures) |
 ## Design
 |  |
 | ------- |
 | [0155-min-stack](https://github.com/wulin-no2/Leetcode_journey/tree/master/0155-min-stack) |
+## Monotonic Stack
+|  |
+| ------- |
+| [0739-daily-temperatures](https://github.com/wulin-no2/Leetcode_journey/tree/master/0739-daily-temperatures) |
 <!---LeetCode Topics End-->

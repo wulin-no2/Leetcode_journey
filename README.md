@@ -31,6 +31,7 @@
 | [0416-partition-equal-subset-sum](https://github.com/wulin-no2/Leetcode_journey/tree/master/0416-partition-equal-subset-sum) |
 | [0739-daily-temperatures](https://github.com/wulin-no2/Leetcode_journey/tree/master/0739-daily-temperatures) |
 | [0747-min-cost-climbing-stairs](https://github.com/wulin-no2/Leetcode_journey/tree/master/0747-min-cost-climbing-stairs) |
+| [0792-binary-search](https://github.com/wulin-no2/Leetcode_journey/tree/master/0792-binary-search) |
 | [0883-car-fleet](https://github.com/wulin-no2/Leetcode_journey/tree/master/0883-car-fleet) |
 ## Hash Table
 |  |
@@ -126,6 +127,7 @@
 | ------- |
 | [0167-two-sum-ii-input-array-is-sorted](https://github.com/wulin-no2/Leetcode_journey/tree/master/0167-two-sum-ii-input-array-is-sorted) |
 | [0300-longest-increasing-subsequence](https://github.com/wulin-no2/Leetcode_journey/tree/master/0300-longest-increasing-subsequence) |
+| [0792-binary-search](https://github.com/wulin-no2/Leetcode_journey/tree/master/0792-binary-search) |
 ## Sorting
 |  |
 | ------- |

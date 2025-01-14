@@ -47,6 +47,7 @@
 | [0217-contains-duplicate](https://github.com/wulin-no2/Leetcode_journey/tree/master/0217-contains-duplicate) |
 | [0242-valid-anagram](https://github.com/wulin-no2/Leetcode_journey/tree/master/0242-valid-anagram) |
 | [0347-top-k-frequent-elements](https://github.com/wulin-no2/Leetcode_journey/tree/master/0347-top-k-frequent-elements) |
+| [1023-time-based-key-value-store](https://github.com/wulin-no2/Leetcode_journey/tree/master/1023-time-based-key-value-store) |
 ## Backtracking
 |  |
 | ------- |
@@ -77,6 +78,7 @@
 | [0139-word-break](https://github.com/wulin-no2/Leetcode_journey/tree/master/0139-word-break) |
 | [0242-valid-anagram](https://github.com/wulin-no2/Leetcode_journey/tree/master/0242-valid-anagram) |
 | [0647-palindromic-substrings](https://github.com/wulin-no2/Leetcode_journey/tree/master/0647-palindromic-substrings) |
+| [1023-time-based-key-value-store](https://github.com/wulin-no2/Leetcode_journey/tree/master/1023-time-based-key-value-store) |
 ## Matrix
 |  |
 | ------- |
@@ -137,6 +139,7 @@
 | [0300-longest-increasing-subsequence](https://github.com/wulin-no2/Leetcode_journey/tree/master/0300-longest-increasing-subsequence) |
 | [0792-binary-search](https://github.com/wulin-no2/Leetcode_journey/tree/master/0792-binary-search) |
 | [0907-koko-eating-bananas](https://github.com/wulin-no2/Leetcode_journey/tree/master/0907-koko-eating-bananas) |
+| [1023-time-based-key-value-store](https://github.com/wulin-no2/Leetcode_journey/tree/master/1023-time-based-key-value-store) |
 ## Sorting
 |  |
 | ------- |
@@ -186,6 +189,7 @@
 |  |
 | ------- |
 | [0155-min-stack](https://github.com/wulin-no2/Leetcode_journey/tree/master/0155-min-stack) |
+| [1023-time-based-key-value-store](https://github.com/wulin-no2/Leetcode_journey/tree/master/1023-time-based-key-value-store) |
 ## Monotonic Stack
 |  |
 | ------- |

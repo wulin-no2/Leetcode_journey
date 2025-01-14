@@ -11,8 +11,7 @@
  */
 public class Solution {
     public boolean hasCycle(ListNode head) {
-        // fast slow approach
-        // they will meet each other if there is a circle
+        // if there is a cycle, we use 2 pointers, one fast, one slow, they'all meet each other
         ListNode fast = head;
         ListNode slow = head;
         while(fast != null && fast.next != null){
@@ -21,5 +20,6 @@ public class Solution {
             if(fast == slow) return true;
         }
         return false;
+        
     }
 }

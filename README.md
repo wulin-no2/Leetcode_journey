@@ -49,6 +49,7 @@
 | [0217-contains-duplicate](https://github.com/wulin-no2/Leetcode_journey/tree/master/0217-contains-duplicate) |
 | [0242-valid-anagram](https://github.com/wulin-no2/Leetcode_journey/tree/master/0242-valid-anagram) |
 | [0347-top-k-frequent-elements](https://github.com/wulin-no2/Leetcode_journey/tree/master/0347-top-k-frequent-elements) |
+| [0424-longest-repeating-character-replacement](https://github.com/wulin-no2/Leetcode_journey/tree/master/0424-longest-repeating-character-replacement) |
 | [1023-time-based-key-value-store](https://github.com/wulin-no2/Leetcode_journey/tree/master/1023-time-based-key-value-store) |
 ## Backtracking
 |  |
@@ -80,6 +81,7 @@
 | [0131-palindrome-partitioning](https://github.com/wulin-no2/Leetcode_journey/tree/master/0131-palindrome-partitioning) |
 | [0139-word-break](https://github.com/wulin-no2/Leetcode_journey/tree/master/0139-word-break) |
 | [0242-valid-anagram](https://github.com/wulin-no2/Leetcode_journey/tree/master/0242-valid-anagram) |
+| [0424-longest-repeating-character-replacement](https://github.com/wulin-no2/Leetcode_journey/tree/master/0424-longest-repeating-character-replacement) |
 | [0647-palindromic-substrings](https://github.com/wulin-no2/Leetcode_journey/tree/master/0647-palindromic-substrings) |
 | [1023-time-based-key-value-store](https://github.com/wulin-no2/Leetcode_journey/tree/master/1023-time-based-key-value-store) |
 ## Matrix
@@ -203,4 +205,5 @@
 |  |
 | ------- |
 | [0003-longest-substring-without-repeating-characters](https://github.com/wulin-no2/Leetcode_journey/tree/master/0003-longest-substring-without-repeating-characters) |
+| [0424-longest-repeating-character-replacement](https://github.com/wulin-no2/Leetcode_journey/tree/master/0424-longest-repeating-character-replacement) |
 <!---LeetCode Topics End-->

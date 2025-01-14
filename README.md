@@ -19,6 +19,7 @@
 | [0078-subsets](https://github.com/wulin-no2/Leetcode_journey/tree/master/0078-subsets) |
 | [0079-word-search](https://github.com/wulin-no2/Leetcode_journey/tree/master/0079-word-search) |
 | [0090-subsets-ii](https://github.com/wulin-no2/Leetcode_journey/tree/master/0090-subsets-ii) |
+| [0121-best-time-to-buy-and-sell-stock](https://github.com/wulin-no2/Leetcode_journey/tree/master/0121-best-time-to-buy-and-sell-stock) |
 | [0139-word-break](https://github.com/wulin-no2/Leetcode_journey/tree/master/0139-word-break) |
 | [0150-evaluate-reverse-polish-notation](https://github.com/wulin-no2/Leetcode_journey/tree/master/0150-evaluate-reverse-polish-notation) |
 | [0152-maximum-product-subarray](https://github.com/wulin-no2/Leetcode_journey/tree/master/0152-maximum-product-subarray) |
@@ -92,6 +93,7 @@
 | [0022-generate-parentheses](https://github.com/wulin-no2/Leetcode_journey/tree/master/0022-generate-parentheses) |
 | [0070-climbing-stairs](https://github.com/wulin-no2/Leetcode_journey/tree/master/0070-climbing-stairs) |
 | [0091-decode-ways](https://github.com/wulin-no2/Leetcode_journey/tree/master/0091-decode-ways) |
+| [0121-best-time-to-buy-and-sell-stock](https://github.com/wulin-no2/Leetcode_journey/tree/master/0121-best-time-to-buy-and-sell-stock) |
 | [0131-palindrome-partitioning](https://github.com/wulin-no2/Leetcode_journey/tree/master/0131-palindrome-partitioning) |
 | [0139-word-break](https://github.com/wulin-no2/Leetcode_journey/tree/master/0139-word-break) |
 | [0152-maximum-product-subarray](https://github.com/wulin-no2/Leetcode_journey/tree/master/0152-maximum-product-subarray) |

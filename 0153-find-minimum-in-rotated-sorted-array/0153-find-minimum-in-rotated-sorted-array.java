@@ -1,15 +1,16 @@
 class Solution {
     public int findMin(int[] nums) {
-        // find index so that nums[index-1] bigger than nums[index]
-        // if can't find it, return nums[0]
-        int left = 0;
-        int right = nums.length;
+        int n = nums.length;
+        if(n==1) return nums[0];
+        if(nums[0] < nums[n-1]) return nums[0];
+        // there exist two parts 
+        // find the value that left one bigger than it
+        int left = 1;
+        int right = n;
         while(left < right){
             int mid = (left + right) / 2;
-            if(mid == 0) return nums[left];
-            // find it
-            if(nums[mid-1] > nums[mid]) return nums[mid];
-            if(nums[mid] > nums[right-1]) left = mid;
+            if(nums[mid - 1] > nums[mid]) return nums[mid];
+            if(nums[mid - 1] < nums[mid] && nums[mid] > nums[0]){left = mid + 1;}// right part
             else right = mid;
         }
         return nums[left];

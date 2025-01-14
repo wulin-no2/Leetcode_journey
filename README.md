@@ -42,6 +42,7 @@
 |  |
 | ------- |
 | [0001-two-sum](https://github.com/wulin-no2/Leetcode_journey/tree/master/0001-two-sum) |
+| [0003-longest-substring-without-repeating-characters](https://github.com/wulin-no2/Leetcode_journey/tree/master/0003-longest-substring-without-repeating-characters) |
 | [0036-valid-sudoku](https://github.com/wulin-no2/Leetcode_journey/tree/master/0036-valid-sudoku) |
 | [0049-group-anagrams](https://github.com/wulin-no2/Leetcode_journey/tree/master/0049-group-anagrams) |
 | [0139-word-break](https://github.com/wulin-no2/Leetcode_journey/tree/master/0139-word-break) |
@@ -68,6 +69,7 @@
 ## String
 |  |
 | ------- |
+| [0003-longest-substring-without-repeating-characters](https://github.com/wulin-no2/Leetcode_journey/tree/master/0003-longest-substring-without-repeating-characters) |
 | [0005-longest-palindromic-substring](https://github.com/wulin-no2/Leetcode_journey/tree/master/0005-longest-palindromic-substring) |
 | [0020-valid-parentheses](https://github.com/wulin-no2/Leetcode_journey/tree/master/0020-valid-parentheses) |
 | [0022-generate-parentheses](https://github.com/wulin-no2/Leetcode_journey/tree/master/0022-generate-parentheses) |
@@ -197,4 +199,8 @@
 | ------- |
 | [0739-daily-temperatures](https://github.com/wulin-no2/Leetcode_journey/tree/master/0739-daily-temperatures) |
 | [0883-car-fleet](https://github.com/wulin-no2/Leetcode_journey/tree/master/0883-car-fleet) |
+## Sliding Window
+|  |
+| ------- |
+| [0003-longest-substring-without-repeating-characters](https://github.com/wulin-no2/Leetcode_journey/tree/master/0003-longest-substring-without-repeating-characters) |
 <!---LeetCode Topics End-->

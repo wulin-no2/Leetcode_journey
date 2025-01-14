@@ -10,16 +10,19 @@
  */
 class Solution {
     public ListNode reverseList(ListNode head) {
-        // pre, curr, temp
-        ListNode pre = null;
+        // use temp to store the remaining list;
+        ListNode temp;
+        // use curr to traverse the list
+        // use prev to find the previous node
         ListNode curr = head;
-
+        ListNode prev = null;
         while(curr != null){
-            ListNode temp = curr.next;
-            curr.next = pre;
-            pre = curr;
+            temp = curr.next;
+            curr.next = prev;
+            prev = curr;
             curr = temp;
         }
-        return pre;
+        return prev;
+        
     }
 }

@@ -21,6 +21,7 @@
 | [0139-word-break](https://github.com/wulin-no2/Leetcode_journey/tree/master/0139-word-break) |
 | [0150-evaluate-reverse-polish-notation](https://github.com/wulin-no2/Leetcode_journey/tree/master/0150-evaluate-reverse-polish-notation) |
 | [0152-maximum-product-subarray](https://github.com/wulin-no2/Leetcode_journey/tree/master/0152-maximum-product-subarray) |
+| [0153-find-minimum-in-rotated-sorted-array](https://github.com/wulin-no2/Leetcode_journey/tree/master/0153-find-minimum-in-rotated-sorted-array) |
 | [0167-two-sum-ii-input-array-is-sorted](https://github.com/wulin-no2/Leetcode_journey/tree/master/0167-two-sum-ii-input-array-is-sorted) |
 | [0198-house-robber](https://github.com/wulin-no2/Leetcode_journey/tree/master/0198-house-robber) |
 | [0213-house-robber-ii](https://github.com/wulin-no2/Leetcode_journey/tree/master/0213-house-robber-ii) |
@@ -129,6 +130,7 @@
 |  |
 | ------- |
 | [0074-search-a-2d-matrix](https://github.com/wulin-no2/Leetcode_journey/tree/master/0074-search-a-2d-matrix) |
+| [0153-find-minimum-in-rotated-sorted-array](https://github.com/wulin-no2/Leetcode_journey/tree/master/0153-find-minimum-in-rotated-sorted-array) |
 | [0167-two-sum-ii-input-array-is-sorted](https://github.com/wulin-no2/Leetcode_journey/tree/master/0167-two-sum-ii-input-array-is-sorted) |
 | [0300-longest-increasing-subsequence](https://github.com/wulin-no2/Leetcode_journey/tree/master/0300-longest-increasing-subsequence) |
 | [0792-binary-search](https://github.com/wulin-no2/Leetcode_journey/tree/master/0792-binary-search) |

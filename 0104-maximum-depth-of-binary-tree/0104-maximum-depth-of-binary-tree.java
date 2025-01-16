@@ -20,17 +20,14 @@ class Solution {
         
     }
     public int height(TreeNode node){
-        // base case
+        // base case 
         if(node == null) return 0;
-        
         // left 
         int left = height(node.left);
-        
+
         // right
         int right = height(node.right);
-        
         // node
-        return Math.max(right, left) + 1;
+        return Math.max(left, right) + 1;
     }
-    
 }

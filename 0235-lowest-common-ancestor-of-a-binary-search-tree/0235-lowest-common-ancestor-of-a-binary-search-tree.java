@@ -10,22 +10,20 @@
 
 class Solution {
     public TreeNode lowestCommonAncestor(TreeNode root, TreeNode p, TreeNode q) {
-        // pre order cause it's a BST
-        // if node.val >= lower and <= higher, then it's what we need
-        // if node.val >= higher. then go find left child
-        // if node.val <= lower. then go find right child
-        return traversal(root, p, q);
+                // pre order
+                return traverse(root, p, q);
         
     }
-    public TreeNode traversal(TreeNode node, TreeNode p, TreeNode q){
-        int high = Math.max(p.val, q.val);
-        int low = Math.min(p.val, q.val);
+    public TreeNode traverse(TreeNode root, TreeNode p, TreeNode q){
         // base case
-        if(node.val >= low && node.val <= high) return node;
+        if(root.val == p.val || root.val == q.val) return root;
+        if(p.val > q.val) {TreeNode temp = p; p = q; q = temp;} // p is smaller
         // node
-        // left 
-        if(node.val <= low) return traversal(node.right, p, q);
+        if(root.val > p.val && root.val < q.val) return root;
+
+        // left
+        if(root.val > q.val) return traverse(root.left, p, q);
         // right
-        else return traversal(node.left, p, q);
+        else return traverse(root.right, p, q);
     }
 }

@@ -14,23 +14,21 @@
  * }
  */
 class Solution {
+    int res = 0;
     public boolean isBalanced(TreeNode root) {
-        // each node should be balanced
-        // what is balanced? Math.abs(leftHeight - rightHeight) <= 1
-        // use height() helper function
-        // check if the tree is balanced when calculating the height
-        // use -1 to check if the tree is balanced;
-        return height(root) > -1;
-
+        //for each node, if Math.abs(left-right) <= 1;
+        height(root);
+        return res != -1;
+        
     }
     public int height(TreeNode node){
-        // base case 
-        if(node==null) return 0;
+        // base case
+        if(node == null) return 0;
         // left
         int left = height(node.left);
         // right
-        int right= height(node.right);
-        if(left == -1 || right == -1 || Math.abs(left-right) > 1) return -1;
+        int right = height(node.right);
+        if(Math.abs(left-right) > 1) res = -1;
         // node
         return Math.max(left, right) + 1;
     }

@@ -14,15 +14,14 @@
  * }
  */
 class Solution {
-    int maxDiameter;
-    
+    int diameter = 0;
+
     public int diameterOfBinaryTree(TreeNode root) {
-        // diameter of each node = leftHeight + rightHeight;
-        // post order traversal
-        // update diameter while traversing
-        // current diameter is not necessarily equal to universal max diameter
+        // diameter = height(node.left) + height(node.right);
+        // but we have to traverse the whole tree to find the maximum diameter
         height(root);
-        return maxDiameter;
+        return diameter;
+        
     }
     public int height(TreeNode node){
         // base case
@@ -31,8 +30,7 @@ class Solution {
         int left = height(node.left);
         // right
         int right = height(node.right);
-        // update diameter
-        maxDiameter = Math.max(left + right, maxDiameter);
+        diameter = Math.max(diameter, left + right);
         // node
         return Math.max(left, right) + 1;
     }

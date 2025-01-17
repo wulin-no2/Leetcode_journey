@@ -145,6 +145,7 @@
 | [0199-binary-tree-right-side-view](https://github.com/wulin-no2/Leetcode_journey/tree/master/0199-binary-tree-right-side-view) |
 | [0226-invert-binary-tree](https://github.com/wulin-no2/Leetcode_journey/tree/master/0226-invert-binary-tree) |
 | [0322-coin-change](https://github.com/wulin-no2/Leetcode_journey/tree/master/0322-coin-change) |
+| [1544-count-good-nodes-in-binary-tree](https://github.com/wulin-no2/Leetcode_journey/tree/master/1544-count-good-nodes-in-binary-tree) |
 ## Trie
 |  |
 | ------- |
@@ -251,6 +252,7 @@
 | [0235-lowest-common-ancestor-of-a-binary-search-tree](https://github.com/wulin-no2/Leetcode_journey/tree/master/0235-lowest-common-ancestor-of-a-binary-search-tree) |
 | [0543-diameter-of-binary-tree](https://github.com/wulin-no2/Leetcode_journey/tree/master/0543-diameter-of-binary-tree) |
 | [0572-subtree-of-another-tree](https://github.com/wulin-no2/Leetcode_journey/tree/master/0572-subtree-of-another-tree) |
+| [1544-count-good-nodes-in-binary-tree](https://github.com/wulin-no2/Leetcode_journey/tree/master/1544-count-good-nodes-in-binary-tree) |
 ## Depth-First Search
 |  |
 | ------- |
@@ -262,6 +264,7 @@
 | [0235-lowest-common-ancestor-of-a-binary-search-tree](https://github.com/wulin-no2/Leetcode_journey/tree/master/0235-lowest-common-ancestor-of-a-binary-search-tree) |
 | [0543-diameter-of-binary-tree](https://github.com/wulin-no2/Leetcode_journey/tree/master/0543-diameter-of-binary-tree) |
 | [0572-subtree-of-another-tree](https://github.com/wulin-no2/Leetcode_journey/tree/master/0572-subtree-of-another-tree) |
+| [1544-count-good-nodes-in-binary-tree](https://github.com/wulin-no2/Leetcode_journey/tree/master/1544-count-good-nodes-in-binary-tree) |
 ## Binary Tree
 |  |
 | ------- |
@@ -274,6 +277,7 @@
 | [0235-lowest-common-ancestor-of-a-binary-search-tree](https://github.com/wulin-no2/Leetcode_journey/tree/master/0235-lowest-common-ancestor-of-a-binary-search-tree) |
 | [0543-diameter-of-binary-tree](https://github.com/wulin-no2/Leetcode_journey/tree/master/0543-diameter-of-binary-tree) |
 | [0572-subtree-of-another-tree](https://github.com/wulin-no2/Leetcode_journey/tree/master/0572-subtree-of-another-tree) |
+| [1544-count-good-nodes-in-binary-tree](https://github.com/wulin-no2/Leetcode_journey/tree/master/1544-count-good-nodes-in-binary-tree) |
 ## String Matching
 |  |
 | ------- |

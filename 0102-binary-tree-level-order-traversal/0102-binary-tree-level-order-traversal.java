@@ -15,11 +15,10 @@
  */
 class Solution {
     public List<List<Integer>> levelOrder(TreeNode root) {
-        // use list to store result
+        if(root == null) return new ArrayList<>();
         List<List<Integer>> res = new ArrayList<>();
-        // use queue to track each level's nodes
+        // use q
         Deque<TreeNode> q = new LinkedList<>();
-        if(root==null) return res;
         q.offer(root);
         while(! q.isEmpty()){
             int size = q.size();
@@ -34,6 +33,7 @@ class Solution {
             res.add(list);
         }
         return res;
+
         
     }
 }

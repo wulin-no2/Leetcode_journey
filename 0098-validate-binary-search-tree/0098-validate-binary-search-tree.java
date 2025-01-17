@@ -15,22 +15,19 @@
  */
 class Solution {
     public boolean isValidBST(TreeNode root) {
-        // post order traversal
-        // min of left child should < node.val;
-        // max of right child should > node.val;
-        long min = Long.MIN_VALUE;
-        long max = Long.MAX_VALUE;
-        return traversal(root, min, max);
+        // pre order
+        // trace it's max and min, ensure each subtree is always within the range;
+        return traverse(root, Long.MAX_VALUE, Long.MIN_VALUE);
     }
-    public boolean traversal(TreeNode node, long min, long max){
+    public boolean traverse(TreeNode node, long max, long min){
         // base case
         if(node==null) return true;
-        if(node.val <= min || node.val >= max) return false;
-        // left 
-        boolean left = traversal(node.left, min, node.val);
-        // right        
-        boolean right = traversal(node.right, node.val, max);
-        // node
-        return left && right;
+        if(node.val >= max || node.val <= min) return false;
+        // left && right
+        return traverse(node.left, node.val, min) && traverse(node.right, max, node.val);
+
+
+
+
     }
 }

@@ -1,40 +1,32 @@
 class Solution {
+    int m;
+    int n;
     public boolean exist(char[][] board, String word) {
-        // recursive
-        // used[i] to record
         // dfs
+        // use visited[] to record if we've visited the space
+        m = board.length;
+        n = board[0].length;
 
-        int m = board.length;
-        int n = board[0].length;
-        boolean[][] used = new boolean[m][n];
-
-        // Start backtracking from every cell
-        for (int i = 0; i < m; i++) {
-            for (int j = 0; j < n; j++) {
-                if (backtracking(board, word, used, 0, i, j, m, n)) {
-                    return true; // Return true if the word is found
-                }
+        int[][] visited = new int[m][n];
+        for(int i = 0; i < m ; i++){
+            for(int j = 0 ; j < n; j++){
+                if(board[i][j] == word.charAt(0) && dfs(board, word, visited, i, j, 0)) return true;
             }
         }
-
-        return false; // Word not found
+        return false;
     }
-    public boolean backtracking(char[][] board, String word, boolean[][] used, int index, int i , int j, int m, int n){
-        if(index == word.length()){
-            return true;
-        } 
-         // Check boundaries and conditions
-        if (i < 0 || i >= m || j < 0 || j >= n || used[i][j] || board[i][j] != word.charAt(index)) {
-            return false;
-        }
-        // Mark the cell as used
-        used[i][j] = true;
-        // Explore all four directions
-        boolean found = backtracking(board, word, used, index + 1, i + 1, j, m, n) ||
-                        backtracking(board, word, used, index + 1, i - 1, j, m, n) ||
-                        backtracking(board, word, used, index + 1, i, j + 1, m, n) ||
-                        backtracking(board, word, used, index + 1, i, j - 1, m, n);
-        used[i][j] = false;
-        return found;
+    public boolean dfs(char[][] board, String word, int[][] visited, int i, int j, int index){
+        // base case
+        if(index == word.length()) return true;
+        if( i < 0 || j < 0 || i >=m || j >=n || visited[i][j] == 1 || index > word.length() || word.charAt(index) != board[i][j]) return false;
+        index++;
+        visited[i][j] = 1;
+        boolean nextValid = dfs(board, word, visited, i-1 , j , index)
+        || dfs(board, word, visited, i + 1, j, index)
+        || dfs(board, word, visited, i , j + 1 , index)
+        || dfs(board, word, visited, i , j - 1 , index);
+        index--;
+        visited[i][j] = 0;
+        return nextValid;
     }
 }

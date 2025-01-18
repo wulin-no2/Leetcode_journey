@@ -3,24 +3,23 @@ class Solution {
         // backtracking
         List<List<Integer>> res = new ArrayList<>();
         List<Integer> path = new ArrayList<>();
-        boolean[] used = new boolean[nums.length]; // Tracks whether nums[i] is used
-        backtracking(res, path, nums, used);
+        int[] used = new int[nums.length]; // used to track if we use this element or not 
+        backtracking(nums, res, path, used);
         return res;
-
     }
-    public void backtracking(List<List<Integer>> res, List<Integer> path, int[] nums, boolean[] used){
-        if(path.size()==nums.length){
-            res.add(new ArrayList(path));
-            return;
-        }
-        for(int i = 0; i < nums.length ; i++){
-            if(! used[i]) {
-            path.add(nums[i]);
-            used[i] = true;
-            backtracking(res, path, nums, used);
-            path.remove(path.size()-1);
-            used[i] = false;
+    public void backtracking(int[] nums, List<List<Integer>> res, List<Integer> path, int[] used){
+        // base case
+        if(path.size()==nums.length) res.add(new ArrayList<>(path));
+        for(int i = 0 ; i < nums.length ; i++){
+            if(used[i] == 0) {
+                path.add(nums[i]); 
+                used[i] = 1;
+                backtracking(nums, res, path, used);
+                path.remove(path.size() - 1);
+                used[i] = 0;
             }
         }
+
+
     }
 }

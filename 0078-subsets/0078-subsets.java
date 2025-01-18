@@ -3,17 +3,17 @@ class Solution {
         // backtracking
         List<List<Integer>> res = new ArrayList<>();
         List<Integer> path = new ArrayList<>();
-        backtracking(res, path, nums, 0);
+        backtracking(nums, 0, res, path);
         return res;
-        
     }
-    public void backtracking(List<List<Integer>> res, List<Integer> path, int[] nums, int startIndex){
-        res.add(new ArrayList(path));
-        for(int i = startIndex; i < nums.length ; i++){
+    public void backtracking(int[] nums, int startIndex, List<List<Integer>> res, List<Integer> path){
+        // end 
+        res.add(new ArrayList<>(path));
+        for(int i = startIndex ; i < nums.length ; i++){
             path.add(nums[i]);
-            backtracking(res, path, nums, i + 1);
+            backtracking(nums, i + 1, res, path);
             path.remove(path.size() - 1);
         }
-        
+
     }
 }

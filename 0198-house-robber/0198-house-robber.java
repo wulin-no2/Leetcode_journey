@@ -1,15 +1,15 @@
 class Solution {
     public int rob(int[] nums) {
         // dp
-        // arr[i] = Math.max(arr[i-1], arr[i-2] + nums[i]);
+        // dp[i] = Math.max(dp[i - 2] + nums[i], dp[i-1]); dp[i] means the maximum money we get until ith house
         int n = nums.length;
-        int[] arr = new int[n+1]; 
-        if(n==1) return nums[0];
-        arr[0] = nums[0]; 
-        arr[1] = Math.max(nums[0], nums[1]);
-        for(int i = 2; i < n; i++){
-            arr[i] = Math.max(arr[i-1], arr[i-2] + nums[i]);
+        int[] dp = new int[n + 1];
+        dp[0] = nums[0]; if(n==1) return dp[0];
+        dp[1] = Math.max(nums[0], nums[1]);
+        for(int i = 2;i < nums.length; i++){
+            dp[i] = Math.max(dp[i - 2] + nums[i], dp[i-1]);
         }
-        return arr[n-1];
+        return dp[n - 1];
+        
     }
 }

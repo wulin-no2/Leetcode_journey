@@ -2,31 +2,29 @@ class Solution {
     int m;
     int n;
     public boolean exist(char[][] board, String word) {
-        // dfs
-        // use visited[] to record if we've visited the space
+        // dfs for every space in the board
         m = board.length;
         n = board[0].length;
-
-        int[][] visited = new int[m][n];
         for(int i = 0; i < m ; i++){
-            for(int j = 0 ; j < n; j++){
-                if(board[i][j] == word.charAt(0) && dfs(board, word, visited, i, j, 0)) return true;
+            for(int j = 0; j < n ; j++){
+                if(board[i][j]!='#' && dfs(board, word, i, j, 0)) return true;
             }
         }
         return false;
     }
-    public boolean dfs(char[][] board, String word, int[][] visited, int i, int j, int index){
+    public boolean dfs(char[][] board, String word, int i, int j, int index){
         // base case
-        if(index == word.length()) return true;
-        if( i < 0 || j < 0 || i >=m || j >=n || visited[i][j] == 1 || index > word.length() || word.charAt(index) != board[i][j]) return false;
+        if(i < 0 || j < 0 || i >= m || j >= n || index >= word.length() || board[i][j] != word.charAt(index)) return false;
+        if(index == word.length() - 1 && board[i][j] == word.charAt(index)) return true;
+        // if this space is valid, put a flag here so we know we've visited it;
+        board[i][j] = '#';
         index++;
-        visited[i][j] = 1;
-        boolean nextValid = dfs(board, word, visited, i-1 , j , index)
-        || dfs(board, word, visited, i + 1, j, index)
-        || dfs(board, word, visited, i , j + 1 , index)
-        || dfs(board, word, visited, i , j - 1 , index);
+        boolean res = dfs(board, word, i + 1, j, index) 
+        || dfs(board, word, i - 1, j, index) 
+        || dfs(board, word, i , j + 1, index) 
+        || dfs(board, word, i , j - 1, index);
         index--;
-        visited[i][j] = 0;
-        return nextValid;
+        board[i][j] = word.charAt(index);
+        return res;
     }
 }

@@ -9,9 +9,11 @@ class Solution {
         dp[0] = true;
         // dp[i] = dp[j] && set.contains(s.substring(j, i + 1));
         for(int i = 1; i <= n ; i ++){
-            for(int j = 0; j < i ; j++){
-                if(dp[j] && set.contains(s.substring(j, i))) {dp[i] = true; break;}
-                
+            for (String word : set) {
+                int len = word.length();
+                if (i >= len && s.substring(i - len, i).equals(word)) {
+                    dp[i] = dp[i] || dp[i - len];
+                }
             }
         }
         return dp[n];

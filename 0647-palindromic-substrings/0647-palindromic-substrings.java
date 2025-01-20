@@ -1,31 +1,31 @@
 class Solution {
     public int countSubstrings(String s) {
-        // dp
-        // if it is palindrom: dp[i][j] = dp[i+1][j-1] && s.charAt(i)==s.charAt(j);
+
+        // if( s.charAt(i)==s.charAt(j) && dp[i][j] = dp[i + 1][j-1]) dp[i][j] = true; res++;
+        int res = 0;
         int n = s.length();
         if(n==1) return 1;
         boolean[][] dp = new boolean[n][n];
-        int res = 0;
-        // handle length == 1 cases:
+        // for length = 1 substrings
         for(int i = 0; i < n; i++){
             dp[i][i] = true;
             res++;
         }
-        // handle length == 2 cases:
+
+        // for length = 2 substrings
         for(int i = 0; i < n - 1; i++){
-            if(s.charAt(i) == s.charAt(i + 1)) {
+            if(s.charAt(i)==s.charAt(i + 1)) {
                 dp[i][i + 1] = true;
                 res++;
             }
         }
-        // handle length == 3+ cases:
-        for(int len = 3; len <= n ; len++){
-            for(int i = 0; i < n - len + 1; i++){
+
+        // for length >= 3 substrings
+        for(int len = 3 ; len <= n ; len++){
+            for(int i = 0; i <= n - len ; i++){
                 int j = i + len - 1;
-                if(dp[i+1][j-1] && s.charAt(i)==s.charAt(j)) {
-                    dp[i][j] = true; // Update DP table
-                    res++;
-                }
+                dp[i][j] = s.charAt(i)==s.charAt(j) && dp[i + 1][j - 1];
+                if(dp[i][j]==true) res++;
             }
         }
         return res;

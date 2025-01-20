@@ -1,26 +1,29 @@
 class Solution {
     public int maxProduct(int[] nums) {
-        // dp
+        // 0-1 knapsack
+
         int n = nums.length;
         if(n==1) return nums[0];
-        int max = nums[0];
-        int max_in = nums[0];
-        int min_in = nums[0];
+        int maxProduct = nums[0];
+        int minProduct = nums[0];
+        int result = nums[0]; 
+        // if nums[i] is negative, min * nums[i] is the maximum;
+        // if nums[i] is positive, max * nums[i] is the maximum;
+        int[] dp = new int[n + 1];
+        for(int i = 1 ; i < nums.length ; i++){
+            int num = nums[i];
 
-        for(int i = 1; i < n;i++){
-            if (nums[i] < 0) {
-                // Swap max_in and min_in when encountering a negative number
-                int temp = max_in;
-                max_in = min_in;
-                min_in = temp;
-            }
-            // Update max_in and min_in for the current element
-            max_in = Math.max(nums[i], max_in * nums[i]);
-            min_in = Math.min(nums[i], min_in * nums[i]);
-            // Update the global max
-            max = Math.max(max, max_in);
+            // Temporarily store maxProduct since it will be updated
+            int tempMax = maxProduct;
 
+            // Update maxProduct and minProduct
+            maxProduct = Math.max(num, Math.max(maxProduct * num, minProduct * num));
+            minProduct = Math.min(num, Math.min(tempMax * num, minProduct * num));
+
+            // Update the global maximum product
+            result = Math.max(result, maxProduct);
         }
-        return max;
+        return result;
+         
     }
 }

@@ -1,26 +1,32 @@
 class Solution {
-    
     public List<String> letterCombinations(String digits) {
+        // mapping digits to string
+        // backtracking
+        Map<Character, String> map = new HashMap<>();
+        map.put('2', "abc");
+        map.put('3', "def");        
+        map.put('4', "ghi");
+        map.put('5', "jkl");
+        map.put('6', "mno");
+        map.put('7', "pqrs");
+        map.put('8', "tuv");
+        map.put('9', "wxyz");
         List<String> res = new ArrayList<>();
-        String path = "";
-        String[] s = {"abc","def","ghi","jkl","mno","pqrs","tuv","wxyz"};
-        backtracking(digits, s, 0, res, path);
+        StringBuilder path = new StringBuilder();
+        if(digits==null || digits.length()==0) return res;
+        backtracking(digits, res, path, 0, map);
         return res;
     }
-    void backtracking(String digits, String[] s, int index, List<String> res, String path){
-        // end condition:
-        if(digits.length() == 0) return;
-        if(path.length() == digits.length()){
-            // get result;
-            res.add(path);
-            return;
+    public void backtracking(String digits, List<String> res, StringBuilder path, int index, Map<Character, String> map){
+        // base case
+        if(index == digits.length()) {res.add(path.toString()); return;}
+        Character c = digits.charAt(index);
+        String candidates = map.get(c);
+        for(int i = 0; i < candidates.length() ; i++){
+            char candidate = candidates.charAt(i);
+            path.append(candidate);
+            backtracking(digits, res, path, index + 1, map);
+            path.deleteCharAt(path.length() - 1);
         }
-        // each level:
-        int num = digits.charAt(index) - '0';
-        for(int j = 0 ; j < s[num - 2].length(); j++){
-            path = path + s[num - 2].charAt(j);
-            backtracking(digits, s, index + 1, res, path);
-            path = path.substring(0, path.length() - 1);
-        }  
     }
 }

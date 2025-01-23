@@ -13,6 +13,7 @@
 | [0036-valid-sudoku](https://github.com/wulin-no2/Leetcode_journey/tree/master/0036-valid-sudoku) |
 | [0039-combination-sum](https://github.com/wulin-no2/Leetcode_journey/tree/master/0039-combination-sum) |
 | [0040-combination-sum-ii](https://github.com/wulin-no2/Leetcode_journey/tree/master/0040-combination-sum-ii) |
+| [0045-jump-game-ii](https://github.com/wulin-no2/Leetcode_journey/tree/master/0045-jump-game-ii) |
 | [0046-permutations](https://github.com/wulin-no2/Leetcode_journey/tree/master/0046-permutations) |
 | [0049-group-anagrams](https://github.com/wulin-no2/Leetcode_journey/tree/master/0049-group-anagrams) |
 | [0055-jump-game](https://github.com/wulin-no2/Leetcode_journey/tree/master/0055-jump-game) |
@@ -113,6 +114,7 @@
 | ------- |
 | [0005-longest-palindromic-substring](https://github.com/wulin-no2/Leetcode_journey/tree/master/0005-longest-palindromic-substring) |
 | [0022-generate-parentheses](https://github.com/wulin-no2/Leetcode_journey/tree/master/0022-generate-parentheses) |
+| [0045-jump-game-ii](https://github.com/wulin-no2/Leetcode_journey/tree/master/0045-jump-game-ii) |
 | [0055-jump-game](https://github.com/wulin-no2/Leetcode_journey/tree/master/0055-jump-game) |
 | [0070-climbing-stairs](https://github.com/wulin-no2/Leetcode_journey/tree/master/0070-climbing-stairs) |
 | [0091-decode-ways](https://github.com/wulin-no2/Leetcode_journey/tree/master/0091-decode-ways) |
@@ -230,6 +232,7 @@
 |  |
 | ------- |
 | [0011-container-with-most-water](https://github.com/wulin-no2/Leetcode_journey/tree/master/0011-container-with-most-water) |
+| [0045-jump-game-ii](https://github.com/wulin-no2/Leetcode_journey/tree/master/0045-jump-game-ii) |
 | [0055-jump-game](https://github.com/wulin-no2/Leetcode_journey/tree/master/0055-jump-game) |
 | [0621-task-scheduler](https://github.com/wulin-no2/Leetcode_journey/tree/master/0621-task-scheduler) |
 ## Stack

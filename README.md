@@ -15,6 +15,7 @@
 | [0040-combination-sum-ii](https://github.com/wulin-no2/Leetcode_journey/tree/master/0040-combination-sum-ii) |
 | [0046-permutations](https://github.com/wulin-no2/Leetcode_journey/tree/master/0046-permutations) |
 | [0049-group-anagrams](https://github.com/wulin-no2/Leetcode_journey/tree/master/0049-group-anagrams) |
+| [0055-jump-game](https://github.com/wulin-no2/Leetcode_journey/tree/master/0055-jump-game) |
 | [0074-search-a-2d-matrix](https://github.com/wulin-no2/Leetcode_journey/tree/master/0074-search-a-2d-matrix) |
 | [0078-subsets](https://github.com/wulin-no2/Leetcode_journey/tree/master/0078-subsets) |
 | [0079-word-search](https://github.com/wulin-no2/Leetcode_journey/tree/master/0079-word-search) |
@@ -112,6 +113,7 @@
 | ------- |
 | [0005-longest-palindromic-substring](https://github.com/wulin-no2/Leetcode_journey/tree/master/0005-longest-palindromic-substring) |
 | [0022-generate-parentheses](https://github.com/wulin-no2/Leetcode_journey/tree/master/0022-generate-parentheses) |
+| [0055-jump-game](https://github.com/wulin-no2/Leetcode_journey/tree/master/0055-jump-game) |
 | [0070-climbing-stairs](https://github.com/wulin-no2/Leetcode_journey/tree/master/0070-climbing-stairs) |
 | [0091-decode-ways](https://github.com/wulin-no2/Leetcode_journey/tree/master/0091-decode-ways) |
 | [0121-best-time-to-buy-and-sell-stock](https://github.com/wulin-no2/Leetcode_journey/tree/master/0121-best-time-to-buy-and-sell-stock) |
@@ -228,6 +230,7 @@
 |  |
 | ------- |
 | [0011-container-with-most-water](https://github.com/wulin-no2/Leetcode_journey/tree/master/0011-container-with-most-water) |
+| [0055-jump-game](https://github.com/wulin-no2/Leetcode_journey/tree/master/0055-jump-game) |
 | [0621-task-scheduler](https://github.com/wulin-no2/Leetcode_journey/tree/master/0621-task-scheduler) |
 ## Stack
 |  |

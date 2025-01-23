@@ -81,6 +81,7 @@
 | [0090-subsets-ii](https://github.com/wulin-no2/Leetcode_journey/tree/master/0090-subsets-ii) |
 | [0136-single-number](https://github.com/wulin-no2/Leetcode_journey/tree/master/0136-single-number) |
 | [0191-number-of-1-bits](https://github.com/wulin-no2/Leetcode_journey/tree/master/0191-number-of-1-bits) |
+| [0338-counting-bits](https://github.com/wulin-no2/Leetcode_journey/tree/master/0338-counting-bits) |
 ## String
 |  |
 | ------- |
@@ -121,6 +122,7 @@
 | [0213-house-robber-ii](https://github.com/wulin-no2/Leetcode_journey/tree/master/0213-house-robber-ii) |
 | [0300-longest-increasing-subsequence](https://github.com/wulin-no2/Leetcode_journey/tree/master/0300-longest-increasing-subsequence) |
 | [0322-coin-change](https://github.com/wulin-no2/Leetcode_journey/tree/master/0322-coin-change) |
+| [0338-counting-bits](https://github.com/wulin-no2/Leetcode_journey/tree/master/0338-counting-bits) |
 | [0416-partition-equal-subset-sum](https://github.com/wulin-no2/Leetcode_journey/tree/master/0416-partition-equal-subset-sum) |
 | [0647-palindromic-substrings](https://github.com/wulin-no2/Leetcode_journey/tree/master/0647-palindromic-substrings) |
 | [0747-min-cost-climbing-stairs](https://github.com/wulin-no2/Leetcode_journey/tree/master/0747-min-cost-climbing-stairs) |

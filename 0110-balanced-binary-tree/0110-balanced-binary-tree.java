@@ -14,22 +14,24 @@
  * }
  */
 class Solution {
-    int res = 0;
     public boolean isBalanced(TreeNode root) {
-        //for each node, if Math.abs(left-right) <= 1;
-        height(root);
-        return res != -1;
+        // balanced tree:
+        // for all the node: Math.abs(left, right) <= 1;
+        return height(root) != -1;
         
     }
-    public int height(TreeNode node){
-        // base case
-        if(node == null) return 0;
-        // left
+    private int height(TreeNode node) {
+        if (node == null) return 0;
+        
         int left = height(node.left);
-        // right
+        if (left == -1) return -1; // propagate imbalance
+        
         int right = height(node.right);
-        if(Math.abs(left-right) > 1) res = -1;
-        // node
+        if (right == -1) return -1; // propagate imbalance
+        
+        if (Math.abs(left - right) > 1) return -1; // check balance condition
+        
         return Math.max(left, right) + 1;
     }
+    
 }

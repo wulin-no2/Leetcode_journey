@@ -107,6 +107,7 @@
 | [0424-longest-repeating-character-replacement](https://github.com/wulin-no2/Leetcode_journey/tree/master/0424-longest-repeating-character-replacement) |
 | [0567-permutation-in-string](https://github.com/wulin-no2/Leetcode_journey/tree/master/0567-permutation-in-string) |
 | [0647-palindromic-substrings](https://github.com/wulin-no2/Leetcode_journey/tree/master/0647-palindromic-substrings) |
+| [0678-valid-parenthesis-string](https://github.com/wulin-no2/Leetcode_journey/tree/master/0678-valid-parenthesis-string) |
 | [0768-partition-labels](https://github.com/wulin-no2/Leetcode_journey/tree/master/0768-partition-labels) |
 | [1023-time-based-key-value-store](https://github.com/wulin-no2/Leetcode_journey/tree/master/1023-time-based-key-value-store) |
 ## Matrix
@@ -135,6 +136,7 @@
 | [0338-counting-bits](https://github.com/wulin-no2/Leetcode_journey/tree/master/0338-counting-bits) |
 | [0416-partition-equal-subset-sum](https://github.com/wulin-no2/Leetcode_journey/tree/master/0416-partition-equal-subset-sum) |
 | [0647-palindromic-substrings](https://github.com/wulin-no2/Leetcode_journey/tree/master/0647-palindromic-substrings) |
+| [0678-valid-parenthesis-string](https://github.com/wulin-no2/Leetcode_journey/tree/master/0678-valid-parenthesis-string) |
 | [0747-min-cost-climbing-stairs](https://github.com/wulin-no2/Leetcode_journey/tree/master/0747-min-cost-climbing-stairs) |
 ## Math
 |  |
@@ -244,6 +246,7 @@
 | [0055-jump-game](https://github.com/wulin-no2/Leetcode_journey/tree/master/0055-jump-game) |
 | [0134-gas-station](https://github.com/wulin-no2/Leetcode_journey/tree/master/0134-gas-station) |
 | [0621-task-scheduler](https://github.com/wulin-no2/Leetcode_journey/tree/master/0621-task-scheduler) |
+| [0678-valid-parenthesis-string](https://github.com/wulin-no2/Leetcode_journey/tree/master/0678-valid-parenthesis-string) |
 | [0768-partition-labels](https://github.com/wulin-no2/Leetcode_journey/tree/master/0768-partition-labels) |
 | [0876-hand-of-straights](https://github.com/wulin-no2/Leetcode_journey/tree/master/0876-hand-of-straights) |
 | [2026-merge-triplets-to-form-target-triplet](https://github.com/wulin-no2/Leetcode_journey/tree/master/2026-merge-triplets-to-form-target-triplet) |
@@ -254,6 +257,7 @@
 | [0143-reorder-list](https://github.com/wulin-no2/Leetcode_journey/tree/master/0143-reorder-list) |
 | [0150-evaluate-reverse-polish-notation](https://github.com/wulin-no2/Leetcode_journey/tree/master/0150-evaluate-reverse-polish-notation) |
 | [0155-min-stack](https://github.com/wulin-no2/Leetcode_journey/tree/master/0155-min-stack) |
+| [0678-valid-parenthesis-string](https://github.com/wulin-no2/Leetcode_journey/tree/master/0678-valid-parenthesis-string) |
 | [0739-daily-temperatures](https://github.com/wulin-no2/Leetcode_journey/tree/master/0739-daily-temperatures) |
 | [0883-car-fleet](https://github.com/wulin-no2/Leetcode_journey/tree/master/0883-car-fleet) |
 ## Design

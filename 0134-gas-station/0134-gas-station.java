@@ -1,20 +1,20 @@
 class Solution {
     public int canCompleteCircuit(int[] gas, int[] cost) {
-        // calculate gas[i] - cost[i], only when it's >= 0, can we go next station;
-        // totally don't understand;
-        int sGas = 0, sCost = 0, res = 0, total = 0;
-        for(int i = 0;i<gas.length;i++){
-            sGas += gas[i];
-            sCost += cost[i];
+        // we traverse from the 1st station to the last station
+        // at each station, we check:
+        // 1. if the currentTank is < 0, which means the start point is invalid
+        // 2. if the wholeTank is < 0, which means there is no valid start point
+        int startPoint = 0;
+        int currentTank = 0;
+        int wholeTank = 0;
+        for(int i = startPoint; i < gas.length ; i++){
+            currentTank += gas[i] - cost[i];
+            wholeTank += gas[i] - cost[i];
+            if(currentTank < 0) { startPoint = i + 1; currentTank = 0;}
+            // System.out.println("index:" + i + "whole: "+ wholeTank + "current: " + currentTank);
+            
         }
-        if(sGas < sCost) return -1;
-        for(int i = 0 ; i < gas.length ; i++){
-            total += gas[i] - cost[i];
-            if(total < 0){
-                total = 0;
-                res = i + 1;
-            }
-        }
-        return res;
+        return wholeTank < 0? -1 :startPoint;
+        
     }
 }

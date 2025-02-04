@@ -16,6 +16,7 @@
 | [0045-jump-game-ii](https://github.com/wulin-no2/Leetcode_journey/tree/master/0045-jump-game-ii) |
 | [0046-permutations](https://github.com/wulin-no2/Leetcode_journey/tree/master/0046-permutations) |
 | [0049-group-anagrams](https://github.com/wulin-no2/Leetcode_journey/tree/master/0049-group-anagrams) |
+| [0053-maximum-subarray](https://github.com/wulin-no2/Leetcode_journey/tree/master/0053-maximum-subarray) |
 | [0055-jump-game](https://github.com/wulin-no2/Leetcode_journey/tree/master/0055-jump-game) |
 | [0074-search-a-2d-matrix](https://github.com/wulin-no2/Leetcode_journey/tree/master/0074-search-a-2d-matrix) |
 | [0078-subsets](https://github.com/wulin-no2/Leetcode_journey/tree/master/0078-subsets) |
@@ -122,6 +123,7 @@
 | [0005-longest-palindromic-substring](https://github.com/wulin-no2/Leetcode_journey/tree/master/0005-longest-palindromic-substring) |
 | [0022-generate-parentheses](https://github.com/wulin-no2/Leetcode_journey/tree/master/0022-generate-parentheses) |
 | [0045-jump-game-ii](https://github.com/wulin-no2/Leetcode_journey/tree/master/0045-jump-game-ii) |
+| [0053-maximum-subarray](https://github.com/wulin-no2/Leetcode_journey/tree/master/0053-maximum-subarray) |
 | [0055-jump-game](https://github.com/wulin-no2/Leetcode_journey/tree/master/0055-jump-game) |
 | [0070-climbing-stairs](https://github.com/wulin-no2/Leetcode_journey/tree/master/0070-climbing-stairs) |
 | [0091-decode-ways](https://github.com/wulin-no2/Leetcode_journey/tree/master/0091-decode-ways) |
@@ -205,6 +207,7 @@
 ## Divide and Conquer
 |  |
 | ------- |
+| [0053-maximum-subarray](https://github.com/wulin-no2/Leetcode_journey/tree/master/0053-maximum-subarray) |
 | [0191-number-of-1-bits](https://github.com/wulin-no2/Leetcode_journey/tree/master/0191-number-of-1-bits) |
 | [0215-kth-largest-element-in-an-array](https://github.com/wulin-no2/Leetcode_journey/tree/master/0215-kth-largest-element-in-an-array) |
 | [0347-top-k-frequent-elements](https://github.com/wulin-no2/Leetcode_journey/tree/master/0347-top-k-frequent-elements) |

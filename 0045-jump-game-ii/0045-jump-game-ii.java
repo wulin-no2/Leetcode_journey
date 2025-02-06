@@ -1,23 +1,22 @@
 class Solution {
     public int jump(int[] nums) {
-        // update farthest position and count of steps to reach it at every step
-        int farthest = 0;
         int n = nums.length;
-        int count = 0;
-        int currentEnd = 0; // The end of the current jump range
+        if (n == 1) return 0; // No jumps needed if already at the last index
 
-        for(int i = 0; i < n - 1 ; i++){
-            farthest = Math.max(farthest, i + nums[i]); // Update the farthest we can reach
+        int jumps = 0, farthest = 0, currentEnd = 0;
+        
+        for (int i = 0; i < n - 1; i++) { // No need to check the last index
+            farthest = Math.max(farthest, i + nums[i]);
             
-            // If we've reached the end of the current jump range, we need to jump
+            // When we reach the end of the current range, increment the jump
             if (i == currentEnd) {
-                count++; // Increment jump count
-                currentEnd = farthest; // Update the jump range to the farthest we can reach
+                jumps++;
+                currentEnd = farthest;
                 
-                // If the farthest position covers the last index, we can stop
-                if (currentEnd >= n - 1) break;
+                // If we've reached or surpassed the last index, return jumps
+                if (currentEnd >= n - 1) return jumps;
             }
         }
-        return count;
+        return jumps;
     }
 }

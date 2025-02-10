@@ -1,22 +1,21 @@
 class Solution {
     public int jump(int[] nums) {
-        int n = nums.length;
-        if (n == 1) return 0; // No jumps needed if already at the last index
-
-        int jumps = 0, farthest = 0, currentEnd = 0;
-        
-        for (int i = 0; i < n - 1; i++) { // No need to check the last index
-            farthest = Math.max(farthest, i + nums[i]);
-            
-            // When we reach the end of the current range, increment the jump
-            if (i == currentEnd) {
-                jumps++;
+        // we traverse the array
+        // at each position, update the farthest position it can arrive
+        // every time we reach the end of current step, undate count and jump
+        if(nums.length == 1) return 0;
+        int count = 0;
+        int farthest = 0;
+        int currentEnd = 0;
+        for(int i = 0; i < nums.length ; i++){
+            farthest = Math.max(farthest, nums[i] + i);
+            if(currentEnd == i) {
+                count++;
                 currentEnd = farthest;
-                
-                // If we've reached or surpassed the last index, return jumps
-                if (currentEnd >= n - 1) return jumps;
+                if(currentEnd >= nums.length - 1) return count;
             }
         }
-        return jumps;
+        return count;
+        
     }
 }

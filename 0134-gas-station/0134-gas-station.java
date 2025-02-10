@@ -6,13 +6,12 @@ class Solution {
         int wholeGas = 0;
         int currentGas = 0;
         int start = 0;
-        for(int i = start; i < gas.length ; i++){
+        for(int i = 0; i < gas.length ; i++){
             currentGas += gas[i] - cost[i];
             wholeGas += gas[i] - cost[i];
             if(currentGas < 0) {start = i + 1; currentGas = 0;}
 
         }
-        if(wholeGas < 0) return -1;
-        return currentGas >= 0? start : -1;
+        return wholeGas >= 0 ? start : -1;
     }
 }

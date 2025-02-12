@@ -8,18 +8,22 @@ class Solution {
         for(int num: hand){
             map.put(num, map.getOrDefault(num, 0) + 1);
         }
-        int count = n / groupSize;
-        while(count > 0){
-            int firstKey = map.firstKey();
-            // value - 1;
-            map.put(firstKey, map.get(firstKey) - 1);
-            if(map.get(firstKey)==0) map.remove(firstKey);
-            for(int i = 1; i < groupSize; i++){
-                if(! map.containsKey(firstKey + i)) return false;
-                map.put(firstKey + i, map.get(firstKey + i) - 1);
-                if(map.get(firstKey + i)==0) map.remove(firstKey + i);
+         // Process groups
+        while (!map.isEmpty()) {
+            int firstKey = map.firstKey(); // Always pick the smallest available card
+            
+            for (int i = 0; i < groupSize; i++) {
+                int card = firstKey + i; // Expecting consecutive cards
+
+                if (!map.containsKey(card)) return false; // Cannot form a valid group
+                
+                // Reduce the count or remove the card from the map
+                if (map.get(card) == 1) {
+                    map.remove(card);
+                } else {
+                    map.put(card, map.get(card) - 1);
+                }
             }
-            count--;
         }
         return true;
             

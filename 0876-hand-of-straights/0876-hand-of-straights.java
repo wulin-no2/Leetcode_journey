@@ -1,25 +1,27 @@
 class Solution {
     public boolean isNStraightHand(int[] hand, int groupSize) {
-        // each time, select the minimum element that fulfill the consecutive requirement
-        // if can't find one bigger than current element, return false;
-        // at the end, return true;
-        // 1. check length
-        if(hand.length % groupSize != 0) return false;
-        // 2. use treeMap cause we need to sort the elements and track their frequencies;
+        // length of hand should be multiple groupSize
+        int n = hand.length;
+        if( n % groupSize != 0) return false;
+        // use treemap, cause we need elements, their counts, and their order
         TreeMap<Integer, Integer> map = new TreeMap<>();
-        // pop into it;
-        for(int h : hand) map.put(h, map.getOrDefault(h, 0) + 1);
-        // traverse to form our consecutive group:
-        while(! map.isEmpty()){
-            int small = map.firstKey();
-            for(int i = 0; i < groupSize ; i++){
-                int key = small + i;
-                if(! map.containsKey(key)) return false;
-                map.put(key, map.get(key) - 1);
-                if(map.get(key)==0) map.remove(key);
+        for(int num: hand){
+            map.put(num, map.getOrDefault(num, 0) + 1);
+        }
+        int count = n / groupSize;
+        while(count > 0){
+            int firstKey = map.firstKey();
+            // value - 1;
+            map.put(firstKey, map.get(firstKey) - 1);
+            if(map.get(firstKey)==0) map.remove(firstKey);
+            for(int i = 1; i < groupSize; i++){
+                if(! map.containsKey(firstKey + i)) return false;
+                map.put(firstKey + i, map.get(firstKey + i) - 1);
+                if(map.get(firstKey + i)==0) map.remove(firstKey + i);
             }
+            count--;
         }
         return true;
-        
+            
     }
 }

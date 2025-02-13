@@ -41,6 +41,7 @@
 | [0347-top-k-frequent-elements](https://github.com/wulin-no2/Leetcode_journey/tree/master/0347-top-k-frequent-elements) |
 | [0416-partition-equal-subset-sum](https://github.com/wulin-no2/Leetcode_journey/tree/master/0416-partition-equal-subset-sum) |
 | [0621-task-scheduler](https://github.com/wulin-no2/Leetcode_journey/tree/master/0621-task-scheduler) |
+| [0695-max-area-of-island](https://github.com/wulin-no2/Leetcode_journey/tree/master/0695-max-area-of-island) |
 | [0739-daily-temperatures](https://github.com/wulin-no2/Leetcode_journey/tree/master/0739-daily-temperatures) |
 | [0747-min-cost-climbing-stairs](https://github.com/wulin-no2/Leetcode_journey/tree/master/0747-min-cost-climbing-stairs) |
 | [0792-binary-search](https://github.com/wulin-no2/Leetcode_journey/tree/master/0792-binary-search) |
@@ -119,6 +120,7 @@
 | [0074-search-a-2d-matrix](https://github.com/wulin-no2/Leetcode_journey/tree/master/0074-search-a-2d-matrix) |
 | [0079-word-search](https://github.com/wulin-no2/Leetcode_journey/tree/master/0079-word-search) |
 | [0200-number-of-islands](https://github.com/wulin-no2/Leetcode_journey/tree/master/0200-number-of-islands) |
+| [0695-max-area-of-island](https://github.com/wulin-no2/Leetcode_journey/tree/master/0695-max-area-of-island) |
 ## Dynamic Programming
 |  |
 | ------- |
@@ -178,6 +180,7 @@
 | [0200-number-of-islands](https://github.com/wulin-no2/Leetcode_journey/tree/master/0200-number-of-islands) |
 | [0226-invert-binary-tree](https://github.com/wulin-no2/Leetcode_journey/tree/master/0226-invert-binary-tree) |
 | [0322-coin-change](https://github.com/wulin-no2/Leetcode_journey/tree/master/0322-coin-change) |
+| [0695-max-area-of-island](https://github.com/wulin-no2/Leetcode_journey/tree/master/0695-max-area-of-island) |
 | [1544-count-good-nodes-in-binary-tree](https://github.com/wulin-no2/Leetcode_journey/tree/master/1544-count-good-nodes-in-binary-tree) |
 ## Trie
 |  |
@@ -333,6 +336,7 @@
 | [0235-lowest-common-ancestor-of-a-binary-search-tree](https://github.com/wulin-no2/Leetcode_journey/tree/master/0235-lowest-common-ancestor-of-a-binary-search-tree) |
 | [0543-diameter-of-binary-tree](https://github.com/wulin-no2/Leetcode_journey/tree/master/0543-diameter-of-binary-tree) |
 | [0572-subtree-of-another-tree](https://github.com/wulin-no2/Leetcode_journey/tree/master/0572-subtree-of-another-tree) |
+| [0695-max-area-of-island](https://github.com/wulin-no2/Leetcode_journey/tree/master/0695-max-area-of-island) |
 | [1544-count-good-nodes-in-binary-tree](https://github.com/wulin-no2/Leetcode_journey/tree/master/1544-count-good-nodes-in-binary-tree) |
 ## Binary Tree
 |  |
@@ -377,4 +381,5 @@
 |  |
 | ------- |
 | [0200-number-of-islands](https://github.com/wulin-no2/Leetcode_journey/tree/master/0200-number-of-islands) |
+| [0695-max-area-of-island](https://github.com/wulin-no2/Leetcode_journey/tree/master/0695-max-area-of-island) |
 <!---LeetCode Topics End-->

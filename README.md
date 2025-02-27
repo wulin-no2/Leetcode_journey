@@ -42,6 +42,7 @@
 | [0322-coin-change](https://github.com/wulin-no2/Leetcode_journey/tree/master/0322-coin-change) |
 | [0347-top-k-frequent-elements](https://github.com/wulin-no2/Leetcode_journey/tree/master/0347-top-k-frequent-elements) |
 | [0416-partition-equal-subset-sum](https://github.com/wulin-no2/Leetcode_journey/tree/master/0416-partition-equal-subset-sum) |
+| [0435-non-overlapping-intervals](https://github.com/wulin-no2/Leetcode_journey/tree/master/0435-non-overlapping-intervals) |
 | [0621-task-scheduler](https://github.com/wulin-no2/Leetcode_journey/tree/master/0621-task-scheduler) |
 | [0695-max-area-of-island](https://github.com/wulin-no2/Leetcode_journey/tree/master/0695-max-area-of-island) |
 | [0739-daily-temperatures](https://github.com/wulin-no2/Leetcode_journey/tree/master/0739-daily-temperatures) |
@@ -144,6 +145,7 @@
 | [0322-coin-change](https://github.com/wulin-no2/Leetcode_journey/tree/master/0322-coin-change) |
 | [0338-counting-bits](https://github.com/wulin-no2/Leetcode_journey/tree/master/0338-counting-bits) |
 | [0416-partition-equal-subset-sum](https://github.com/wulin-no2/Leetcode_journey/tree/master/0416-partition-equal-subset-sum) |
+| [0435-non-overlapping-intervals](https://github.com/wulin-no2/Leetcode_journey/tree/master/0435-non-overlapping-intervals) |
 | [0647-palindromic-substrings](https://github.com/wulin-no2/Leetcode_journey/tree/master/0647-palindromic-substrings) |
 | [0678-valid-parenthesis-string](https://github.com/wulin-no2/Leetcode_journey/tree/master/0678-valid-parenthesis-string) |
 | [0747-min-cost-climbing-stairs](https://github.com/wulin-no2/Leetcode_journey/tree/master/0747-min-cost-climbing-stairs) |
@@ -211,6 +213,7 @@
 | [0217-contains-duplicate](https://github.com/wulin-no2/Leetcode_journey/tree/master/0217-contains-duplicate) |
 | [0242-valid-anagram](https://github.com/wulin-no2/Leetcode_journey/tree/master/0242-valid-anagram) |
 | [0347-top-k-frequent-elements](https://github.com/wulin-no2/Leetcode_journey/tree/master/0347-top-k-frequent-elements) |
+| [0435-non-overlapping-intervals](https://github.com/wulin-no2/Leetcode_journey/tree/master/0435-non-overlapping-intervals) |
 | [0621-task-scheduler](https://github.com/wulin-no2/Leetcode_journey/tree/master/0621-task-scheduler) |
 | [0876-hand-of-straights](https://github.com/wulin-no2/Leetcode_journey/tree/master/0876-hand-of-straights) |
 | [0883-car-fleet](https://github.com/wulin-no2/Leetcode_journey/tree/master/0883-car-fleet) |
@@ -259,6 +262,7 @@
 | [0045-jump-game-ii](https://github.com/wulin-no2/Leetcode_journey/tree/master/0045-jump-game-ii) |
 | [0055-jump-game](https://github.com/wulin-no2/Leetcode_journey/tree/master/0055-jump-game) |
 | [0134-gas-station](https://github.com/wulin-no2/Leetcode_journey/tree/master/0134-gas-station) |
+| [0435-non-overlapping-intervals](https://github.com/wulin-no2/Leetcode_journey/tree/master/0435-non-overlapping-intervals) |
 | [0621-task-scheduler](https://github.com/wulin-no2/Leetcode_journey/tree/master/0621-task-scheduler) |
 | [0678-valid-parenthesis-string](https://github.com/wulin-no2/Leetcode_journey/tree/master/0678-valid-parenthesis-string) |
 | [0768-partition-labels](https://github.com/wulin-no2/Leetcode_journey/tree/master/0768-partition-labels) |

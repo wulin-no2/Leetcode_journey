@@ -1,23 +1,30 @@
 class Solution {
     public int eraseOverlapIntervals(int[][] intervals) {
-        // sort based on the first element of subarray
-        // if overlapping, remove the interval with the bigger end 
-        Arrays.sort(intervals, (a,b)->Integer.compare(a[0],b[0]));
-        int slow = 0;
-        int fast = 1;
+        // the key idea:
+        // sort the intervals by their end time, keep the one with the smallest end when overlapping.
+        // Cause we can give more space to future intervals
+        Arrays.sort(intervals, Comparator.comparingInt(a -> a[1]));
+        int n = intervals.length;
         int count = 0;
-        while(fast < intervals.length){
-            int[] temp = intervals[slow];
-            int[] temp1 = intervals[fast];
-            if(temp[1] > temp1[0]){
-                // overlap:
+        List<int[]> list = new ArrayList<>();
+        list.add(intervals[0]);
+        for(int i = 1; i < n; i++){
+            int[] first = list.get(list.size() - 1); 
+            int[] second = intervals[i];
+            // if overlapping, keep the one with the smaller end
+            if(first[1] > second[0]) {
+                int x = first[0];
+                int y = Math.min(first[1], second[1]);
+                list.set(list.size() - 1, new int[]{x, y});
                 count++;
-                if(temp[1] > temp1[1]) slow = fast; 
             }
-            // not overlap:
-            else slow = fast;
-            fast++;
+            // else, put it in the list
+            else list.add(intervals[i]);
         }
         return count;
+
+
+
+        
     }
 }

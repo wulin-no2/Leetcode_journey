@@ -1,28 +1,21 @@
 class Solution {
     public int[] topKFrequent(int[] nums, int k) {
-        // record the nums accorcing to their frequences
-        // (num, frequency), sorted it by frequency;
-        // TreeMap can sort values by keys, priority queue can sort values by a comparator
+        // min heap
+        // use map to tract the frequencies
         Map<Integer, Integer> map = new HashMap<>();
-        // get (num, prequency)
-        for(int num: nums){
-            map.put(num, map.getOrDefault(num, 0) + 1);
+        for(int i: nums){
+            map.put(i, map.getOrDefault(i, 0) + 1);
         }
-        // use pq to sort entrys of map
-        PriorityQueue<Map.Entry<Integer, Integer>> pq = new PriorityQueue<>((a, b)-> Integer.compare(a.getValue(), b.getValue()));
+        PriorityQueue<Map.Entry<Integer, Integer>> pq = 
+                new PriorityQueue<>(Comparator.comparingInt(Map.Entry::getValue));
         for(Map.Entry<Integer, Integer> entry: map.entrySet()){
             pq.offer(entry);
-            // keep the size of pq into k
             if(pq.size() > k) pq.poll();
         }
-
-        // get top k entrys with larger frequencies
-        // convert them into int[]
+        //turn pq into array
         int[] res = new int[k];
-        int i = 0;
-        for(Map.Entry<Integer, Integer> entry: pq){
-            res[i] = entry.getKey();
-            i++;
+        for(int i = 0; i < res.length; i++){
+            res[i] = pq.poll().getKey();
         }
         return res;
         

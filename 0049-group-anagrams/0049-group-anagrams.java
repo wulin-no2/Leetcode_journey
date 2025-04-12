@@ -1,28 +1,33 @@
 class Solution {
     public List<List<String>> groupAnagrams(String[] strs) {
-        // encode each string in a rule
-        // how to encode them? char+number+char+number in letter's order
-        // use map to store the result: map<String, List<String>>, then turn it into res;
-        // how to encode a string? using array hashing
+        // encode each string into a key, make the strings with same code into a list as a value
+        // now there is a map for us to track all the strings with same code
         Map<String, List<String>> map = new HashMap<>();
-        for(String str: strs){
-            int[] arr = new int[26];
-            for(char c: str.toCharArray()){
-                arr[c-'a']++;
-            }
-            // turn arr to string:
-            StringBuilder code = new StringBuilder();
-            for(int i = 0; i < arr.length; i++){
-                code.append((char)(i + 'a')+ arr[i]);
-            }
-            // add it to map
-            map.computeIfAbsent(code.toString(), k->new ArrayList<>()).add(str);
-        }
+        // finally turn map into list
 
-        // turn map into res
-        List<List<String>> res = new ArrayList<>(map.values());
-        return res;
-        
+        // first question is, how to encode string?
+        // encode string into int array, then turn int array into string; 
+        for(String str: strs){
+            // encode str
+            int[] arr = new int[26];
+            // turn str into int array
+            for(int i = 0; i < str.length(); i++){
+                arr[str.charAt(i) -'a']++;
+            }
+            // turn int array into string
+            StringBuilder sb = new StringBuilder();
+            for(int i = 0; i < 26; i++){
+                if(arr[i] != 0) sb.append(arr[i]).append((char)(i + 'a'));
+            }
+            String code = sb.toString();
+            // put code and str into map:
+            map.computeIfAbsent(code, k->new ArrayList<>()).add(str);
+
+        }
+        // turn map into list;
+        return new ArrayList<>(map.values());
+
+
         
     }
 }

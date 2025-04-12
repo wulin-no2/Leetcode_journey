@@ -1,23 +1,23 @@
 class Solution {
     public int[] topKFrequent(int[] nums, int k) {
-        // min heap
-        // use map to tract the frequencies
+        // track elements and their frequency, then sort elements base on the frequency
+        // use treeMap or priority queue? latter. Because treeMap is sorted on its key, which can't be changed, but now the frequency is changing all the time;
+        PriorityQueue<Map.Entry<Integer, Integer>> pq = new PriorityQueue<>((a,b)->Integer.compare( a.getValue(), b.getValue()));
         Map<Integer, Integer> map = new HashMap<>();
-        for(int i: nums){
-            map.put(i, map.getOrDefault(i, 0) + 1);
+        for(int num: nums){
+            map.put(num, map.getOrDefault(num, 0) + 1);
         }
-        PriorityQueue<Map.Entry<Integer, Integer>> pq = 
-                new PriorityQueue<>(Comparator.comparingInt(Map.Entry::getValue));
         for(Map.Entry<Integer, Integer> entry: map.entrySet()){
             pq.offer(entry);
             if(pq.size() > k) pq.poll();
         }
-        //turn pq into array
         int[] res = new int[k];
         for(int i = 0; i < res.length; i++){
             res[i] = pq.poll().getKey();
         }
         return res;
+
+
         
     }
 }

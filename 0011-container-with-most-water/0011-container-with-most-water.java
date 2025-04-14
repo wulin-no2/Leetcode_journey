@@ -1,19 +1,18 @@
 class Solution {
     public int maxArea(int[] height) {
-        // start with the largest broadth, then 2 pointers inward
-        // only when we find higher height, the area is likely to get bigger
-        // how to find igher height? move the shorter one inward to find a bigger one
-
+        // 2 pointers inward
+        // move the shorter one when we find a higher line
+        int res = 0;
         int left = 0;
         int right = height.length - 1;
-        int max = Math.min(height[right], height[left]) * (right - left);
+        res = Math.min(height[left], height[right]) * (right - left);
         while(left < right){
-            if(height[left] <= height[right]) left++;
-            else right--;
-            max = Math.max(max, Math.min(height[right], height[left]) * (right - left));
+            int leftHeight = height[left];
+            int rightHight = height[right];
+            if(left < right && leftHeight <= rightHight) left++;
+            else if(left < right && leftHeight > rightHight) right--;
+            res = Math.max(res, Math.min(height[left], height[right]) * (right - left));
         }
-        
-
-        return max;
+        return res;
     }
 }

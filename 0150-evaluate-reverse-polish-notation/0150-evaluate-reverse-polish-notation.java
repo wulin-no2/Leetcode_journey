@@ -1,36 +1,23 @@
 class Solution {
     public int evalRPN(String[] tokens) {
-        // use a stack 
-        // each time we meet a operator, get 2 elements for the stack; put the result into stack
-        // each time we meet a number, put it into the stack
-        Deque<Integer> stack = new LinkedList<>();
-        for(String token: tokens){
-            char c = token.charAt(0);
-            if(token.length()==1 && c=='+') {
-                int b = stack.pop();
-                int a = stack.pop();
-                int res = a + b;
-                stack.push(res);
-            }else if(token.length()==1 && c=='-') {
-                int b = stack.pop();
-                int a = stack.pop();
-                int res = a - b;
-                stack.push(res);
-            }else if(token.length()==1 && c=='*') {
-                int b = stack.pop();
-                int a = stack.pop();
-                int res = a * b;
-                stack.push(res);
-            }else if(token.length()==1 && c=='/') {
-                int b = stack.pop();
-                int a = stack.pop();
-                int res = a / b;
-                stack.push(res);
-            }else{
-                stack.push(Integer.parseInt(token));
+        // use a stack to store elements
+        // each time we get a number, push() into the stack
+        // each time we get an opearator, pop() 2 elements and calculate, then push the result into stack
+        // until the end of the tokens
+        Deque<String> stack = new ArrayDeque<>();
+        for(int i = 0; i < tokens.length; i++){
+            String token = tokens[i];
+            if(token.equals("+") || token.equals("-")  || token.equals("*") || token.equals("/")){
+                int right = Integer.parseInt(stack.pop());
+                int left = Integer.parseInt(stack.pop());
+                if(token.equals("+")) stack.push((left + right)+"");
+                else if(token.equals("-")) stack.push((left - right)+"");
+                else if(token.equals("*")) stack.push((left * right)+"");
+                else stack.push((left / right)+"");
             }
+            else stack.push(token);
         }
-        return stack.peek();
+        return Integer.parseInt(stack.pop());
         
     }
 }

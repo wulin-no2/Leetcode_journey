@@ -1,19 +1,23 @@
 class MinStack {
-    // use a data structure to track min value;
-    // each step, only store the min value into the data structure;
-    // use another stack to track it;
-    Deque<Integer> stack = new LinkedList<>();
-    Deque<Integer> minStack = new LinkedList<>();
+    // use 2 stacks
+    // one for maintain the minimum element
+    // one for maintain the main stack
+    Deque<Integer> stack = new ArrayDeque<>();
+    Deque<Integer> minStack = new ArrayDeque<>();
     public MinStack() {
     }
     
     public void push(int val) {
-        if(stack.isEmpty() || minStack.peek() >= val) minStack.push(val);
+        // if val <= min, push into both stacks
+        // if val > min, only push into main stack
+        if(stack.isEmpty() || val <= minStack.peek()) minStack.push(val);
         stack.push(val);
     }
     
     public void pop() {
-        if(stack.peek().equals(minStack.peek())) minStack.pop();
+        // if top() > min, only pop() main stack
+        // if top() == min, pop() both
+        if(this.top() == this.getMin()) minStack.pop();
         stack.pop();
     }
     

@@ -6,14 +6,25 @@ class Solution {
         // pop out from map
         // use map or array of length 26
         // method 1, map
-        Map<Character, Integer> map = new HashMap<>();
+        // Map<Character, Integer> map = new HashMap<>();
+        // for(char i: s.toCharArray()){
+        //     map.put(i, map.getOrDefault(i, 0) + 1);
+        // }
+        // for(char i: t.toCharArray()){
+        //     if(! map.containsKey(i) || map.get(i) == 0) return false;
+        //     // if map.get(i) > 0, then map.put(i, map.get(i) - 1);
+        //     map.put(i, map.get(i) - 1);
+        // }
+        // return true;
+
+        // method 2, array
+        int[] arr = new int[26];
         for(char i: s.toCharArray()){
-            map.put(i, map.getOrDefault(i, 0) + 1);
+            arr[i -'a']++;
         }
         for(char i: t.toCharArray()){
-            if(! map.containsKey(i) || map.get(i) == 0) return false;
-            // if map.get(i) > 0, then map.put(i, map.get(i) - 1);
-            map.put(i, map.get(i) - 1);
+            arr[i -'a']--;
+            if(arr[i -'a']< 0) return false;
         }
         return true;
         

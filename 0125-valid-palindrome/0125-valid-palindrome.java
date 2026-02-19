@@ -1,16 +1,31 @@
 class Solution {
     public boolean isPalindrome(String s) {
-        // 2 pointers inward, if it's not digit or letter, remove to next, then convert it into lower case
-        int left = 0;
-        int right = s.length() - 1;
-        while(left <= right){
-            while(left<=right && !Character.isLetterOrDigit(s.charAt(left))) left++;
-            while(left<=right && !Character.isLetterOrDigit(s.charAt(right))) right--;
-            if(left<=right && Character.toLowerCase(s.charAt(left))!=Character.toLowerCase(s.charAt(right))) return false;
-            else {left++; right--;}
+        // two pointers
+        // traverse from two ends inward
+        // if it's a non-alphanumeric character, move the pointer
+        // convert it into lowercase and compare
+        // if they're the same, move inward together, if not, return false
+        int p1 = 0;
+        int p2 = s.length() - 1;
+        while (p1 < p2){
+            while(p1 < p2 & !Character.isLetterOrDigit(s.charAt(p1))){
+                p1++;
+                // System.out.println("p1 " + p1);
+            }
+            while(p1 < p2 & !Character.isLetterOrDigit(s.charAt(p2))){
+                p2--;
+                // System.out.println("p2 " + p2);
+            }
+            if(p1 < p2) {
+                System.out.println("p1 p2 c1 c2 are " + p1 + " " + p2 + " " + s.charAt(p1) + " " + s.charAt(p2) );
+                if(Character.toLowerCase(s.charAt(p1)) != Character.toLowerCase(s.charAt(p2))) return false;
+                else {
+                    p1++;
+                    p2--;
+                    // System.out.println("p1 p2 are " + p1 + " " + p2);
+                }
+            }
         }
         return true;
-        
     }
-    
 }

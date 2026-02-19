@@ -399,4 +399,8 @@
 |  |
 | ------- |
 | [0133-clone-graph](https://github.com/wulin-no2/Leetcode_journey/tree/master/0133-clone-graph) |
+## Union-Find
+|  |
+| ------- |
+| [0128-longest-consecutive-sequence](https://github.com/wulin-no2/Leetcode_journey/tree/master/0128-longest-consecutive-sequence) |
 <!---LeetCode Topics End-->

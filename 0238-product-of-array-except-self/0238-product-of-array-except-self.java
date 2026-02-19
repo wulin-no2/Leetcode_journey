@@ -1,22 +1,23 @@
 class Solution {
     public int[] productExceptSelf(int[] nums) {
-        // we traverse twice: one pass to get the prefix, one pass to get the suffix
-        int[] prefix = new int[nums.length];
-        int[] suffix = new int[nums.length];
-        for(int i = 0; i < nums.length; i++){
-            // one pass
+        // if we traverse once, we can either get the product of the prefix or the suffix
+        // so we have to traverse twice in different order
+        // then multiple them:
+        int length = nums.length;
+        int[] prefix = new int[length];
+        int[] suffix = new int[length];
+        int[] res = new int[length];
+        for(int i = 0 ; i < length; i++){
             if(i == 0) prefix[i] = 1;
-            else prefix[i] = prefix[i - 1] * nums[i - 1];
+            else prefix[i] = nums[i - 1] * prefix[i - 1];
         }
-        for(int i = nums.length - 1; i >= 0; i--){
-            if(i==nums.length - 1) suffix[i] = 1;
-            else suffix[i] = suffix[i + 1] * nums[i + 1];
+        for(int i = length - 1; i >= 0; i --){
+            if(i == length - 1) suffix[i] = 1;
+            else suffix[i] = nums[i + 1] * suffix[i + 1];
+            res[i] = suffix[i] * prefix[i];
         }
-        for(int i = 0; i < nums.length; i++){
-            prefix[i] = prefix[i] * suffix[i];
+        return res;
 
-        }
-        return prefix;
         
     }
 }

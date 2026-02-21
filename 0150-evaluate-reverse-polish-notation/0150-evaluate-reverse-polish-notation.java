@@ -1,23 +1,30 @@
 class Solution {
     public int evalRPN(String[] tokens) {
-        // use a stack to store elements
-        // each time we get a number, push() into the stack
-        // each time we get an opearator, pop() 2 elements and calculate, then push the result into stack
-        // until the end of the tokens
-        Deque<String> stack = new ArrayDeque<>();
-        for(int i = 0; i < tokens.length; i++){
-            String token = tokens[i];
-            if(token.equals("+") || token.equals("-")  || token.equals("*") || token.equals("/")){
-                int right = Integer.parseInt(stack.pop());
-                int left = Integer.parseInt(stack.pop());
-                if(token.equals("+")) stack.push((left + right)+"");
-                else if(token.equals("-")) stack.push((left - right)+"");
-                else if(token.equals("*")) stack.push((left * right)+"");
-                else stack.push((left / right)+"");
+        // use stack
+        // push numbers, get two numbers and calculate one we meet an operator
+        Deque<Integer> stack = new ArrayDeque<>();
+        for(String token: tokens){
+            if("+".equals(token) || "-".equals(token) || "*".equals(token) || "/".equals(token)){
+                int b = stack.pop();
+                int a = stack.pop();
+                int res;
+                switch(token){
+                    case "+":
+                        {res = a + b; break;}
+                    case "-":
+                        {res = a - b; break;}
+                    case "*":
+                        {res = a * b; break;}
+                    case "/":
+                        {res = a / b; break;}
+                    default:
+                        res = 0;
+                }
+                stack.push(res);
             }
-            else stack.push(token);
+            else stack.push(Integer.parseInt(token));
         }
-        return Integer.parseInt(stack.pop());
+        return stack.peek();
         
     }
 }

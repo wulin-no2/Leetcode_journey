@@ -1,17 +1,26 @@
 class Solution {
     public int[] dailyTemperatures(int[] temperatures) {
-        // record the index of larger values
-        // traverse from end to start
-        // we should only record the indice whose value is larger than current elements
-        // monotonic stack (from large to small, smaller on the top)
-        int n = temperatures.length;
-        int[] res = new int[n];
-        Deque<Integer> stack = new LinkedList<>();
-        for(int i = n - 1; i >= 0 ; i--){
-            int temp = temperatures[i];
-            while(! stack.isEmpty() && temp >= temperatures[stack.peek()]) stack.pop(); 
-            if(! stack.isEmpty()) res[i] = stack.peek() - i; 
+        // next bigger value
+        // monotonic stack - decrease
+        // at each index, we decide if the previous candidates can be solved
+        // only those elements that are small than current element will get their answer
+        // if current element is small than or equal to candicates, then it should join candidates
+        Deque<Integer> stack = new ArrayDeque<>();
+        int[] res = new int[temperatures.length];
+        for(int i = 0; i < temperatures.length; i++){
+            // if(stack.isEmpty() || temperatures[i] <= stack.peek()) {
+            //     stack.push(i);
+            //     continue;
+            // }
+            while(!stack.isEmpty() && temperatures[i] > temperatures[stack.peek()]){
+                int index = stack.pop();
+                res[index] = i - index;
+            }
             stack.push(i);
+        }
+        while(!stack.isEmpty()){
+            int index = stack.pop();
+            res[index] = 0;
 
         }
         return res;

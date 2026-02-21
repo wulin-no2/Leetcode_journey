@@ -1,32 +1,31 @@
 class MinStack {
-    // use 2 stacks
-    // one for maintain the minimum element
-    // one for maintain the main stack
-    Deque<Integer> stack = new ArrayDeque<>();
-    Deque<Integer> minStack = new ArrayDeque<>();
+    // there should be a stack to implement the basic methods
+    // but we also need to remember the min of stack no matter what state we're in 
+    // so use another stack to track the min
+    Deque<Integer> stack = new ArrayDeque();
+    Deque<Integer> minStack = new ArrayDeque();
     public MinStack() {
     }
     
     public void push(int val) {
-        // if val <= min, push into both stacks
-        // if val > min, only push into main stack
-        if(stack.isEmpty() || val <= minStack.peek()) minStack.push(val);
+        if(minStack.isEmpty() || val <= minStack.peek()) minStack.push(val);
         stack.push(val);
     }
     
     public void pop() {
-        // if top() > min, only pop() main stack
-        // if top() == min, pop() both
-        if(this.top() == this.getMin()) minStack.pop();
-        stack.pop();
+        int i = stack.pop();
+        if(i == minStack.peek()) minStack.pop();
+        
     }
     
     public int top() {
         return stack.peek();
+        
     }
     
     public int getMin() {
         return minStack.peek();
+        
     }
 }
 

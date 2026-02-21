@@ -1,18 +1,16 @@
 class Solution {
     public int[] twoSum(int[] numbers, int target) {
-        // since it's ordered, we can use binary search to make it faster
-        // 2 pointers inward
-        int[] res = new int[2];
-        int left = 0;
-        int right = numbers.length - 1;
-        while(left < right){
-            if(numbers[left] + numbers[right] > target) right--;
-            else if(numbers[left] + numbers[right] < target) left++;
-            else break;
+        // two pointers, move inward
+        int p1 = 0;
+        int p2 = numbers.length - 1;
+        for(int i = 0; i < numbers.length - 1; i++){
+            // compare
+            if(numbers[p1] + numbers[p2] == target) return new int[]{p1 + 1, p2 + 1};
+            while(numbers[p1] + numbers[p2] > target) p2--;
+            while(numbers[p1] + numbers[p2] < target) p1++;
         }
-        res[0] = left + 1;
-        res[1] = right + 1;
-        return res;
+        return null;
+
         
     }
 }

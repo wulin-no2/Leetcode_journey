@@ -4,27 +4,23 @@ class Solution {
         // push numbers, get two numbers and calculate one we meet an operator
         Deque<Integer> stack = new ArrayDeque<>();
         for(String token: tokens){
-            if("+".equals(token) || "-".equals(token) || "*".equals(token) || "/".equals(token)){
-                int b = stack.pop();
-                int a = stack.pop();
-                int res;
-                switch(token){
-                    case "+":
-                        {res = a + b; break;}
-                    case "-":
-                        {res = a - b; break;}
-                    case "*":
-                        {res = a * b; break;}
-                    case "/":
-                        {res = a / b; break;}
-                    default:
-                        res = 0;
+            switch(token){
+                case "+" ->  stack.push(stack.pop() + stack.pop());
+                case "*" ->  stack.push(stack.pop() * stack.pop());
+                case "-" -> {
+                    int b = stack.pop();
+                    int a = stack.pop();
+                    stack.push(a - b);
                 }
-                stack.push(res);
+                case "/" -> {
+                    int b = stack.pop();
+                    int a = stack.pop();
+                    stack.push(a / b);
+                }
+                default -> stack.push(Integer.parseInt(token));
             }
-            else stack.push(Integer.parseInt(token));
         }
-        return stack.peek();
+        return stack.pop();
         
     }
 }

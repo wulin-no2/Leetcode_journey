@@ -46,6 +46,7 @@
 | [0435-non-overlapping-intervals](https://github.com/wulin-no2/Leetcode_journey/tree/master/0435-non-overlapping-intervals) |
 | [0621-task-scheduler](https://github.com/wulin-no2/Leetcode_journey/tree/master/0621-task-scheduler) |
 | [0695-max-area-of-island](https://github.com/wulin-no2/Leetcode_journey/tree/master/0695-max-area-of-island) |
+| [0704-binary-search](https://github.com/wulin-no2/Leetcode_journey/tree/master/0704-binary-search) |
 | [0739-daily-temperatures](https://github.com/wulin-no2/Leetcode_journey/tree/master/0739-daily-temperatures) |
 | [0747-min-cost-climbing-stairs](https://github.com/wulin-no2/Leetcode_journey/tree/master/0747-min-cost-climbing-stairs) |
 | [0792-binary-search](https://github.com/wulin-no2/Leetcode_journey/tree/master/0792-binary-search) |
@@ -202,6 +203,7 @@
 | [0153-find-minimum-in-rotated-sorted-array](https://github.com/wulin-no2/Leetcode_journey/tree/master/0153-find-minimum-in-rotated-sorted-array) |
 | [0167-two-sum-ii-input-array-is-sorted](https://github.com/wulin-no2/Leetcode_journey/tree/master/0167-two-sum-ii-input-array-is-sorted) |
 | [0300-longest-increasing-subsequence](https://github.com/wulin-no2/Leetcode_journey/tree/master/0300-longest-increasing-subsequence) |
+| [0704-binary-search](https://github.com/wulin-no2/Leetcode_journey/tree/master/0704-binary-search) |
 | [0792-binary-search](https://github.com/wulin-no2/Leetcode_journey/tree/master/0792-binary-search) |
 | [0907-koko-eating-bananas](https://github.com/wulin-no2/Leetcode_journey/tree/master/0907-koko-eating-bananas) |
 | [1023-time-based-key-value-store](https://github.com/wulin-no2/Leetcode_journey/tree/master/1023-time-based-key-value-store) |

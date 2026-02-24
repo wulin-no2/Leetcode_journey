@@ -1,34 +1,28 @@
 class Solution {
     public int minEatingSpeed(int[] piles, int h) {
-        int left = 1;
-        int right = getMaxPile(piles) + 1;
-        
+int left = 1;
+        int right = 0;
+
+        for (int pile : piles) {
+            right = Math.max(right, pile);
+        }
+        right += 1; // make it right-open [left, right)
+
         while (left < right) {
             int mid = left + (right - left) / 2;
-            if (canEatAll(piles, h, mid)) {
-                right = mid;  // Try smaller k
+
+            long time = 0;  // use long to prevent overflow
+            for (int pile : piles) {
+                time += (pile + mid - 1) / mid;  // ceil division
+            }
+
+            if (time <= h) {
+                right = mid;       // try smaller speed
             } else {
-                left = mid + 1;  // Increase k
+                left = mid + 1;    // need bigger speed
             }
         }
+
         return left;
-    }
-
-    // Helper method to calculate the maximum pile size
-    private int getMaxPile(int[] piles) {
-        int maxPile = 0;
-        for (int pile : piles) {
-            maxPile = Math.max(maxPile, pile);
-        }
-        return maxPile;
-    }
-
-    // Helper method to check if Koko can eat all bananas with speed k in h hours
-    private boolean canEatAll(int[] piles, int h, int k) {
-        int hours = 0;
-        for (int pile : piles) {
-            hours += (pile + k - 1) / k;  // ceil(pile / k)
-        }
-        return hours <= h;
     }
 }

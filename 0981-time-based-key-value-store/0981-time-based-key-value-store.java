@@ -1,25 +1,24 @@
 class TimeMap {
-    // each key is associated with a list/map including several values and timestamps
-    // which can be retrived according to the number of value, so TreeMap
-    // Map<String, TreeMap<Integer, String>>
-    Map<String, TreeMap<Integer, String>> map = new HashMap<>();
+    private Map<String, TreeMap<Integer, String>> map;
 
-    public TimeMap() {
-    }
-    
-    public void set(String key, String value, int timestamp) {
-        map.putIfAbsent(key, new TreeMap<>());
-        map.get(key).put(timestamp, value);
-    }
-    
-    public String get(String key, int timestamp) {
-        if(! map.containsKey(key)) return "";
-        TreeMap<Integer, String> treeMap = map.get(key);
-        Integer keyTreeMap =treeMap.floorKey(timestamp);
-        if (keyTreeMap == null) return "";
-        return treeMap.get(keyTreeMap);
+        public TimeMap() {
+            map = new HashMap<>();
+        }
         
-    }
+        public void set(String key, String value, int timestamp) {
+            map.computeIfAbsent(key, k -> new TreeMap<>())
+            .put(timestamp, value);
+        }
+        
+        public String get(String key, int timestamp) {
+            if (!map.containsKey(key)) return "";
+            
+            TreeMap<Integer, String> tree = map.get(key);
+            Integer t = tree.floorKey(timestamp);  // largest key <= timestamp
+            
+            if (t == null) return "";
+            return tree.get(t);
+        }
 }
 
 /**

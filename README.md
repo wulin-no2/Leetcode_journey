@@ -79,6 +79,7 @@
 | [0621-task-scheduler](https://github.com/wulin-no2/Leetcode_journey/tree/master/0621-task-scheduler) |
 | [0768-partition-labels](https://github.com/wulin-no2/Leetcode_journey/tree/master/0768-partition-labels) |
 | [0876-hand-of-straights](https://github.com/wulin-no2/Leetcode_journey/tree/master/0876-hand-of-straights) |
+| [0981-time-based-key-value-store](https://github.com/wulin-no2/Leetcode_journey/tree/master/0981-time-based-key-value-store) |
 | [1023-time-based-key-value-store](https://github.com/wulin-no2/Leetcode_journey/tree/master/1023-time-based-key-value-store) |
 ## Backtracking
 |  |
@@ -120,6 +121,7 @@
 | [0647-palindromic-substrings](https://github.com/wulin-no2/Leetcode_journey/tree/master/0647-palindromic-substrings) |
 | [0678-valid-parenthesis-string](https://github.com/wulin-no2/Leetcode_journey/tree/master/0678-valid-parenthesis-string) |
 | [0768-partition-labels](https://github.com/wulin-no2/Leetcode_journey/tree/master/0768-partition-labels) |
+| [0981-time-based-key-value-store](https://github.com/wulin-no2/Leetcode_journey/tree/master/0981-time-based-key-value-store) |
 | [1023-time-based-key-value-store](https://github.com/wulin-no2/Leetcode_journey/tree/master/1023-time-based-key-value-store) |
 ## Matrix
 |  |
@@ -208,6 +210,7 @@
 | [0792-binary-search](https://github.com/wulin-no2/Leetcode_journey/tree/master/0792-binary-search) |
 | [0875-koko-eating-bananas](https://github.com/wulin-no2/Leetcode_journey/tree/master/0875-koko-eating-bananas) |
 | [0907-koko-eating-bananas](https://github.com/wulin-no2/Leetcode_journey/tree/master/0907-koko-eating-bananas) |
+| [0981-time-based-key-value-store](https://github.com/wulin-no2/Leetcode_journey/tree/master/0981-time-based-key-value-store) |
 | [1023-time-based-key-value-store](https://github.com/wulin-no2/Leetcode_journey/tree/master/1023-time-based-key-value-store) |
 ## Sorting
 |  |
@@ -290,6 +293,7 @@
 | [0155-min-stack](https://github.com/wulin-no2/Leetcode_journey/tree/master/0155-min-stack) |
 | [0355-design-twitter](https://github.com/wulin-no2/Leetcode_journey/tree/master/0355-design-twitter) |
 | [0789-kth-largest-element-in-a-stream](https://github.com/wulin-no2/Leetcode_journey/tree/master/0789-kth-largest-element-in-a-stream) |
+| [0981-time-based-key-value-store](https://github.com/wulin-no2/Leetcode_journey/tree/master/0981-time-based-key-value-store) |
 | [1023-time-based-key-value-store](https://github.com/wulin-no2/Leetcode_journey/tree/master/1023-time-based-key-value-store) |
 ## Monotonic Stack
 |  |

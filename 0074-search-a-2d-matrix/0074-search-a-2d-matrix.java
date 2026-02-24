@@ -5,7 +5,7 @@ class Solution {
         int n = matrix[0].length;
         if(m == 1 && n == 1) return target == matrix[0][0];
         if(target < matrix[0][0] || target > matrix[m - 1][n - 1]) return false;
-        int[] arr = new int[m * n];
+
         int up = 0;
         int down = m;
         // for column
@@ -15,6 +15,7 @@ class Solution {
             else if(matrix[mid][0] > target) down = mid;
             else up = mid + 1;
         }
+        if (up == 0) return false;          // would mean target < matrix[0][0]
         // for row up - 1
         int left = 0;
         int right = n;

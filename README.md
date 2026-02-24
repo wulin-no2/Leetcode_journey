@@ -50,6 +50,7 @@
 | [0739-daily-temperatures](https://github.com/wulin-no2/Leetcode_journey/tree/master/0739-daily-temperatures) |
 | [0747-min-cost-climbing-stairs](https://github.com/wulin-no2/Leetcode_journey/tree/master/0747-min-cost-climbing-stairs) |
 | [0792-binary-search](https://github.com/wulin-no2/Leetcode_journey/tree/master/0792-binary-search) |
+| [0875-koko-eating-bananas](https://github.com/wulin-no2/Leetcode_journey/tree/master/0875-koko-eating-bananas) |
 | [0876-hand-of-straights](https://github.com/wulin-no2/Leetcode_journey/tree/master/0876-hand-of-straights) |
 | [0883-car-fleet](https://github.com/wulin-no2/Leetcode_journey/tree/master/0883-car-fleet) |
 | [0907-koko-eating-bananas](https://github.com/wulin-no2/Leetcode_journey/tree/master/0907-koko-eating-bananas) |
@@ -205,6 +206,7 @@
 | [0300-longest-increasing-subsequence](https://github.com/wulin-no2/Leetcode_journey/tree/master/0300-longest-increasing-subsequence) |
 | [0704-binary-search](https://github.com/wulin-no2/Leetcode_journey/tree/master/0704-binary-search) |
 | [0792-binary-search](https://github.com/wulin-no2/Leetcode_journey/tree/master/0792-binary-search) |
+| [0875-koko-eating-bananas](https://github.com/wulin-no2/Leetcode_journey/tree/master/0875-koko-eating-bananas) |
 | [0907-koko-eating-bananas](https://github.com/wulin-no2/Leetcode_journey/tree/master/0907-koko-eating-bananas) |
 | [1023-time-based-key-value-store](https://github.com/wulin-no2/Leetcode_journey/tree/master/1023-time-based-key-value-store) |
 ## Sorting

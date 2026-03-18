@@ -1,14 +1,17 @@
 class Solution {
     public int maxProfit(int[] prices) {
-        int max_profit = 0;
-        int min_until = prices[0];
+        // we can traverse the array
+        // calculate the max profit we can make on each day
+        // then return the maximum value of the results
+        // so have to track the smallest value so we can get the max profit on the day
+        int res = 0;
+        int min_until_now = prices[0];
         for(int price: prices){
-            // assume we sell it today
-            int profit = price - min_until;
-            min_until = Math.min(min_until, price);
-            max_profit = Math.max(max_profit, profit);
+            int profit = price - min_until_now;
+            res = Math.max(profit, res);
+            min_until_now = Math.min(min_until_now, price);
         }
-        return max_profit;
+        return res;
         
     }
 }

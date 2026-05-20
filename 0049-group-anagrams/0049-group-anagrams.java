@@ -1,43 +1,25 @@
 class Solution {
     public List<List<String>> groupAnagrams(String[] strs) {
-        // we have to encode the type of each string.
-        // for each string, we have to remember it's letters and each count of them
-        // we use letter + number to encode them
-        // then use map to put them together, each code is a key
+        // for each str, we encode it;
+        // if the code exist, then we put str in the same area;
+        // map<code, list>
         Map<String, List<String>> map = new HashMap<>();
-        // for(String str: strs){
-        //     // 1. encode it into string
-        //     // 1.1. get array code
-        //     int[] arr = new int[26];
-        //     for(char i : str.toCharArray()){
-        //         arr[i - 'a']++;
-        //     }
-        //     // 1.2. get string code
-        //     StringBuilder sb = new StringBuilder();
-        //     for(int i = 0; i < 26; i++){
-        //         sb.append(i + 'a').append(arr[i]);
-        //     }
-        //     String s = sb.toString();
-        //     // 2. put it into map
-        //     map.computeIfAbsent(s, key -> new ArrayList<String>()).add(str);
-        // }
-        for (String word : strs) {
-            char[] chars = word.toCharArray();
+        for(String str: strs){
+            // encode str
+            char[] chars = str.toCharArray();
             Arrays.sort(chars);
-            String sortedWord = new String(chars);
-            
-            if (!map.containsKey(sortedWord)) {
-                map.put(sortedWord, new ArrayList<>());
+            String code = new String(chars); // convert char array to string
+            // check if map contains the code
+            // if not contains, put code and str in the map and create a new list
+            if(!map.containsKey(code)){
+                map.put(code, new ArrayList<>());
             }
-            
-            map.get(sortedWord).add(word);
+            // if contains, put str in the list
+            map.get(code).add(str);
         }
-        // put values into a list
-        // List<List<String>> res = new ArrayList<>();
-        // for(List<String> value: map.values()){
-        //     res.add(value);
-        // }
-        // return res;
+        // now we got the map
+        // we convert it into our list result;
+        // go through the values and put them into list one by one
         return new ArrayList<>(map.values());
     }
 }

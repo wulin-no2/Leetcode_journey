@@ -1,19 +1,16 @@
 class Solution {
     public boolean isAnagram(String s, String t) {
-        // We use int array with length = 26 to count the letters in two strings
-        // first we check the length
         if(s.length() != t.length()) return false;
-        // then we create our array
         int[] arr = new int[26];
-        for(int i = 0; i < s.length(); i++){
-            arr[s.charAt(i) - 'a']++;
-            arr[t.charAt(i) - 'a']--;
+        for(char c : s.toCharArray()){
+            arr[c - 'a']++;
         }
-        for(int i = 0; i < 26; i++){
-            if(arr[i] != 0) return false;
+        for(char c : t.toCharArray()){
+            arr[c - 'a']--;
+        }
+        for(int n : arr){
+            if(n != 0) return false;
         }
         return true;
-
-        
     }
 }

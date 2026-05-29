@@ -1,17 +1,21 @@
 class Solution {
     public int maxArea(int[] height) {
-        // two pointers inward
-        // move the shorter one, if we can find a taller one and make result bigger, then move it
+        // we can try go inward from two ends 
+        // now we have a start
+        // then we move the shorter one if we find a better solution
+        // remember the amount
         int p1 = 0;
         int p2 = height.length - 1;
-        int res = 0; 
+        int res = (p2 - p1) * Math.min(height[p1], height[p2]);
         while(p1 < p2){
-            res = Math.max(Math.min(height[p2], height[p1]) * (p2 - p1), res);
-            if(height[p2] > height[p1]){
-                // move p1
+            while((p1 < p2) && (height[p1] < height[p2])){
                 p1++;
+                res = Math.max(res, (p2 - p1) * Math.min(height[p1], height[p2]));
             }
-            else p2--;
+            while((p1 < p2) && (height[p1] >= height[p2])){
+                p2--;
+                res = Math.max(res, (p2 - p1) * Math.min(height[p1], height[p2]));
+            }
         }
         return res;
     }

@@ -50,6 +50,7 @@
 | [0739-daily-temperatures](https://github.com/wulin-no2/Leetcode_journey/tree/master/0739-daily-temperatures) |
 | [0747-min-cost-climbing-stairs](https://github.com/wulin-no2/Leetcode_journey/tree/master/0747-min-cost-climbing-stairs) |
 | [0792-binary-search](https://github.com/wulin-no2/Leetcode_journey/tree/master/0792-binary-search) |
+| [0853-car-fleet](https://github.com/wulin-no2/Leetcode_journey/tree/master/0853-car-fleet) |
 | [0875-koko-eating-bananas](https://github.com/wulin-no2/Leetcode_journey/tree/master/0875-koko-eating-bananas) |
 | [0876-hand-of-straights](https://github.com/wulin-no2/Leetcode_journey/tree/master/0876-hand-of-straights) |
 | [0883-car-fleet](https://github.com/wulin-no2/Leetcode_journey/tree/master/0883-car-fleet) |
@@ -224,6 +225,7 @@
 | [0347-top-k-frequent-elements](https://github.com/wulin-no2/Leetcode_journey/tree/master/0347-top-k-frequent-elements) |
 | [0435-non-overlapping-intervals](https://github.com/wulin-no2/Leetcode_journey/tree/master/0435-non-overlapping-intervals) |
 | [0621-task-scheduler](https://github.com/wulin-no2/Leetcode_journey/tree/master/0621-task-scheduler) |
+| [0853-car-fleet](https://github.com/wulin-no2/Leetcode_journey/tree/master/0853-car-fleet) |
 | [0876-hand-of-straights](https://github.com/wulin-no2/Leetcode_journey/tree/master/0876-hand-of-straights) |
 | [0883-car-fleet](https://github.com/wulin-no2/Leetcode_journey/tree/master/0883-car-fleet) |
 | [1014-k-closest-points-to-origin](https://github.com/wulin-no2/Leetcode_journey/tree/master/1014-k-closest-points-to-origin) |
@@ -286,6 +288,7 @@
 | [0155-min-stack](https://github.com/wulin-no2/Leetcode_journey/tree/master/0155-min-stack) |
 | [0678-valid-parenthesis-string](https://github.com/wulin-no2/Leetcode_journey/tree/master/0678-valid-parenthesis-string) |
 | [0739-daily-temperatures](https://github.com/wulin-no2/Leetcode_journey/tree/master/0739-daily-temperatures) |
+| [0853-car-fleet](https://github.com/wulin-no2/Leetcode_journey/tree/master/0853-car-fleet) |
 | [0883-car-fleet](https://github.com/wulin-no2/Leetcode_journey/tree/master/0883-car-fleet) |
 ## Design
 |  |
@@ -299,6 +302,7 @@
 |  |
 | ------- |
 | [0739-daily-temperatures](https://github.com/wulin-no2/Leetcode_journey/tree/master/0739-daily-temperatures) |
+| [0853-car-fleet](https://github.com/wulin-no2/Leetcode_journey/tree/master/0853-car-fleet) |
 | [0883-car-fleet](https://github.com/wulin-no2/Leetcode_journey/tree/master/0883-car-fleet) |
 ## Sliding Window
 |  |

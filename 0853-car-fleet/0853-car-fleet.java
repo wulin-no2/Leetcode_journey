@@ -1,26 +1,25 @@
 class Solution {
     public int carFleet(int target, int[] position, int[] speed) {
-       int res = 0;
-        
-        // Step 1: Calculate the positions and times to reach the target
-        double[][] cars = new double[position.length][2];
-        for (int i = 0; i < position.length; i++) {
-            cars[i][0] = position[i];  // Position of the car
-            cars[i][1] = (double)(target - position[i]) / speed[i];  // Time to reach target
+        // if the later car uses shorter time to arrive target, then they become a fleet
+        // We sort cars based on their positions and walk through them from the nearest car to target
+        int n = speed.length;
+        int[][] cars = new int[n][2];
+        for(int i = 0; i < n; i++){
+            cars[i][0] = position[i];
+            cars[i][1] = speed[i];
         }
-
-        // Step 2: Sort cars by their position in descending order (closest to target first)
-        Arrays.sort(cars, (a, b) -> Double.compare(b[0], a[0]));
-        
-        // Step 3: Merge cars into fleets
-        double leadTime = 0;  // Initialize lead time as 0
-        for (int i = 0; i < cars.length; i++) {
-            if (cars[i][1] > leadTime) {  // If current car's time is longer than lead time, it's a new fleet
-                res++;  // Increment fleet count
-                leadTime = cars[i][1];  // Update the lead time to this car's time
+        Arrays.sort(cars, (a, b)->Integer.compare(b[0], a[0])); // position big to small
+        int res = 0;
+        double shortTime = 0;
+        for(int[] car: cars){
+            double time = (double)(target - car[0]) / car[1];
+            if(time > shortTime){
+                // new fleet
+                res++;
+                shortTime = time;
             }
         }
-
-        return res;  // Return the total number of fleets
+        return res;
+        
     }
 }

@@ -1,29 +1,35 @@
 class Solution {
     public int[] dailyTemperatures(int[] temperatures) {
-        // next bigger value
-        // monotonic stack - decrease
-        // at each index, we decide if the previous candidates can be solved
-        // only those elements that are small than current element will get their answer
-        // if current element is small than or equal to candicates, then it should join candidates
+        // find the next greater element
+        // use monotonic stack
+        // put candidates on a stack, candidates should be index so we can calculate result;
+        // once we got a greater one(compare with stack.peek()), keep popping and we get elements in res, the push it into stack for next compare;
+        // otherwise, push it into stack;
+        int n = temperatures.length;
+        int[] res = new int[n];
         Deque<Integer> stack = new ArrayDeque<>();
-        int[] res = new int[temperatures.length];
-        for(int i = 0; i < temperatures.length; i++){
-            // if(stack.isEmpty() || temperatures[i] <= stack.peek()) {
-            //     stack.push(i);
-            //     continue;
-            // }
+        for(int i = 0; i < n ; i++){
             while(!stack.isEmpty() && temperatures[i] > temperatures[stack.peek()]){
-                int index = stack.pop();
-                res[index] = i - index;
+                int topCandidate = stack.pop();
+                res[topCandidate] = i - topCandidate;
             }
             stack.push(i);
         }
-        while(!stack.isEmpty()){
-            int index = stack.pop();
-            res[index] = 0;
-
-        }
         return res;
-        
+        // int n = temperatures.length;
+        // int[] res = new int[n];
+
+        // Deque<Integer> stack = new ArrayDeque<>(); // store index
+
+        // for (int i = 0; i < n; i++) {
+        //     while (!stack.isEmpty() && temperatures[i] > temperatures[stack.peek()]) {
+        //         int prevIndex = stack.pop();
+        //         res[prevIndex] = i - prevIndex;
+        //     }
+
+        //     stack.push(i);
+        // }
+
+        // return res;    
     }
 }

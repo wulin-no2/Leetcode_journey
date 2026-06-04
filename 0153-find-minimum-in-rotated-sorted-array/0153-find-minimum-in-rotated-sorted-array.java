@@ -1,17 +1,20 @@
 class Solution {
     public int findMin(int[] nums) {
-        // find the first small one. FFFFTTTTTT 
-        // Binary search 
+        // FFFFFF[T]TTT
+        // find the first small one
+        // binary search
         int left = 0;
         int right = nums.length - 1;
-        while(left < right){
+        while(left < right){ // element before left can't be the answer
             int mid = left + (right - left) / 2;
+            // we have to find something unchanged
             if(nums[mid] > nums[right]){
-                // mid must be in the left half
+                // mid in left part
                 left = mid + 1;
-            }else right = mid;
+            }else{
+                right = mid;
+            }
         }
         return nums[left];
-        
     }
 }

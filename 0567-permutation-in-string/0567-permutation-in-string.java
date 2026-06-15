@@ -1,37 +1,25 @@
 class Solution {
     public boolean checkInclusion(String s1, String s2) {
-        // all the frequencies of 26 letters should be the same
-        // 2 array hashings,compare substring's hashing and s1's hashing
-        // how to compare?
-        // count how many letters have same frequencies
-        if(s1.length() > s2.length()) return false;
-        int[] arr1 = new int[26];
-        int[] arr2 = new int[26]; 
-        for(int i = 0; i < s1.length() ; i++){ // encode s1 and s2.first substring
-            arr1[s1.charAt(i) - 'a']++;
-            arr2[s2.charAt(i) - 'a']++;
+        if(s2.length() < s1.length()) return false;
+        // use a sliding window to checkValid
+        int left = 0;
+        for(int right = left + s1.length() - 1; right < s2.length() ; right++){
+            String sub = s2.substring(left, right + 1);
+            if(isValid(s1, sub)) return true;
+            left++;
         }
-        // count count how many letters have same frequencies
-        int count = 0;
-        for(int i = 0; i < 26; i++){
-            if(arr1[i]==arr2[i]) count++;
+        return false;
+    }
+    boolean isValid(String s1, String s2){
+        // check if s2 is s1's permutation when they're the same length
+        int[] arr = new int[26];
+        for(char c: s1.toCharArray()){
+            arr[c-'a']++;
         }
-        // move sliding window. if count == 26, return true;
-        for(int i = s1.length() ; i < s2.length(); i++){
-            if(count==26) return true;
-            int leave = s2.charAt(i - s1.length()) - 'a';
-            int in = s2.charAt(i) - 'a';
-            if(arr1[leave]==arr2[leave]) count--;
-            if(arr2[leave]-arr1[leave]==1) count++;
-            // update arr2
-            arr2[leave]--;
-            if(arr1[in]==arr2[in]) count--;
-            if(arr1[in]-arr2[in]==1) count++;
-            arr2[in]++;
-
-
+        for(char c: s2.toCharArray()){
+            arr[c-'a']--;
+            if(arr[c-'a'] < 0) return false;
         }
-        return count==26;
-        
+        return true;
     }
 }

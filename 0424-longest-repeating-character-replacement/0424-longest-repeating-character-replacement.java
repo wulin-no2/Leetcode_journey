@@ -1,27 +1,27 @@
 class Solution {
     public int characterReplacement(String s, int k) {
-        // use map
-        // only one value can have bigger value than k; all the other value's sum should be <= k in the window; len - maxF <= k  
         // sliding window
-        // once len - maxF > k,shrink window
-        Map<Character, Integer> map = new HashMap<>();
+        // for the window, we check if it's a valid window(windowLength - maxFrequent) <= k
+        // if valid, update res, windowLength - maxFrequent and go forward
+        // if not valid, move left until it's valid
         int left = 0;
-        int right = 0;
+        int maxFrequency = 0;
         int res = 0;
-        int maxF = 0;
-        while(right < s.length()){
+        // we need to count the frequency of these letters
+        int[] count = new int[26];
+        for(int right = 0; right < s.length(); right++){
             char c = s.charAt(right);
-            map.put(c, map.getOrDefault(c, 0) + 1);
-            maxF = Math.max(maxF, map.get(c)); 
-            while(right - left + 1 - maxF > k){
-                map.put(s.charAt(left), map.get(s.charAt(left)) - 1);
+            count[c - 'A']++; // update frequency
+            maxFrequency = Math.max(maxFrequency, count[c - 'A']);
+            while(right - left + 1 - maxFrequency > k){
+                count[s.charAt(left) - 'A']--;
                 left++;
             }
             res = Math.max(res, right - left + 1);
-            right++;
         }
         return res;
+
+
+        
     }
-    
-    
 }

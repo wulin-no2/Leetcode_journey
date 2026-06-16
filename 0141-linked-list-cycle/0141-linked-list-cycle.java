@@ -11,15 +11,15 @@
  */
 public class Solution {
     public boolean hasCycle(ListNode head) {
-        // if there is a cycle, we use 2 pointers, one fast, one slow, they'all meet each other
+        // we use fast slow approach to detect cycle
+        // if we run from the first node, one with speed1 one with speed2, they will one day reach the same node in the circle if there's a circle;
         ListNode fast = head;
         ListNode slow = head;
         while(fast != null && fast.next != null){
             fast = fast.next.next;
             slow = slow.next;
-            if(fast == slow) return true;
+            if(slow == fast) return true;
         }
         return false;
-        
     }
 }

@@ -10,33 +10,26 @@
  */
 class Solution {
     public ListNode mergeTwoLists(ListNode list1, ListNode list2) {
-        // use two pointers
-        // use a dummyhead
-        ListNode dummyHead = new ListNode(-1000);
+        // use the dummyHead so we don't have to check whether list1 or list2 should be the head
+        ListNode dummyHead = new ListNode();
+        // use a pointer to traverse
         ListNode p0 = dummyHead;
-        ListNode p1 = list1;
-        ListNode p2 = list2;
-        while(p1 != null && p2 != null){
-            if(p1.val <= p2.val){
-                p0.next = p1;
-                p1 = p1.next;
-            }
-            else{
-                p0.next = p2;
-                p2 = p2.next;
+        while(list1 != null && list2 != null){
+            if(list1.val <= list2.val){
+                p0.next = list1;
+                list1 = list1.next;
+            } else {
+                p0.next = list2;
+                list2 = list2.next;
 
             }
             p0 = p0.next;
+        } 
+        if(list1 != null){
+            p0.next = list1;
         }
-        while(p1 != null){
-            p0.next = p1;
-            p1 = p1.next;
-            p0 = p0.next;
-        }
-        while(p2 != null){
-            p0.next = p2;
-            p2 = p2.next;
-            p0 = p0.next;
+        if(list2 != null){
+            p0.next = list2;
         }
         return dummyHead.next;
         

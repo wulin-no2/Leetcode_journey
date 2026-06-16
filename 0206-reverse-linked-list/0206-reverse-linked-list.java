@@ -10,19 +10,21 @@
  */
 class Solution {
     public ListNode reverseList(ListNode head) {
-        // use temp to store the remaining list;
-        ListNode temp;
-        // use curr to traverse the list
-        // use prev to find the previous node
-        ListNode curr = head;
+        // use 2 pointers to help update list
         ListNode prev = null;
+        ListNode curr = head;
+        // check if we've handled all the nodes
         while(curr != null){
-            temp = curr.next;
+            // handle current node
+            // save the remaining first in case it's lost
+            ListNode temp = curr.next;
+            // reverse
             curr.next = prev;
+            // move pointers
             prev = curr;
-            curr = temp;
+            curr = temp; // 1. curr should point to the remaining list
         }
-        return prev;
+        return prev; //1. now curr == null, prev is the link that's already handled
         
     }
 }

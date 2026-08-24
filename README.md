@@ -415,4 +415,8 @@
 |  |
 | ------- |
 | [0128-longest-consecutive-sequence](https://github.com/wulin-no2/Leetcode_journey/tree/master/0128-longest-consecutive-sequence) |
+## Floyd's Cycle Finding Algorithm
+|  |
+| ------- |
+| [0141-linked-list-cycle](https://github.com/wulin-no2/Leetcode_journey/tree/master/0141-linked-list-cycle) |
 <!---LeetCode Topics End-->

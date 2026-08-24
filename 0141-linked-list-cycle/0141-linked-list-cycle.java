@@ -11,15 +11,18 @@
  */
 public class Solution {
     public boolean hasCycle(ListNode head) {
-        // we use fast slow approach to detect cycle
-        // if we run from the first node, one with speed1 one with speed2, they will one day reach the same node in the circle if there's a circle;
+        // fast slow approach
+        // if they can meet one day, then there's a cycle
+        // fast moves 2 steps a time, slow moves 1 step a time
         ListNode fast = head;
         ListNode slow = head;
         while(fast != null && fast.next != null){
             fast = fast.next.next;
             slow = slow.next;
-            if(slow == fast) return true;
+            if(fast == slow) return true;
         }
         return false;
+
+        
     }
 }

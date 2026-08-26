@@ -10,42 +10,45 @@
  */
 class Solution {
     public void reorderList(ListNode head) {
-        if (head == null || head.next == null) return;
-        // reverse the 2nd half. How to find the 2nd half?
-        // use a fast slow approach, speed2, speed1
-        // when fast is at the end, the slow should be at the 2nd half;
-        // but we have to find the one before 2nd half so we can cut it up!!!
+        // if we want to reorder, then we have to know both ends
+        // also, we have to break it into 2 parts otherwise we'll have a loop at the end
+        // for the first half, we keep it as it is
+        // for the second half, we reverse it
+        // so, 1. we do fast slow approach, find the mid point
         ListNode fast = head;
         ListNode slow = head;
-        while(fast.next != null && fast.next.next != null){
+        while(fast != null && fast.next != null && fast.next.next != null){
             fast = fast.next.next;
             slow = slow.next;
         }
-        // slow is in the middle(left one for double nodes) or middle for odd nodes
-        // cut it up!!!
         ListNode list2 = slow.next;
+        // 2. break it
         slow.next = null;
-        // then reverse the second half from slow list2
-        // we need prev curr to reverse it
+        // 3. reverse the 2nd half
         ListNode prev = null;
         ListNode curr = list2;
         while(curr != null){
-            ListNode temp = curr.next;
-            curr.next = prev;
+            ListNode temp = curr.next; // store the remaining
+            curr.next = prev; // reverse
             prev = curr;
             curr = temp;
-        } // now prev is the start of the 2nd list
-        // head is the start of the 1nd list
-        // then merge two lists together // head and prev
-        ListNode list1 = head;
-        list2 = prev;
-        while(list2 != null){
-            ListNode temp1 = list1.next;
-            ListNode temp2 = list2.next;  // same the remaining lists
-            list1.next = list2;
-            list2.next = temp1; // add two nodes 
-            list1 = temp1;
-            list2 = temp2; // start to work on the 2nd round
+        }
+        // prev is the reversed 2nd list now
+        // 4. merge them: head and prev
+        ListNode p = new ListNode(0);
+        ListNode p1 = head;
+        ListNode p2 = prev;
+        while(p1 != null && p2 != null){
+            ListNode temp1 = p1.next;
+            ListNode temp2 = p2.next;
+            p.next = p1;
+            p.next.next = p2;
+            p1 = temp1;
+            p2 = temp2;
+            p = p.next.next;
+        }
+        if(p1 != null){
+            p.next = p1;
         }
     }
 }

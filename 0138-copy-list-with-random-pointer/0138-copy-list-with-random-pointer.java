@@ -15,38 +15,33 @@ class Node {
 
 class Solution {
     public Node copyRandomList(Node head) {
-        if(head == null) return null;
-        Node curr = head;
-
-        // 1. copy node and insert it into curr.next
-        while(curr != null){
-            Node node = new Node(curr.val);
-            node.next = curr.next;
-            curr.next = node;
-            curr = node.next;
+        // we copy node and the val, and the next pointer and the random pointer
+        // node and val and next is easy to copy, but what about random?
+        // we know old node and new node and old.random, how to find new random?
+        // we need to construct a data structure from each old to each new
+        // so that when we find old.random, we will know new.random
+        // from node to node, we use map
+        Map<Node, Node> map = new HashMap<>();
+        // we copy all the node and val first and next
+        Node p1 = head;
+        Node dummyHead = new Node(0);
+        Node p2 = dummyHead;
+        while(p1 != null){
+            Node temp = new Node(p1.val); // copy node
+            p2.next = temp; // connect last one
+            map.put(p1, temp);// put into map
+            p1 = p1.next; // move p1
+            p2 = p2.next; // move p2
         }
-
-        // copy random pointers;
-        curr = head;
-        while(curr != null){
-            if(curr.random==null) curr.next.random = null;
-            else curr.next.random = curr.random.next;
-            curr = curr.next.next;
+        // now we got nodes and vals and nexts, we can copy randoms
+        p1 = head;
+        p2 = dummyHead.next;
+        while(p1 != null){
+            p2.random = map.get(p1.random);
+            p1 = p1.next;
+            p2 = p2.next;
         }
-
-        // separate them;
-        curr = head;
-        Node newHead = curr.next;
-        Node p = newHead;
-        while(curr != null){
-            curr.next = curr.next.next;
-            curr = curr.next;
-            if(p.next != null){
-                p.next = p.next.next;
-                p = p.next;
-            }
-        }
-        return newHead;
+        return dummyHead.next;
 
         
     }

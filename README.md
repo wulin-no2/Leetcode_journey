@@ -39,6 +39,7 @@
 | [0215-kth-largest-element-in-an-array](https://github.com/wulin-no2/Leetcode_journey/tree/master/0215-kth-largest-element-in-an-array) |
 | [0217-contains-duplicate](https://github.com/wulin-no2/Leetcode_journey/tree/master/0217-contains-duplicate) |
 | [0238-product-of-array-except-self](https://github.com/wulin-no2/Leetcode_journey/tree/master/0238-product-of-array-except-self) |
+| [0287-find-the-duplicate-number](https://github.com/wulin-no2/Leetcode_journey/tree/master/0287-find-the-duplicate-number) |
 | [0300-longest-increasing-subsequence](https://github.com/wulin-no2/Leetcode_journey/tree/master/0300-longest-increasing-subsequence) |
 | [0322-coin-change](https://github.com/wulin-no2/Leetcode_journey/tree/master/0322-coin-change) |
 | [0347-top-k-frequent-elements](https://github.com/wulin-no2/Leetcode_journey/tree/master/0347-top-k-frequent-elements) |
@@ -101,6 +102,7 @@
 | [0090-subsets-ii](https://github.com/wulin-no2/Leetcode_journey/tree/master/0090-subsets-ii) |
 | [0136-single-number](https://github.com/wulin-no2/Leetcode_journey/tree/master/0136-single-number) |
 | [0191-number-of-1-bits](https://github.com/wulin-no2/Leetcode_journey/tree/master/0191-number-of-1-bits) |
+| [0287-find-the-duplicate-number](https://github.com/wulin-no2/Leetcode_journey/tree/master/0287-find-the-duplicate-number) |
 | [0338-counting-bits](https://github.com/wulin-no2/Leetcode_journey/tree/master/0338-counting-bits) |
 ## String
 |  |
@@ -179,6 +181,7 @@
 | [0141-linked-list-cycle](https://github.com/wulin-no2/Leetcode_journey/tree/master/0141-linked-list-cycle) |
 | [0143-reorder-list](https://github.com/wulin-no2/Leetcode_journey/tree/master/0143-reorder-list) |
 | [0167-two-sum-ii-input-array-is-sorted](https://github.com/wulin-no2/Leetcode_journey/tree/master/0167-two-sum-ii-input-array-is-sorted) |
+| [0287-find-the-duplicate-number](https://github.com/wulin-no2/Leetcode_journey/tree/master/0287-find-the-duplicate-number) |
 | [0567-permutation-in-string](https://github.com/wulin-no2/Leetcode_journey/tree/master/0567-permutation-in-string) |
 | [0647-palindromic-substrings](https://github.com/wulin-no2/Leetcode_journey/tree/master/0647-palindromic-substrings) |
 | [0768-partition-labels](https://github.com/wulin-no2/Leetcode_journey/tree/master/0768-partition-labels) |
@@ -206,6 +209,7 @@
 | [0074-search-a-2d-matrix](https://github.com/wulin-no2/Leetcode_journey/tree/master/0074-search-a-2d-matrix) |
 | [0153-find-minimum-in-rotated-sorted-array](https://github.com/wulin-no2/Leetcode_journey/tree/master/0153-find-minimum-in-rotated-sorted-array) |
 | [0167-two-sum-ii-input-array-is-sorted](https://github.com/wulin-no2/Leetcode_journey/tree/master/0167-two-sum-ii-input-array-is-sorted) |
+| [0287-find-the-duplicate-number](https://github.com/wulin-no2/Leetcode_journey/tree/master/0287-find-the-duplicate-number) |
 | [0300-longest-increasing-subsequence](https://github.com/wulin-no2/Leetcode_journey/tree/master/0300-longest-increasing-subsequence) |
 | [0704-binary-search](https://github.com/wulin-no2/Leetcode_journey/tree/master/0704-binary-search) |
 | [0792-binary-search](https://github.com/wulin-no2/Leetcode_journey/tree/master/0792-binary-search) |
@@ -419,4 +423,9 @@
 |  |
 | ------- |
 | [0141-linked-list-cycle](https://github.com/wulin-no2/Leetcode_journey/tree/master/0141-linked-list-cycle) |
+| [0287-find-the-duplicate-number](https://github.com/wulin-no2/Leetcode_journey/tree/master/0287-find-the-duplicate-number) |
+## Pigeonhole Principle
+|  |
+| ------- |
+| [0287-find-the-duplicate-number](https://github.com/wulin-no2/Leetcode_journey/tree/master/0287-find-the-duplicate-number) |
 <!---LeetCode Topics End-->

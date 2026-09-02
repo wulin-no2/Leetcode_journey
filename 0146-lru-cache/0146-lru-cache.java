@@ -1,7 +1,7 @@
 class LRUCache {
     int capacity;
-    Node tail = null;
-    Node head = null;
+    Node tail;
+    Node head;
     Map<Integer, Node> map = new HashMap<>();
     // 1. in order to  get a value by a key in O(1),  we need a map
     // 2. in order to add and remove at any place in O(1), and keep an order, we need a linkedlist

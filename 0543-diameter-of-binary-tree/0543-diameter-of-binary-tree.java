@@ -14,19 +14,28 @@
  * }
  */
 class Solution {
+    private int diameter = 0;
+
     public int diameterOfBinaryTree(TreeNode root) {
-        // post order, update from down to up
-        // diameter of node = Math.max(diameter of left, diameter of right, length of left + length of right)
-        // left first:
-        if(root == null) return 0;
-        if(root.left == null && root.right == null) return 0;
-        int left = diameterOfBinaryTree(root.left);
-        int right = diameterOfBinaryTree(root.right);
-        int temp = Math.max(left, right);
-        return Math.max(temp, maxLength(root.left) + maxLength(root.right));
+        height(root);
+        return diameter;
     }
-    public int maxLength(TreeNode root){
-        if(root == null) return 0;
-        return Math.max(maxLength(root.left), maxLength(root.right)) + 1;
+
+    private int height(TreeNode root) {
+        if (root == null) {
+            return 0;
+        }
+
+        int leftHeight = height(root.left);
+        int rightHeight = height(root.right);
+
+        // Longest path passing through the current node
+        diameter = Math.max(
+            diameter,
+            leftHeight + rightHeight
+        );
+
+        // Return height to the parent
+        return Math.max(leftHeight, rightHeight) + 1;
     }
 }

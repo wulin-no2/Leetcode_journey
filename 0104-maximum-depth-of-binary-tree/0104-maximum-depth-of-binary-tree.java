@@ -15,19 +15,10 @@
  */
 class Solution {
     public int maxDepth(TreeNode root) {
-        // post order
-        return height(root);
-        
-    }
-    public int height(TreeNode node){
-        // base case 
-        if(node == null) return 0;
-        // left 
-        int left = height(node.left);
-
-        // right
-        int right = height(node.right);
-        // node
-        return Math.max(left, right) + 1;
+        // depth is the same as height
+        // pre order
+        // node first
+        if(root == null) return 0;
+        return Math.max(maxDepth(root.left), maxDepth(root.right)) + 1;
     }
 }

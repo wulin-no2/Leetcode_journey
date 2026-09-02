@@ -1,76 +1,84 @@
 class LRUCache {
-    // 1. key-value pair, use map to store it; so we can get by key within O(1) and change the value within O(1)
-    // 2. how to keep the order so that we can find the least recently used key && delete it in a place and put it in another place withinO(1)? LinkedList
-    // 3. in order to delete the node and keep the order, we have to find the prev node. We could use double LinkedList
-    // 4. we have to insert a node in the first, and delete the node in the last, so better use dummyHead and dummyTail to make things easier;
-    class Node{
-        int val = 0;
-        int key = 0;
-        Node next = null;
-        Node prev = null;
-        public Node(){};
-        public Node(int key,int val){
-            this.val = val;
-            this.key = key;
-        };
-    }
-    int capacity = 0;
+    int capacity;
+    Node tail = null;
+    Node head = null;
     Map<Integer, Node> map = new HashMap<>();
-    Node dummyHead = new Node(0,0);
-    Node dummyTail = new Node(0,0);
+    // 1. in order to  get a value by a key in O(1),  we need a map
+    // 2. in order to add and remove at any place in O(1), and keep an order, we need a linkedlist
+    // 3. we need a double linkedlist so that we can find the prev and point to the next
+    // 4. in the map, we put<key, <Node>> in it
+    // 5. in Node, we put prev, next, key, value in it so that when we delete the node from map, we can find it by key
 
     public LRUCache(int capacity) {
         this.capacity = capacity;
-
-        dummyHead.next = dummyTail;
-        dummyTail.prev = dummyHead;
-
+        tail = new Node();
+        head = new Node();
+        head.next = tail;
+        tail.prev = head; // we put the latest updated before tail
     }
     
     public int get(int key) {
-        //1. if not exist, return -1;
-        if(! map.containsKey(key)) return -1;
-        //2. if exist, 2.1. change list: delete it, add to the first, then return value; 
-        Node node = map.get(key);
-        delete(node);
-        addFirst(node);
-        return node.val;
+        if(!map.containsKey(key)) return -1;
+        //1. get value by key in map
+        Node curr = map.get(key);
+        //2. remove the last one, add the latest one
+        removeNode(curr);
+        addToLast(curr);
+        return curr.value;
     }
     
     public void put(int key, int value) {
-        //1. if exist: 1.1. get from map, change it's value; 1.2. change list: delete it, add to the first; 
         if(map.containsKey(key)){
-            Node node = map.get(key);
-            node.val = value;
-            delete(node);
-            addFirst(node);
-        }
-        // 2. if not exist:
-        else{
-             
-        // 2.1. if not full: put into map; add to the first of list;
-        // 2.2. if full: delete the last of list && delete from map; put into first of the list; put into map;
-            if(map.size() == capacity) {
-                Node nodeRemove = dummyTail.prev;
-                delete(nodeRemove);
-                map.remove(nodeRemove.key);
-            }
-            
+            Node curr = map.get(key);
+            removeNode(curr);
+            curr.value = value;
+            addToLast(curr);
+        } else if(map.size() < this.capacity){
             Node temp = new Node(key, value);
-            addFirst(temp);
-            map.put(key, temp);
+            addToLast(temp);
+        } else{
+            removeNode(head.next);
+            Node temp = new Node(key, value);
+            addToLast(temp);
         }
     }
-    public void delete(Node node){
-        node.prev.next = node.next;
-        node.next.prev = node.prev;
-        
+    
+    private void removeNode(Node node){
+        // remove from list
+        Node temp = node.next;
+        node.prev.next = temp;
+        temp.prev = node.prev;
+        // remove from map
+        map.remove(node.key);
     }
-    public void addFirst(Node node){
-        node.next = dummyHead.next;
-        node.prev = dummyHead;
-        dummyHead.next.prev = node;
-        dummyHead.next = node;
+
+    private void addToLast(Node node){
+        //add to list
+        tail.prev.next = node;
+        node.prev = tail.prev;
+        node.next = tail;
+        tail.prev = node;
+        //add to map
+        map.put(node.key, node);
+    }
+    class Node {
+        int key;
+        int value;
+        Node prev;
+        Node next;
+        public Node(){
+
+        }
+        public Node(int key, int value){
+            this.key = key;
+            this.value = value;
+        }
+        public Node(int key, int value, Node prev, Node next){
+            this.key = key;
+            this.value = value;
+            this.prev = prev;
+            this.next = next;
+        }
     }
 }
 

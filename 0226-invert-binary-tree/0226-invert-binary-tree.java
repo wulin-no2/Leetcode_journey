@@ -15,21 +15,11 @@
  */
 class Solution {
     public TreeNode invertTree(TreeNode root) {
-        // post order
-        return traverse(root);
-        
-    }
-    public TreeNode traverse(TreeNode node){
-        //base case
-        if(node==null) return node;
-        // left 
-        TreeNode left = traverse(node.left);
-        
-        // right
-        TreeNode right = traverse(node.right);
-        node.left = right;
-        node.right = left;
-        // node
-        return node;
+        if(root == null) return root;
+        TreeNode left = invertTree(root.right);
+        TreeNode right = invertTree(root.left);
+        root.left = left;
+        root.right = right;
+        return root;
     }
 }

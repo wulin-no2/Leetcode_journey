@@ -72,6 +72,7 @@
 | [0138-copy-list-with-random-pointer](https://github.com/wulin-no2/Leetcode_journey/tree/master/0138-copy-list-with-random-pointer) |
 | [0139-word-break](https://github.com/wulin-no2/Leetcode_journey/tree/master/0139-word-break) |
 | [0141-linked-list-cycle](https://github.com/wulin-no2/Leetcode_journey/tree/master/0141-linked-list-cycle) |
+| [0146-lru-cache](https://github.com/wulin-no2/Leetcode_journey/tree/master/0146-lru-cache) |
 | [0217-contains-duplicate](https://github.com/wulin-no2/Leetcode_journey/tree/master/0217-contains-duplicate) |
 | [0242-valid-anagram](https://github.com/wulin-no2/Leetcode_journey/tree/master/0242-valid-anagram) |
 | [0347-top-k-frequent-elements](https://github.com/wulin-no2/Leetcode_journey/tree/master/0347-top-k-frequent-elements) |
@@ -297,6 +298,7 @@
 ## Design
 |  |
 | ------- |
+| [0146-lru-cache](https://github.com/wulin-no2/Leetcode_journey/tree/master/0146-lru-cache) |
 | [0155-min-stack](https://github.com/wulin-no2/Leetcode_journey/tree/master/0155-min-stack) |
 | [0355-design-twitter](https://github.com/wulin-no2/Leetcode_journey/tree/master/0355-design-twitter) |
 | [0789-kth-largest-element-in-a-stream](https://github.com/wulin-no2/Leetcode_journey/tree/master/0789-kth-largest-element-in-a-stream) |
@@ -323,6 +325,7 @@
 | [0138-copy-list-with-random-pointer](https://github.com/wulin-no2/Leetcode_journey/tree/master/0138-copy-list-with-random-pointer) |
 | [0141-linked-list-cycle](https://github.com/wulin-no2/Leetcode_journey/tree/master/0141-linked-list-cycle) |
 | [0143-reorder-list](https://github.com/wulin-no2/Leetcode_journey/tree/master/0143-reorder-list) |
+| [0146-lru-cache](https://github.com/wulin-no2/Leetcode_journey/tree/master/0146-lru-cache) |
 | [0206-reverse-linked-list](https://github.com/wulin-no2/Leetcode_journey/tree/master/0206-reverse-linked-list) |
 | [0355-design-twitter](https://github.com/wulin-no2/Leetcode_journey/tree/master/0355-design-twitter) |
 ## Recursion
@@ -428,4 +431,8 @@
 |  |
 | ------- |
 | [0287-find-the-duplicate-number](https://github.com/wulin-no2/Leetcode_journey/tree/master/0287-find-the-duplicate-number) |
+## Doubly-Linked List
+|  |
+| ------- |
+| [0146-lru-cache](https://github.com/wulin-no2/Leetcode_journey/tree/master/0146-lru-cache) |
 <!---LeetCode Topics End-->

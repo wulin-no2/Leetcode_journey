@@ -15,18 +15,16 @@
  */
 class Solution {
     public boolean isSameTree(TreeNode p, TreeNode q) {
-        return traverse(p, q);
-        
-    }
-    public boolean traverse(TreeNode p, TreeNode q){
-        // base case
-        if(p==null && q==null) return true;
-        if(p == null || q == null || q.val != p.val) return false;
-        // left
-        boolean left = traverse(p.left, q.left);
-        // right
-        boolean right = traverse(p.right, q.right);
-        // node
-        return left && right;
+        // we can do preorder or post order
+        // let's do postOrder, dfs;
+        if(p == null && q == null) return true;
+        if(p == null && q != null) return false;
+        if(p != null && q == null) return false;
+        // check left tree first
+        boolean left = isSameTree(p.left, q.left);
+        if(left == false) return false;
+        boolean right = isSameTree(p.right, q.right);
+        if(right == false) return false;
+        return q.val == p.val;
     }
 }

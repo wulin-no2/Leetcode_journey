@@ -15,23 +15,21 @@
  */
 class Solution {
     public boolean isBalanced(TreeNode root) {
-        // balanced tree:
-        // for all the node: Math.abs(left, right) <= 1;
-        return height(root) != -1;
+        // if for every node, Math.abs(left.height - right.height) <= 1, then balanced;
+        // we go from node to root; post order, children give information to parents;
+        // left, right, node; dfs;
+        if(root == null) return true;
+        boolean left = isBalanced(root.left);
+        boolean right = isBalanced(root.right);
+        return left && right && Math.abs(height(root.left) - height(root.right)) <= 1;
+
         
     }
-    private int height(TreeNode node) {
-        if (node == null) return 0;
-        
-        int left = height(node.left);
-        if (left == -1) return -1; // propagate imbalance
-        
-        int right = height(node.right);
-        if (right == -1) return -1; // propagate imbalance
-        
-        if (Math.abs(left - right) > 1) return -1; // check balance condition
-        
+    public int height(TreeNode root) {
+        // left, right, node
+        if(root == null) return 0;
+        int left = height(root.left);
+        int right = height(root.right);
         return Math.max(left, right) + 1;
     }
-    
 }

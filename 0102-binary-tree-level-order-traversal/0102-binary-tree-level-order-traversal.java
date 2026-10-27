@@ -15,25 +15,24 @@
  */
 class Solution {
     public List<List<Integer>> levelOrder(TreeNode root) {
-        if(root == null) return new ArrayList<>();
         List<List<Integer>> res = new ArrayList<>();
-        // use q
-        Deque<TreeNode> q = new LinkedList<>();
-        q.offer(root);
-        while(! q.isEmpty()){
-            int size = q.size();
-            List<Integer> list = new ArrayList<>();
-            while(size > 0){
-                TreeNode node = q.poll();
-                list.add(node.val);
-                if(node.left!=null) q.offer(node.left);
-                if(node.right!=null) q.offer(node.right);
-                size--;
+        if(root == null) return res;
+        Queue<TreeNode> queue = new ArrayDeque<>();
+        queue.offer(root);
+        // for each level, use a queue to put the unhandled nodes
+        while(!queue.isEmpty()){
+            int size = queue.size(); // remember the size of this level
+            List<Integer> level = new ArrayList<>(); // create subList for this level
+            // handle each level
+            for(int i = 0; i < size; i++){
+                TreeNode temp = queue.poll();
+                level.add(temp.val); // add to the subList
+                if(temp.left != null) queue.offer(temp.left);
+                if(temp.right != null) queue.offer(temp.right);
             }
-            res.add(list);
+            // add sub list to the main list
+            res.add(level);
         }
         return res;
-
-        
     }
 }

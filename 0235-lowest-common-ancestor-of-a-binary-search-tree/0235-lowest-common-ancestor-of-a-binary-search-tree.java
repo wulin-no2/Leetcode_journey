@@ -10,20 +10,30 @@
 
 class Solution {
     public TreeNode lowestCommonAncestor(TreeNode root, TreeNode p, TreeNode q) {
-                // pre order
-                return traverse(root, p, q);
+        // similar to binary search
+        // if parent.val < smaller.val go to right
+        // if parent.val > bigger.val go to left
+        // otherwise return parent node
+        TreeNode curr = root;
+        TreeNode smaller = null;
+        TreeNode bigger = null;
+        if(p.val >= q.val) {
+            smaller = q;
+            bigger = p;
+        } else {
+            smaller = p;
+            bigger = q;
+        }
+        while(curr != null){
+            if(curr.val < smaller.val){
+                curr = curr.right;
+            } else if(curr.val > bigger.val){
+                curr = curr.left;
+            } else {
+                return curr;
+            }
+        }
+        return null;
         
-    }
-    public TreeNode traverse(TreeNode root, TreeNode p, TreeNode q){
-        // base case
-        if(root.val == p.val || root.val == q.val) return root;
-        if(p.val > q.val) {TreeNode temp = p; p = q; q = temp;} // p is smaller
-        // node
-        if(root.val > p.val && root.val < q.val) return root;
-
-        // left
-        if(root.val > q.val) return traverse(root.left, p, q);
-        // right
-        else return traverse(root.right, p, q);
     }
 }

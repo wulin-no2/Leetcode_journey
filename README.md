@@ -439,4 +439,12 @@
 |  |
 | ------- |
 | [0543-diameter-of-binary-tree](https://github.com/wulin-no2/Leetcode_journey/tree/master/0543-diameter-of-binary-tree) |
+## Binary Lifting
+|  |
+| ------- |
+| [0235-lowest-common-ancestor-of-a-binary-search-tree](https://github.com/wulin-no2/Leetcode_journey/tree/master/0235-lowest-common-ancestor-of-a-binary-search-tree) |
+## Lowest Common Ancestor
+|  |
+| ------- |
+| [0235-lowest-common-ancestor-of-a-binary-search-tree](https://github.com/wulin-no2/Leetcode_journey/tree/master/0235-lowest-common-ancestor-of-a-binary-search-tree) |
 <!---LeetCode Topics End-->

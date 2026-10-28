@@ -15,19 +15,13 @@
  */
 class Solution {
     public boolean isValidBST(TreeNode root) {
-        // pre order
-        // trace it's max and min, ensure each subtree is always within the range;
-        return traverse(root, Long.MAX_VALUE, Long.MIN_VALUE);
+        return validate(root, Long.MIN_VALUE, Long.MAX_VALUE);
     }
-    public boolean traverse(TreeNode node, long max, long min){
-        // base case
-        if(node==null) return true;
-        if(node.val >= max || node.val <= min) return false;
-        // left && right
-        return traverse(node.left, node.val, min) && traverse(node.right, max, node.val);
-
-
-
-
+    public boolean validate(TreeNode root, long min, long max){
+        if(root == null) return true;
+        if(root.val <= min || root.val >= max) return false;
+        boolean left = validate(root.left, min, root.val);
+        boolean right = validate(root.right, root.val, max);
+        return left && right;
     }
 }

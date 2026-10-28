@@ -21,20 +21,24 @@ class Solution {
         if(root == null) return res;
         // level order
         Queue<TreeNode> queue = new ArrayDeque<>();
+        // use a separate queue to record the maxValueInThePath;
+        Queue<Integer> maxPaths = new ArrayDeque<>();
         queue.offer(root);
+        maxPaths.offer(root.val);
         res++;
         while(!queue.isEmpty()){
             int size = queue.size();
             for(int i = 0; i < size ; i++){
                 TreeNode node = queue.poll();
+                int maxPath = maxPaths.poll();
                 if(node.left != null){
-                    if(node.val <= node.left.val) res++;
-                    node.left.val = Math.max(node.val, node.left.val);
+                    if(maxPath <= node.left.val) res++;
+                    maxPaths.offer(Math.max(maxPath, node.left.val));
                     queue.offer(node.left);
                 }
                 if(node.right != null){
-                    if(node.val <= node.right.val) res++;
-                    node.right.val = Math.max(node.val, node.right.val);
+                    if(maxPath <= node.right.val) res++;
+                    maxPaths.offer(Math.max(maxPath, node.right.val));
                     queue.offer(node.right);
                 }
             }

@@ -18,20 +18,25 @@ class Solution {
         List<List<Integer>> res = new ArrayList<>();
         if(root == null) return res;
         Queue<TreeNode> queue = new ArrayDeque<>();
-        queue.offer(root);
-        // for each level, use a queue to put the unhandled nodes
+        queue.offer(root); // first level
+        // traverse level by level
+        // use a queue to store nodes in every level
         while(!queue.isEmpty()){
-            int size = queue.size(); // remember the size of this level
-            List<Integer> level = new ArrayList<>(); // create subList for this level
-            // handle each level
+            // create a list when travesing every level and put the val in
+            List<Integer> list = new ArrayList<>();
+            // remember the size of this level before handling it
+            int size = queue.size();
             for(int i = 0; i < size; i++){
-                TreeNode temp = queue.poll();
-                level.add(temp.val); // add to the subList
-                if(temp.left != null) queue.offer(temp.left);
-                if(temp.right != null) queue.offer(temp.right);
+                // get a node
+                TreeNode node = queue.poll();
+                // put the val in the list
+                list.add(node.val);
+                // handle the children
+                if(node.left != null) queue.offer(node.left);
+                if(node.right != null) queue.offer(node.right);
             }
-            // add sub list to the main list
-            res.add(level);
+            // add the list to the res
+            res.add(list);
         }
         return res;
     }

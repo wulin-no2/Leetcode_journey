@@ -15,23 +15,26 @@
  */
 class Solution {
     public List<Integer> rightSideView(TreeNode root) {
-        // lever order
-        // record val when q.size()==1
-        if(root==null) return new ArrayList<>();
-        Deque<TreeNode> q = new LinkedList<>();
-        q.offer(root);
+        // level order
+        // traverse from right to left, save first val of every level
         List<Integer> res = new ArrayList<>();
-        while(! q.isEmpty()){
-            int size = q.size();
-            while(size > 0){
-                TreeNode node = q.poll();
-                if(size==1) res.add(node.val);
-                if(node.left!=null) q.offer(node.left);
-                if(node.right!=null) q.offer(node.right);
-                size--;
+        if(root == null) return res;
+        Queue<TreeNode> queue = new ArrayDeque<>();
+        queue.offer(root);
+        while(!queue.isEmpty()){
+            int size = queue.size();
+            TreeNode firstNode = queue.peek();
+            res.add(firstNode.val);
+            // handle the level from right to left
+            for(int i = 0; i < size; i++){
+                TreeNode node = queue.poll();
+                if(node.right != null) queue.offer(node.right);
+                if(node.left != null) queue.offer(node.left);
             }
         }
         return res;
 
+
+        
     }
 }

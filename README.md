@@ -198,6 +198,7 @@
 | [0226-invert-binary-tree](https://github.com/wulin-no2/Leetcode_journey/tree/master/0226-invert-binary-tree) |
 | [0322-coin-change](https://github.com/wulin-no2/Leetcode_journey/tree/master/0322-coin-change) |
 | [0695-max-area-of-island](https://github.com/wulin-no2/Leetcode_journey/tree/master/0695-max-area-of-island) |
+| [1448-count-good-nodes-in-binary-tree](https://github.com/wulin-no2/Leetcode_journey/tree/master/1448-count-good-nodes-in-binary-tree) |
 | [1544-count-good-nodes-in-binary-tree](https://github.com/wulin-no2/Leetcode_journey/tree/master/1544-count-good-nodes-in-binary-tree) |
 ## Trie
 |  |
@@ -350,6 +351,7 @@
 | [0543-diameter-of-binary-tree](https://github.com/wulin-no2/Leetcode_journey/tree/master/0543-diameter-of-binary-tree) |
 | [0572-subtree-of-another-tree](https://github.com/wulin-no2/Leetcode_journey/tree/master/0572-subtree-of-another-tree) |
 | [0789-kth-largest-element-in-a-stream](https://github.com/wulin-no2/Leetcode_journey/tree/master/0789-kth-largest-element-in-a-stream) |
+| [1448-count-good-nodes-in-binary-tree](https://github.com/wulin-no2/Leetcode_journey/tree/master/1448-count-good-nodes-in-binary-tree) |
 | [1544-count-good-nodes-in-binary-tree](https://github.com/wulin-no2/Leetcode_journey/tree/master/1544-count-good-nodes-in-binary-tree) |
 ## Depth-First Search
 |  |
@@ -368,6 +370,7 @@
 | [0543-diameter-of-binary-tree](https://github.com/wulin-no2/Leetcode_journey/tree/master/0543-diameter-of-binary-tree) |
 | [0572-subtree-of-another-tree](https://github.com/wulin-no2/Leetcode_journey/tree/master/0572-subtree-of-another-tree) |
 | [0695-max-area-of-island](https://github.com/wulin-no2/Leetcode_journey/tree/master/0695-max-area-of-island) |
+| [1448-count-good-nodes-in-binary-tree](https://github.com/wulin-no2/Leetcode_journey/tree/master/1448-count-good-nodes-in-binary-tree) |
 | [1544-count-good-nodes-in-binary-tree](https://github.com/wulin-no2/Leetcode_journey/tree/master/1544-count-good-nodes-in-binary-tree) |
 ## Binary Tree
 |  |
@@ -384,6 +387,7 @@
 | [0543-diameter-of-binary-tree](https://github.com/wulin-no2/Leetcode_journey/tree/master/0543-diameter-of-binary-tree) |
 | [0572-subtree-of-another-tree](https://github.com/wulin-no2/Leetcode_journey/tree/master/0572-subtree-of-another-tree) |
 | [0789-kth-largest-element-in-a-stream](https://github.com/wulin-no2/Leetcode_journey/tree/master/0789-kth-largest-element-in-a-stream) |
+| [1448-count-good-nodes-in-binary-tree](https://github.com/wulin-no2/Leetcode_journey/tree/master/1448-count-good-nodes-in-binary-tree) |
 | [1544-count-good-nodes-in-binary-tree](https://github.com/wulin-no2/Leetcode_journey/tree/master/1544-count-good-nodes-in-binary-tree) |
 ## String Matching
 |  |

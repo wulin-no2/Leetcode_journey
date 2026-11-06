@@ -14,33 +14,26 @@
  * }
  */
 class Solution {
-        // use preorder to find the node.val; 
-        // then use this val to find index of inorder array. cut it into 2 subtrees;
-        // use index range of inorder tree to cut the preorder tree into 2 subtrees;
-        // for each left trees and right trees, keep constructing trees as above;
-        // so:
-        // we have to find index of inorder tree easily according to its value; use a map to store the elements;
-    HashMap<Integer, Integer> inorderMap = new HashMap<>();
-    int preorderIndex;
+    // for preorder, we know it's (node, leftsubtree, rightsubtree);
+    // for inorder, we know it's (leftsubtree, node, rightsubtree);
+    // so if we walk through preorder, then find the index of the node in inorder - using a map
+    // we can split inorder into left , node, right subarray, then build recursively.
+    int indexPreorder = 0; // for walking through preorder
+    Map<Integer, Integer> map = new HashMap<>(); // value, index
     public TreeNode buildTree(int[] preorder, int[] inorder) {
-        for(int i = 0; i < inorder.length; i++){
-            inorderMap.put(inorder[i], i);
+        for(int i = 0; i < inorder.length; i ++){
+            map.put(inorder[i], i);
         }
-        preorderIndex = 0;
-        return construct(preorder, 0, inorder.length - 1);
+        return build(preorder, map, 0, inorder.length - 1);
     }
-    public TreeNode construct(int[] preorder, int inorderStart, int inorderEnd){
-        if(inorderStart > inorderEnd) return null;
-        // node
-        int rootValue = preorder[preorderIndex++];
-        TreeNode root = new TreeNode(rootValue);
-        // divide left and right based on inorder index
-        int rootIndex = inorderMap.get(rootValue);
-        // left 
-        root.left = construct(preorder, inorderStart, rootIndex - 1);
-        
-        // right
-        root.right = construct(preorder, rootIndex + 1, inorderEnd);
-        return root;
+    public TreeNode build(int[] preorder, Map<Integer, Integer> map, int left, int right){
+        if(left > right) return null;
+        int val = preorder[indexPreorder];
+        TreeNode node = new TreeNode(val);
+        indexPreorder++;
+        int middle = map.get(val);
+        node.left = build(preorder, map, left, middle - 1);
+        node.right = build(preorder, map, middle + 1, right);
+        return node;
     }
 }

@@ -3,20 +3,19 @@ class Solution {
         // backtracking
         List<List<Integer>> res = new ArrayList<>();
         List<Integer> path = new ArrayList<>();
-        backtracking(candidates, target, res, path, 0);
+        backtracking(candidates, 0, target, path, res);
         return res;
-        
     }
-    public void backtracking(int[] candidates, int target, List<List<Integer>> res, List<Integer> path, int startIndex){
-        // base base
-        if(target == 0) {res.add(new ArrayList<>(path)); return;}
+    public void backtracking(int[] candidates, int startIndex, int target, List<Integer> path, List<List<Integer>> res){
         if(target < 0) return;
-        for(int i = startIndex; i < candidates.length ; i++){
+        if(target == 0) {
+            res.add(new ArrayList(path));
+            return;
+        }
+        for(int i = startIndex; i < candidates.length; i++){
             path.add(candidates[i]);
-            backtracking(candidates, target-candidates[i], res, path, i);
+            backtracking(candidates, i, target - candidates[i], path, res);
             path.remove(path.size() - 1);
-        } 
-
-
+        }
     }
 }
